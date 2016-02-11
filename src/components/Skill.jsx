@@ -11,7 +11,7 @@ export class Skill extends Component {
   }
   render() {
     return (
-      <div>Skill</div>
+      <div className="skill">Skill</div>
     )
   }
 }

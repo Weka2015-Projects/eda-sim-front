@@ -11,7 +11,7 @@ export class Status extends Component {
   }
   render() {
     return (
-      <div>Status</div>
+      <div className="status">Status</div>
     )
   }
 }

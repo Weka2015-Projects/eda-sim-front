@@ -12,7 +12,7 @@ export class Skills extends Component {
   }
   render() {
     return (
-      <div>
+      <div className="skills">
         Skills
         <SkillContainer />
       </div>

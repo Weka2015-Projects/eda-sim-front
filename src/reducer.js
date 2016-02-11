@@ -9,10 +9,6 @@ const initialState = Map({
   })
 })
 
-function next(state) {
-  return nextHour(state)
-}
-
 function nextHour(state) {
   const nextTime = state.getIn(['time', 'hour']) + 1
   return nextTime === 22 ?
@@ -38,8 +34,13 @@ function nextPhase(state) {
   const nextTime = state.getIn(['time', 'phase']) + 1
   return nextTime === 4 ?
     state.set('gameover', true) :
-     state.setIn(['time', 'phase'], nextTime)
+    state.setIn(['time', 'phase'], nextTime)
 }
+
+function actionModifiers(state) {
+
+}
+
 
 export default function(state = initialState, action) {
   switch(action.type) {
@@ -48,7 +49,7 @@ export default function(state = initialState, action) {
     case 'END_GAME':
       return state
     case 'NEXT':
-      return next(state)
+      return nextHour(state)
     case 'CHANGE_ACTION':
       return state
     case 'BUY_ITEM':

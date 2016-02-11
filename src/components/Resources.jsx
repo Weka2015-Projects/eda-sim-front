@@ -12,7 +12,8 @@ export class Resources extends Component {
   }
   render() {
     return (
-      <div>Resources
+      <div className="resources">
+        Resources
         <ResourceContainer />
       </div>
     )

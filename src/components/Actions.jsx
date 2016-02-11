@@ -12,7 +12,7 @@ export class Actions extends Component {
   }
   render() {
     return (
-      <div>
+      <div className="actions">
         Actions
         <ActionContainer />
       </div>

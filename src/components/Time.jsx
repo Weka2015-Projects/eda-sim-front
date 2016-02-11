@@ -11,7 +11,7 @@ export class Time extends Component {
   }
   render() {
     return (
-      <div>Time</div>
+      <div className="time">Time</div>
     )
   }
 }

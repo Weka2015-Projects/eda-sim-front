@@ -11,7 +11,7 @@ export class Action extends Component {
   }
   render() {
     return (
-      <div>Action</div>
+      <div className="action">Action</div>
     )
   }
 }
