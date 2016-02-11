@@ -11,7 +11,9 @@ export class Skill extends Component {
   }
   render() {
     return (
-      <div className="skill">Skill</div>
+      <div className="skill">
+        <h6>{this.props.name}</h6>
+      </div>
     )
   }
 }
