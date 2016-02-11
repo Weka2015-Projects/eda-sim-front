@@ -3,9 +3,9 @@ import reactMixin from 'react-mixin'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
 import { connect } from 'react-redux'
 import * as actionCreators from '../action_creators'
-import {GameContainer} from './Game.jsx'
+import { ActionContainer } from './Action'
 
-export class App extends Component {
+export class Actions extends Component {
   constructor(props) {
     super(props)
 
@@ -13,13 +13,14 @@ export class App extends Component {
   render() {
     return (
       <div>
-        <GameContainer />
+        Actions
+        <ActionContainer />
       </div>
     )
   }
 }
 
-reactMixin(App.prototype, PureRenderMixin)
+reactMixin(Actions.prototype, PureRenderMixin)
 
 function mapStateToProps(state) {
   return {
@@ -27,4 +28,4 @@ function mapStateToProps(state) {
   }
 }
 
-export const AppContainer = connect(mapStateToProps, actionCreators)(App)
+export const ActionsContainer = connect(mapStateToProps, actionCreators)(Actions)

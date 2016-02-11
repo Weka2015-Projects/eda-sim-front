@@ -30,7 +30,7 @@ function nextPhase(state) {
 
 }
 
-export default function(state = initialGame, action) {
+export default function(state = initialState, action) {
   switch(action.type) {
     case 'START_GAME':
       return state
