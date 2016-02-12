@@ -4,11 +4,17 @@
   "description": "our awesome front end game app",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --compilers js:babel-core/register --require ./test/test-helper.js 'test/**/*.@(js|jsx)'"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Weka2015-Projects/eda-sim-front.git"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "react"
+    ]
   },
   "author": "",
   "license": "ISC",
