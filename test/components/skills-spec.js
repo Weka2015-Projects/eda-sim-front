@@ -12,4 +12,8 @@ describe('<Skills/>', () => {
     const wrapper = shallow(<Skills/>)
     expect(wrapper).to.be.ok
   })
+  it('has a className of skills', () => {
+    const wrapper = shallow(<Skills/>)
+    expect(wrapper).to.have.className('skills')
+  })
 })
