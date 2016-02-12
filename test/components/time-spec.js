@@ -17,8 +17,12 @@ describe('<Time/>', () => {
     const wrapper = shallow(<Time/>)
     expect(wrapper).to.have.className('time')
   })
-  it('renders time', () => {
-    const wrapper = shallow(<Time name="energy" quantity="12"/>)
+  it('renders with the correct text of time', () => {
+    const wrapper = shallow(<Time name="time" quantity="12"/>)
     expect(wrapper.find('.setTime')).to.have.text('12/24')
+  })
+  it('renders out the quantity of the time in hours', () => {
+    const wrapper = shallow(<Time name='time' quantity='12'/>)
+    expect(wrapper.find('.timerender')).to.have.style('width', '12hours')
   })
 })
