@@ -13,4 +13,8 @@ describe('<Time/>', () => {
     const wrapper = shallow(<Time/>)
     expect(wrapper).to.be.ok
   })
+  it('has a classname of time', () => {
+    const wrapper = shallow(<Time/>)
+    expect(wrapper).to.have.className('time')
+  })
 })
