@@ -13,7 +13,11 @@ export class Resources extends Component {
   render() {
     return (
       <div className="resources">
-        Resources
+        <h6>{this.props.name}</h6>
+        <div className="statusbars">
+          <div className="quatities" style={{width: this.props.quantities + '%'}}></div>
+          <div className="statusNubers">{this.props.quantities}/100</div>
+        </div>
         <ResourceContainer />
       </div>
     )
