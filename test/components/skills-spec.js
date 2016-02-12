@@ -16,4 +16,16 @@ describe('<Skills/>', () => {
     const wrapper = shallow(<Skills/>)
     expect(wrapper).to.have.className('skills')
   })
+  it('renders resource name technical', () => {
+    const wrapper = shallow(<Skills name='technical'/>)
+    expect(wrapper.find('h6')).to.have.text('technical')
+  })
+  it('renders resource name soft', () => {
+    const wrapper = shallow(<Skills name='soft'/>)
+    expect(wrapper.find('h6')).to.have.text('soft')
+  })
+  it('renders resource name creativity', () => {
+    const wrapper = shallow(<Skills name='creativity'/>)
+    expect(wrapper.find('h6')).to.have.text('creativity')
+  })
 })

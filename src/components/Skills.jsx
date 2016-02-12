@@ -13,7 +13,11 @@ export class Skills extends Component {
   render() {
     return (
       <div className="skills">
-
+        <h6>{this.props.name}</h6>
+        <div className="statusBars" >
+          <div className="quantityOf" style={{width: this.props.quantity + '%'}}></div>
+          <div className="statusNumbers">{this.props.quantity}/100</div>
+        </div>
         <Skill />
       </div>
     )
