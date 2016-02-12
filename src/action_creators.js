@@ -19,7 +19,7 @@ export function next() {
 
 export function startAction(action) {
   return {
-    type: 'CHANGE_ACTION',
+    type: 'CHANGE_TASK',
     action: action
   }
 }
