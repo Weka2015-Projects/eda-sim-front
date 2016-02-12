@@ -29,4 +29,5 @@ describe('<Skill/>', () => {
     const wrapper = shallow(<Skill name='soft' quantity='50'/>)
     expect(wrapper.find('.expNumber')).to.have.text('50/100')
   })
+  //ADD AMOUNT OF XP NEEDED PROPERTY TEST
 })
