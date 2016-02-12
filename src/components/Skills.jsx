@@ -3,7 +3,7 @@ import reactMixin from 'react-mixin'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
 import { connect } from 'react-redux'
 import * as actionCreators from '../action_creators'
-import { SkillContainer } from './Skill'
+import { Skill } from './Skill'
 
 export class Skills extends Component {
   constructor(props) {
@@ -13,8 +13,8 @@ export class Skills extends Component {
   render() {
     return (
       <div className="skills">
-        Skills
-        <SkillContainer />
+
+        <Skill />
       </div>
     )
   }
