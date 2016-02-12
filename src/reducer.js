@@ -1,6 +1,8 @@
-import { List, Map} from 'immutable'
+import { List, Map, fromJS} from 'immutable'
+import _ from 'lodash'
 
 const initialState = Map({
+  activeTask: '',
   time: Map({
     hour: 7,
     day: 1,
@@ -8,7 +10,7 @@ const initialState = Map({
     phase: 1
   }),
   resources: Map({
-    energy: 5,
+    energy: 500,
     mood: 100
   }),
   skills: Map({
@@ -31,38 +33,64 @@ const initialState = Map({
         mood: 3
       })
     })
-  ])
+    ])
 })
 
-function hasEnoughResources(state){ 
-  for (let i =0; i < state.toJS().tasks.length; i++) {
-    const costs = state.toJS().tasks[i].initalCosts
-    for (let j =0; j < Object.keys(costs).length;  j++) {
-      const cost = costs[Object.keys(costs)[j]]
-      const resource = state.toJS().resources[Object.keys(costs)[j]]
-      if (resource <= cost) {
-        return false
-      }
-    }
+function hasEnoughResources(state, task){ 
+  const costs = state.toJS().tasks[task].initalCosts
+  for (let j =0; j < Object.keys(costs).length;  j++) {
+    const cost = costs[Object.keys(costs)[j]]
+    const resource = state.toJS().resources[Object.keys(costs)[j]]
+    if (resource <= cost) return false
   }
   return true
 }
 
-function task(state) {
-  return hasEnoughResources(state) ? undergoTask(state) : state.set('gameover', true)
+function activateTask(state, task) {
+  if (task === state.get('activeTask')) return state
+  const taskId = state.toJS().tasks.findIndex((indexes) => indexes.name === task)
+  console.log(taskId)
+  return hasEnoughResources(state, taskId) ? depleteResources(state, task, taskId) : 
+  state
 }
 
-function undergoTask(state) {
-  let newState
-  for (let i =0; i < state.toJS().tasks.length; i++) {
-    const costs = state.toJS().tasks[i].resources
-    for (let j =0; j < Object.keys(costs).length;  j++) {
-      const cost = costs[Object.keys(costs)[j]]
-      const resource = state.toJS().resources[Object.keys(costs)[j]]
-      newState = state.updateIn(['resources', Object.keys(costs)[j]], (resource) => resource+cost)
-    }
+function continueTask (state, task) {
+  const taskId = state.toJS().tasks.findIndex((indexes) => indexes.name === task)
+  return hasEnoughResources(state, taskId) ? undergoTask(state, task, taskId) : 
+  state.set('gameover', true)
+}
+
+function depleteResources (state, task, taskId) {
+  let newState = state
+  const costs = state.toJS().tasks[taskId].initalCosts
+  for (let i =0; i < Object.keys(costs).length;  i++) {
+    const cost = costs[Object.keys(costs)[i]]
+    const resource = state.toJS().resources[Object.keys(costs)[i]]
+    newState = newState.updateIn(['resources', Object.keys(costs)[i]], 
+      (resource) => resource-cost)
   }
-  return newState
+  newState = newState.update('activeTask', (value) => value = `${task}`)
+  console.log(newState)
+  return fromJS(newState)
+}
+
+function undergoTask(state, task, taskId) {
+  let newState = state
+  const costs = state.toJS().tasks[taskId].resources
+  for (let i =0; i < Object.keys(costs).length;  i++) {
+    const cost = costs[Object.keys(costs)[i]]
+    const resource = state.toJS().resources[Object.keys(costs)[i]]
+    newState = newState.updateIn(['resources', Object.keys(costs)[i]], 
+      (resource) => resource+cost)
+  }
+  const gains = state.toJS().tasks[taskId].skills
+  for (let i =0; i < Object.keys(gains).length;  i++) {
+    const gain = gains[Object.keys(gains)[i]]
+    const resource = state.toJS().skills[Object.keys(gains)[i]]
+    newState = newState.updateIn(['skills', Object.keys(gains)[i]], 
+      (resource) => resource+gain)
+  }
+  return fromJS(newState)
 }
 
 function validState(state) { 
@@ -77,6 +105,7 @@ function validState(state) {
 function next(state) {
   return validState(state) ? nextHour(state) : state.set('gameover', true)
 }
+
 
 function nextHour(state) {
   const nextHour =  state.getIn(['time', 'hour']) + 1 
@@ -111,8 +140,8 @@ function reducer(state=initialState, action) {
     return state
     case 'NEXT':
     return next(state)
-    case 'CHANGE_ACTION':
-    return task(state)
+    case 'ACTIVATE_TASK':
+    return activateTask(state, action.task)
     case 'BUY_ACTION':
     return state
   }

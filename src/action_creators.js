@@ -17,10 +17,10 @@ export function next() {
 }
 
 
-export function startAction(action) {
+export function startAction(task) {
   return {
-    type: 'CHANGE_TASK',
-    action: action
+    type: 'ACTIVATE_TASK',
+    task: task
   }
 }
 

@@ -9,7 +9,7 @@ describe('reducer', () => {
       type: 'NEXT'
     }
     describe('Invalid State', () => {
-      it('sets the game to true', () => {
+      it('sets the game to be over', () => {
         const initialState = Map({time: Map({hour: 6634, day: 1, week: 1,
           phase: 1})})
         const nextState = reducer(initialState, action)
@@ -81,6 +81,139 @@ describe('reducer', () => {
           phase: 3})})
         const nextState = reducer(initialState, action)
         expect(nextState.get('gameover')).to.be.true
+      })
+    })
+  })
+  describe('ACTIVATE_TASK', () => {
+    const initialState = Map({
+      activeTask: '',
+      time: Map({
+        hour: 7,
+        day: 1,
+        week: 1,
+        phase: 1
+      }),
+      resources: Map({
+        energy: 100,
+        mood: 100
+      }),
+      skills: Map({
+        softSkills: 0,
+        techSkills: 0
+      }),
+      tasks: List([
+        Map({
+          name: 'Pair Programming',
+          resources: Map({
+            energy: -10,
+            mood: -3
+          }),
+          skills: Map({
+            softSkills: 3,
+            techSkills: 1
+          }),
+          initalCosts: Map({
+            energy: 30,
+            mood: 10
+          })
+        })
+        ])
+    })
+    const initialStateNoResources = Map({
+      activeTask: '',
+      time: Map({
+        hour: 7,
+        day: 1,
+        week: 1,
+        phase: 1
+      }),
+      resources: Map({
+        energy: 0,
+        mood: 100
+      }),
+      skills: Map({
+        softSkills: 0,
+        techSkills: 0
+      }),
+      tasks: List([
+        Map({
+          name: 'Pair Programming',
+          resources: Map({
+            energy: -10,
+            mood: -3
+          }),
+          skills: Map({
+            softSkills: 3,
+            techSkills: 1
+          }),
+          initalCosts: Map({
+            energy: 10,
+            mood: 3
+          })
+        })
+        ])
+    })
+
+    const initialStateActive = Map({
+      activeTask: 'Pair Programming',
+      time: Map({
+        hour: 7,
+        day: 1,
+        week: 1,
+        phase: 1
+      }),
+      resources: Map({
+        energy: 100,
+        mood: 100
+      }),
+      skills: Map({
+        softSkills: 0,
+        techSkills: 0
+      }),
+      tasks: List([
+        Map({
+          name: 'Pair Programming',
+          resources: Map({
+            energy: -10,
+            mood: -3
+          }),
+          skills: Map({
+            softSkills: 3,
+            techSkills: 1
+          }),
+          initalCosts: Map({
+            energy: 10,
+            mood: 3
+          })
+        })
+        ])
+    })
+    const action = {
+      type: 'ACTIVATE_TASK',
+      task: 'Pair Programming'
+    }
+    const nextState = reducer(initialState, action)
+    const nextStateNoResources = reducer(initialStateNoResources, action)
+    const nextStateActive = reducer(initialStateActive, action)
+
+    describe('Activates the task', () => {
+      it('sets the active task to be the specified task', () => {
+        expect(nextState.get('activeTask')).to.equal('Pair Programming')
+      })
+      it('doesn not change task if task is already active', () => {
+        expect(nextStateActive.get('activeTask')).to.equal('Pair Programming')
+        expect(nextStateActive.getIn(['resources', 'energy'])).to.equal(100)
+        expect(nextStateActive.getIn(['resources', 'mood'])).to.equal(100)
+      })
+    })
+    describe('Depletes resouces', () => {
+      it('Depletes resources by inital cost of task', () => {
+        expect(nextState.getIn(['resources', 'energy'])).to.equal(70)
+        expect(nextState.getIn(['resources', 'mood'])).to.equal(90)
+      })
+      it('Does not deplete resources if not enough resources to ask task', () => {
+        expect(nextStateNoResources.getIn(['resources', 'energy'])).to.equal(0)
+        expect(nextStateNoResources.getIn(['resources', 'mood'])).to.equal(100)
       })
     })
   })
