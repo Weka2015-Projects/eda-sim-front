@@ -28,4 +28,8 @@ describe('<Skills/>', () => {
     const wrapper = shallow(<Skills name='creativity'/>)
     expect(wrapper.find('h6')).to.have.text('creativity')
   })
+  it('renders resource bar with the correct percentage', () => {
+    const wrapper = shallow(<Skills name='technical' quantity='125'/>)
+    expect(wrapper.find('.quantityOf')).to.have.style('width', '125xp')
+  })
 })
