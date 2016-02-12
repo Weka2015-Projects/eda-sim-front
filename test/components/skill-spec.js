@@ -21,4 +21,12 @@ describe('<Skill/>', () => {
     const wrapper = shallow(<Skill name='soft'/>)
     expect(wrapper.find('h6')).to.have.text('soft')
   })
+  it('renders bar with correct percentage', () => {
+    const wrapper = shallow(<Skill name='soft' quantity='50'/>)
+    expect(wrapper.find('.amountOfExp')).to.have.style('width', '50%')
+  })
+  it('renders out the quantity of the experience in text', () => {
+    const wrapper = shallow(<Skill name='soft' quantity='50'/>)
+    expect(wrapper.find('.expNumber')).to.have.text('50/100')
+  })
 })
