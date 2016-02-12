@@ -12,9 +12,8 @@ export class Time extends Component {
   render() {
     return (
       <div className="time">
-        <h6>{this.props.name}</h6>
         <div className="time">
-          <div className="setTime">{this.props.time}/22</div>
+          <div className="setTime">{this.props.quantity}/24</div>
         </div>
       </div>
     )
