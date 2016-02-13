@@ -3,9 +3,8 @@ function hasEnoughResources(state, task){
   for (let j =0; j < Object.keys(costs).length;  j++) {
     const cost = costs[Object.keys(costs)[j]]
     const resource = state.toJS().resources[Object.keys(costs)[j]]
-    if (resource <= cost) return false
+    return resource >= cost
   }
-  return true
 }
 
 function activateTask(state, task) {
@@ -33,7 +32,7 @@ function depleteResources (state, task, taskId) {
     newState = newState.updateIn(['resources', Object.keys(costs)[i]],
       (resource) => resource-cost)
   }
-  newState = newState.update('activeTask', (value) => value = `${task}`)
+  newState = newState.update('activeTask', (value) => `${task}`)
   return newState
 }
 
