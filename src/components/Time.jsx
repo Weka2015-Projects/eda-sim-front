@@ -11,7 +11,12 @@ export class Time extends Component {
   }
   render() {
     return (
-      <div className="time">Time</div>
+      <div className="time">
+        <div className="time">
+          <div className="setTime">{this.props.quantity}/24</div>
+          <div className="timerender" style={{width: this.props.quantity + 'hours'}}></div>
+        </div>
+      </div>
     )
   }
 }
