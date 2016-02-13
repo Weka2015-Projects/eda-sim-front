@@ -1,40 +1,48 @@
 import { List, Map, fromJS} from 'immutable'
 import _ from 'lodash'
 
-const initialState = Map({
-  activeTask: '',
-  time: Map({
-    hour: 7,
-    day: 1,
-    week: 1,
-    phase: 1
-  }),
-  resources: Map({
-    energy: 500,
-    mood: 100
-  }),
-  skills: Map({
-    softSkills: 0,
-    techSkills: 0
-  }),
-  tasks: List([
-    Map({
-      name: 'Pair Programming',
-      resources: Map({
-        energy: -10,
-        mood: -3
+let initialState = Map({
+    activeTask: 'Pair Programming',
+    time: Map({
+      hour: 7,
+      day: 1,
+      week: 1,
+      phase: 1
+    }),
+    resources: Map({
+      energy: 500,
+      mood: 100
+    }),
+    skills: Map({
+      softSkills: Map({
+        level: 1,
+        exp: 0,
+        expToLevel: 250
       }),
-      skills: Map({
-        softSkills: 3,
-        techSkills: 1
-      }),
-      initalCosts: Map({
-        energy: 10,
-        mood: 3
+      techSkills: Map({
+        level: 1,
+        exp: 0,
+        expToLevel: 250
       })
-    })
-    ])
-})
+    }),
+    tasks: List([
+      Map({
+        name: 'Pair Programming',
+        resources: Map({
+          energy: -10,
+          mood: -3
+        }),
+        skills: Map({
+          softSkills: 3,
+          techSkills: 1
+        }),
+        initalCosts: Map({
+          energy: 30,
+          mood: 10
+        })
+      })
+      ])
+  })
 
 function hasEnoughResources(state, task){ 
   const costs = state.toJS().tasks[task].initalCosts
@@ -88,10 +96,10 @@ function undergoTask(state, task, taskId) {
   for (let i =0; i < Object.keys(gains).length;  i++) {
     const gain = gains[Object.keys(gains)[i]]
     const resource = state.toJS().skills[Object.keys(gains)[i]]
-    newState = newState.updateIn(['skills', Object.keys(gains)[i]], 
+    newState = newState.updateIn(['skills', Object.keys(gains)[i], 'exp'], 
       (resource) => resource+gain)
   }
-  return fromJS(newState)
+  return newState
 }
 
 function validState(state) { 
