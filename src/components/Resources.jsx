@@ -24,7 +24,7 @@ reactMixin(Resources.prototype, PureRenderMixin)
 
 function mapStateToProps(state) {
   return {
-
+    resources: resources.state.get('resources')
   }
 }
 
