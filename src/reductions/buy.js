@@ -1,7 +1,7 @@
 function buy(state, item) {
   const itemId = state.toJS().items.findIndex(
     (indexes) => indexes.name === item)
-  return hasEnoughMoney(state, itemId) ? 
+  return hasEnoughMoney(state, itemId) ?
   undergoTransaction(state, item, itemId) :  state
 }
 
