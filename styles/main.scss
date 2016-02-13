@@ -5,6 +5,7 @@
 .game {
   padding: 15px;
   border: 1px solid black;
+
   .status {
     padding: 15px;
     border: 1px solid black;
@@ -16,10 +17,11 @@
   .resources {
     padding: 15px;
     border: 1px solid black;
-      .resource {
-        padding: 15px;
-        border: 1px solid black;
-      }
+
+    .resource {
+      padding: 15px;
+      border: 1px solid black;
+    }
   }
   .skills {
     padding: 15px;
@@ -32,21 +34,22 @@
   .interactions {
     padding: 15px;
     border: 1px solid black;
-      .actions {
+    .actions {
+      padding: 15px;
+      border: 1px solid black;
+      .action {
         padding: 15px;
         border: 1px solid black;
-        .action {
-          padding: 15px;
-          border: 1px solid black;
-        }
       }
-      .items {
+    }
+    .items {
+      padding: 15px;
+      border: 1px solid black;
+      
+      .item {
         padding: 15px;
         border: 1px solid black;
-        .item {
-          padding: 15px;
-          border: 1px solid black;
-        }
       }
+    }
   }
 }

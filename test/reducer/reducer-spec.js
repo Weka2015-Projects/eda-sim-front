@@ -3,7 +3,7 @@ import { List, Map, fromJS } from 'immutable'
 import sourceState from '../../src/reductions/initial-state.js'
 import reducer from '../../src/reducer.js'
 
-describe('reducer', () => {
+describe.only('reducer', () => {
   describe('NEXT', () => {
     const action = {type: 'NEXT'}
     let initialState = sourceState

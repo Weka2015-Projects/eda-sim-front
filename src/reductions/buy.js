@@ -8,7 +8,7 @@ function buy(state, item) {
 function hasEnoughMoney(state, item){
   const cost = state.toJS().items[item].money
   const cash = state.toJS().money
-  return (cash <= cost) ? false : true
+  return cash >= cost 
 }
 
 function undergoTransaction(state, item, itemId) {

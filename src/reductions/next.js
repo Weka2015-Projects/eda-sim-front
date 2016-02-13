@@ -34,8 +34,8 @@ function validState(state) {
   const day = state.getIn(['time', 'day'])
   const week = state.getIn(['time', 'week'])
   const phase = state.getIn(['time', 'phase'])
-  return (hour> 22 || hour < 7 || day > 6 ||  day < 1 ||
-    week > 4 || week < 1 || phase > 4 || phase < 0) ? false : true
+  return !(hour> 22 || hour < 7 || day > 6 ||  day < 1 ||
+    week > 4 || week < 1 || phase > 4 || phase < 0)
 }
 
 export default next
