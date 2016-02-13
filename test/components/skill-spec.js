@@ -22,12 +22,17 @@ describe('<Skill/>', () => {
     expect(wrapper.find('h6')).to.have.text('soft')
   })
   it('renders bar with correct percentage', () => {
-    const wrapper = shallow(<Skill name='soft' quantity='50'/>)
+    const wrapper = shallow(<Skill level='1' name='soft' exp='50' expToLevel='100'/>)
     expect(wrapper.find('.amountOfExp')).to.have.style('width', '50%')
   })
-  it('renders out the quantity of the experience in text', () => {
-    const wrapper = shallow(<Skill name='soft' quantity='50'/>)
+  it('renders out the exp of the experience in text', () => {
+    const wrapper = shallow(<Skill level='1' name='soft' exp='50' expToLevel='100'/>)
     expect(wrapper.find('.expNumber')).to.have.text('50/100')
   })
+  it('renders the correct level of the skill in text', () => {
+    const wrapper = shallow(<Skill level='1' name='soft' exp='50' expToLevel='100'/>)
+    expect(wrapper.find('.level')).to.have.text('1')
+  })
+
   //ADD AMOUNT OF XP NEEDED PROPERTY TEST
 })

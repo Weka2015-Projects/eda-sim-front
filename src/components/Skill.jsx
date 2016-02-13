@@ -13,10 +13,11 @@ export class Skill extends Component {
     return (
       <div className="skill">
         <h6>{this.props.name}</h6>
-        <div  className="experience">
-          <div className="amountOfExp" style={{width: this.props.quantity + '%'}}></div>
-          <div className="expNumber">{this.props.quantity}/100</div>
+        <div className="experience">
+          <div className="amountOfExp" style={{width: parseInt(this.props.exp/this.props.expToLevel * 100) + '%'}}></div>
+          <div className="expNumber">{this.props.exp}/{this.props.expToLevel}</div>
         </div>
+        <div className="level">{this.props.level}</div>
       </div>
     )
   }
