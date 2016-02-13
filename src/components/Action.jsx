@@ -11,7 +11,9 @@ export class Action extends Component {
   }
   render() {
     return (
-      <div className="action">Action</div>
+      <div className="action">
+        <h6>{this.props.name}</h6>
+      </div>
     )
   }
 }
