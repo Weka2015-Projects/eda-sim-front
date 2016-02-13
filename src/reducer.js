@@ -3,6 +3,7 @@ import _ from 'lodash'
 import { initialState } from './reductions/initial-state'
 import next from './reductions/next'
 import {activateTask } from './reductions/tasks'
+import buy from './reductions/buy'
 
 
 function reducer(state=initialState, action) {
@@ -15,8 +16,8 @@ function reducer(state=initialState, action) {
     return next(state)
     case 'ACTIVATE_TASK':
     return activateTask(state, action.task)
-    case 'BUY_ACTION':
-    return state
+    case 'BUY_ITEM':
+    return buy(state, action.item)
   }
   return state
 }

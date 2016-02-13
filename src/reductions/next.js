@@ -38,6 +38,4 @@ function validState(state) {
     week > 4 || week < 1 || phase > 4 || phase < 0) ? false : true
 }
 
-
-
 export default next
