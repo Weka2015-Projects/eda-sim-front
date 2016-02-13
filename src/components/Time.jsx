@@ -10,11 +10,11 @@ export class Time extends Component {
 
   }
   render() {
+    const { time } = this.props
     return (
       <div className="time">
         <div className="time">
-          <div className="setTime">{this.props.quantity}/24</div>
-          <div className="timerender" style={{width: this.props.quantity + 'hours'}}></div>
+          <div className="setTime">{time.get('hour')}:00</div>
         </div>
       </div>
     )
@@ -25,7 +25,7 @@ reactMixin(Time.prototype, PureRenderMixin)
 
 function mapStateToProps(state) {
   return {
-
+    time: state.get('time')
   }
 }
 
