@@ -9,9 +9,27 @@ export class Action extends Component {
     super(props)
 
   }
+
   render() {
+    console.log(this.props.resources)
+    const skillsArray = this.props.skills.map((skill, index) => {
+      return <div className="skill">{index}: +{skill}</div>
+    })
+    const resourcesArray = this.props.resources.map((resource, index) => {
+      return <div className="resource">{index}: {resource}</div>
+    })
+    const initialCosts = this.props.initialCosts.map((cost, index) => {
+      return <div className="initial-cost">{index}: -{cost}</div>
+    })
     return (
-      <div className="action">Action</div>
+      <div className="action">
+        <h6>{this.props.name}</h6>
+        <div className="action-details">
+          <div className="skills">{skillsArray}</div>
+          <div className="cost">{resourcesArray}</div>
+          <div className="initial-costs">{initialCosts}</div>
+        </div>
+      </div>
     )
   }
 }
