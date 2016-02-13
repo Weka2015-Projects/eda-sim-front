@@ -48,13 +48,16 @@ function hasEnoughResources(state, task){
 
 function activateTask(state, task) {
   if (task === state.get('activeTask')) return state
-  const taskId = state.toJS().tasks.findIndex((indexes) => indexes.name === task)
-  return hasEnoughResources(state, taskId) ? depleteResources(state, task, taskId) : 
-  state
+  const taskId = state.toJS().tasks.findIndex(
+    (indexes) => indexes.name === task)
+  return hasEnoughResources(state, taskId) ? 
+  depleteResources(state, task, taskId) : state
 }
 
 function continueTask (state, task) {
-  const taskId = state.toJS().tasks.findIndex((indexes) => indexes.name === task)
+  if (task === '') return state
+  const taskId = state.toJS().tasks.findIndex(
+    (indexes) => indexes.name === task)
   return hasEnoughResources(state, taskId) ? undergoTask(state, task, taskId) : 
   state
 }
@@ -108,8 +111,8 @@ function next(state) {
 function nextHour(state) {
   const nextHour =  state.getIn(['time', 'hour']) + 1 
   const nextState = continueTask(state, state.get('activeTask'))
-  return (nextHour > 21) ? nextDay(state.setIn(['time', 'hour'], 7)) : 
-  state.setIn(['time', 'hour'], nextHour)
+  return (nextHour > 21) ? nextDay(nextState.setIn(['time', 'hour'], 7)) :
+  nextState.setIn(['time', 'hour'], nextHour)
 }
 
 function nextDay (state) {
@@ -146,5 +149,6 @@ function reducer(state=initialState, action) {
   }
   return state
 }
+
 
 export default reducer

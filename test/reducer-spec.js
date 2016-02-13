@@ -126,7 +126,102 @@ describe('reducer', () => {
         expect(nextState.getIn(['time', 'hour'])).to.equal(7)
         expect(nextState.getIn(['time', 'day'])).to.equal(2)
       })
-      describe('active actions', () => {
+      describe('active tasks', () => {
+        const initialState = Map({
+          activeTask: 'Pair Programming',
+          time: Map({
+            hour: 22,
+            day: 1,
+            week: 1,
+            phase: 1
+          }),
+          resources: Map({
+            energy: 500,
+            mood: 100
+          }),
+          skills: Map({
+            softSkills: 0,
+            techSkills: 0
+          }),
+          tasks: List([
+            Map({
+              name: 'Pair Programming',
+              resources: Map({
+                energy: -10,
+                mood: -3
+              }),
+              skills: Map({
+                softSkills: 3,
+                techSkills: 1
+              }),
+              initalCosts: Map({
+                energy: 10,
+                mood: 3
+              })
+            })
+            ])
+        })
+        const initalStateNoTask = Map({
+          activeTask: '',
+          time: Map({
+            hour: 22,
+            day: 1,
+            week: 1,
+            phase: 1
+          }),
+          resources: Map({
+            energy: 500,
+            mood: 100
+          }),
+          skills: Map({
+            softSkills: 0,
+            techSkills: 0
+          }),
+          tasks: List([
+            Map({
+              name: 'Pair Programming',
+              resources: Map({
+                energy: -10,
+                mood: -3
+              }),
+              skills: Map({
+                softSkills: 3,
+                techSkills: 1
+              }),
+              initalCosts: Map({
+                energy: 10,
+                mood: 3
+              })
+            })
+            ])
+        })
+        const nextState = reducer(initialState, action)
+        const furtherState = reducer(nextState, action)
+        const nextStateNoTask = reducer(initalStateNoTask, action)
+        it('depletes resources if a task is defined', () => {
+          expect(nextState.getIn(['resources', 'energy'])).to.equal(490)
+          expect(nextState.getIn(['resources', 'mood'])).to.equal(97)
+        })
+        it('ensures that resources are depleted with every next call', () => {
+          expect(furtherState.getIn(['resources', 'energy'])).to.equal(480)
+          expect(furtherState.getIn(['resources', 'mood'])).to.equal(94)
+        })
+        it('does not deplete if no task is defined', () => {
+          expect(nextStateNoTask.getIn(['resources', 'energy'])).to.equal(500)
+          expect(nextStateNoTask.getIn(['resources', 'mood'])).to.equal(100)
+        })
+        it('increases skils if a task is defined', () => {
+          expect(nextState.getIn(['skills', 'softSkills'])).to.equal(3)
+          expect(nextState.getIn(['skills', 'techSkills'])).to.equal(1)
+        })
+        it('ensures that resources are depleted with every next call', () => {
+          expect(furtherState.getIn(['skills', 'softSkills'])).to.equal(6)
+          expect(furtherState.getIn(['skills', 'techSkills'])).to.equal(2)
+        })
+        it('does not deplete if no task is defined', () => {
+          expect(nextStateNoTask.getIn(['skills', 'softSkills'])).to.equal(0)
+          expect(nextStateNoTask.getIn(['skills', 'techSkills'])).to.equal(0)
+        })
       })
     })
     describe('days', () => {
