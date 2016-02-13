@@ -4,7 +4,7 @@
   "description": "our awesome front end game app",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --compilers js:babel-core/register --require ./test/test-helper.js 'test/**/*.@(js|jsx)'"
+    "test": "mocha --compilers js:babel-core/register --require ./test/test-helper.js \"test/**/*.@(js|jsx)\""
   },
   "repository": {
     "type": "git",
@@ -45,6 +45,7 @@
   "dependencies": {
     "history": "^1.17.0",
     "immutable": "^3.7.6",
+    "lodash": "^4.3.0",
     "pure-render-decorator": "^0.2.0",
     "react": "^0.14.7",
     "react-addons-pure-render-mixin": "^0.14.7",
