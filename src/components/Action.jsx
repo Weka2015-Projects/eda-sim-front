@@ -11,7 +11,6 @@ export class Action extends Component {
   }
 
   render() {
-    console.log(this.props.resources)
     const skillsArray = this.props.skills.map((skill, index) => {
       return <div className="skill">{index}: +{skill}</div>
     })
