@@ -11,17 +11,14 @@ export class Skill extends Component {
   }
   render() {
     return (
-      <div className="skill">Skill</div>
+      <div className="skill">
+        <h6>{this.props.name}</h6>
+        <div className="experience">
+          <div className="amountOfExp" style={{width: parseInt(this.props.exp/this.props.expToLevel * 100) + '%'}}></div>
+          <div className="expNumber">{this.props.exp}/{this.props.expToLevel}</div>
+        </div>
+        <div className="level">{this.props.level}</div>
+      </div>
     )
   }
 }
-
-reactMixin(Skill.prototype, PureRenderMixin)
-
-function mapStateToProps(state) {
-  return {
-
-  }
-}
-
-export const SkillContainer = connect(mapStateToProps, actionCreators)(Skill)
