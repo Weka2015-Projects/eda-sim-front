@@ -110,7 +110,7 @@ describe('reducer', () => {
           expect(nextState.getIn(['skills', 'softSkills', 'level'])).to.equal(2)
           expect(nextState.getIn(['skills', 'softSkills', 'exp'])).to.equal(0)
         })
-        it('enures experience is carried over after levelling', () => {
+        it('enures exp is carried over after levelling', () => {
           initialState = initialState.updateIn(['skills', 'softSkills', 'exp'], (value) => 280)
           const nextState = reducer(initialState, action)
           expect(nextState.getIn(['skills', 'softSkills', 'level'])).to.equal(2)
@@ -122,7 +122,7 @@ describe('reducer', () => {
           expect(nextState.getIn(['skills', 'softSkills', 'level'])).to.equal(3)
           expect(nextState.getIn(['skills', 'softSkills', 'exp'])).to.equal(83)
         })
-        it('enures experience is carried over after double levelling', () => {
+        it('enures exp is carried over after double levelling', () => {
           initialState = initialState.updateIn(['skills', 'softSkills', 'exp'], (value) => 800)
           const nextState = reducer(initialState, action)
           expect(nextState.getIn(['skills', 'softSkills', 'level'])).to.equal(4)
