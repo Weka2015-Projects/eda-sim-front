@@ -95,9 +95,21 @@ function undergoTask(state, task, taskId) {
   const gains = state.toJS().tasks[taskId].skills
   for (let i =0; i < Object.keys(gains).length;  i++) {
     const gain = gains[Object.keys(gains)[i]]
-    const resource = state.toJS().skills[Object.keys(gains)[i]]
+    const skill = state.toJS().skills[Object.keys(gains)[i]]
     newState = newState.updateIn(['skills', Object.keys(gains)[i], 'exp'], 
-      (resource) => resource+gain)
+      (skill) => skill+gain)
+  }
+  for (let i =0; i < Object.keys(gains).length;  i++) {
+    const exp = newState.toJS().skills[Object.keys(gains)[i]].exp
+    const expToLevel = newState.toJS().skills[Object.keys(gains)[i]].expToLevel
+    const levelIncrement = Math.floor((exp /expToLevel))
+    const remainder = exp % expToLevel 
+    if (exp >= expToLevel) {
+      newState = newState.updateIn(['skills', Object.keys(gains)[i], 'level'], 
+      (level) => level+levelIncrement)
+      newState = newState.updateIn(['skills', Object.keys(gains)[i], 'exp'], 
+      (skill) => remainder)
+    }
   }
   return newState
 }

@@ -85,69 +85,94 @@ describe('reducer', () => {
           expect(nextState.getIn(['resources', 'energy'])).to.equal(500)
           expect(nextState.getIn(['resources', 'mood'])).to.equal(100)
         })
-        it('increases skils if a task is defined', () => {
+        it('increases skils exp if a task is defined', () => {
           initialState = initialState.updateIn(['activeTask'], (value) => 'Pair Programming')
           const nextState = reducer(initialState, action)
           expect(nextState.getIn(['skills', 'softSkills', 'exp'])).to.equal(3)
           expect(nextState.getIn(['skills', 'techSkills', 'exp'])).to.equal(1)
         })
-        it('ensures that resources are depleted with every next call', () => {
+        it('ensures that skill exp is incresed with every next call', () => {
           const nextState = reducer(initialState, action)
           const furtherState = reducer(nextState, action)
           expect(furtherState.getIn(['skills', 'softSkills', 'exp'])).to.equal(6)
           expect(furtherState.getIn(['skills', 'techSkills', 'exp'])).to.equal(2)
         })
-        it('does not deplete if no task is defined', () => {
+        it('does not increase skill exp if no task is defined', () => {
           initialState = initialState.updateIn(['activeTask'], (value) => '')
           const nextState = reducer(initialState, action)
           expect(nextState.getIn(['skills', 'softSkills', 'exp'])).to.equal(0)
           expect(nextState.getIn(['skills', 'techSkills', 'exp'])).to.equal(0)
         })
+        it('increases skill level if experience is greater than exp level', () => {
+          initialState = initialState.updateIn(['activeTask'], (value) => 'Pair Programming')
+          initialState = initialState.updateIn(['skills', 'softSkills', 'exp'], (value) => 247)
+          const nextState = reducer(initialState, action)
+          expect(nextState.getIn(['skills', 'softSkills', 'level'])).to.equal(2)
+          expect(nextState.getIn(['skills', 'softSkills', 'exp'])).to.equal(0)
+        })
+        it('enures experience is carried over after levelling', () => {
+          initialState = initialState.updateIn(['skills', 'softSkills', 'exp'], (value) => 280)
+          const nextState = reducer(initialState, action)
+          expect(nextState.getIn(['skills', 'softSkills', 'level'])).to.equal(2)
+          expect(nextState.getIn(['skills', 'softSkills', 'exp'])).to.equal(33)
+        })
+        it('allows double levelling', () => {
+          initialState = initialState.updateIn(['skills', 'softSkills', 'exp'], (value) => 580)
+          const nextState = reducer(initialState, action)
+          expect(nextState.getIn(['skills', 'softSkills', 'level'])).to.equal(3)
+          expect(nextState.getIn(['skills', 'softSkills', 'exp'])).to.equal(83)
+        })
+        it('enures experience is carried over after double levelling', () => {
+          initialState = initialState.updateIn(['skills', 'softSkills', 'exp'], (value) => 800)
+          const nextState = reducer(initialState, action)
+          expect(nextState.getIn(['skills', 'softSkills', 'level'])).to.equal(4)
+          expect(nextState.getIn(['skills', 'softSkills', 'exp'])).to.equal(53)
+        })
       })
     })
-    describe('days', () => {
-      it('increases the day', () => {
-        initialState = initialState.updateIn(['time', 'hour'], (value) => 21)
-        const nextState = reducer(initialState, action)
-        expect(nextState.getIn(['time', 'hour'])).to.equal(7)
-        expect(nextState.getIn(['time', 'day'])).to.equal(2)
-      })
-      it('resets day to 1 if > 5', () => {
-        initialState = initialState.updateIn(['time', 'day'], (value) => 5)
-        const nextState = reducer(initialState, action)
-        expect(nextState.getIn(['time', 'day'])).to.equal(1)
-        expect(nextState.getIn(['time', 'week'])).to.equal(2)
-      })
-    })
-    describe('weeks', () => {
-      it('increases week', () => {
-        initialState = initialState.updateIn(['time', 'hour'], (value) => 21)
-        initialState = initialState.updateIn(['time', 'day'], (value) => 5)
-        const nextState = reducer(initialState, action)
-        expect(nextState.getIn(['time', 'week'])).to.equal(2)
-      })
-      it('resets week to 1 if > 3', () => {
-        initialState = initialState.updateIn(['time', 'week'], (value) => 3)
-        const nextState = reducer(initialState, action)
-        expect(nextState.getIn(['time', 'week'])).to.equal(1)
-        expect(nextState.getIn(['time', 'phase'])).to.equal(2)
-      })
-    })
-    describe('phases', () => {
-      it('increases phase', () => {
-        initialState = initialState.updateIn(['time', 'hour'], (value) => 21)
-        initialState = initialState.updateIn(['time', 'day'], (value) => 5)
-        initialState = initialState.updateIn(['time', 'week'], (value) => 3)
-        const nextState = reducer(initialState, action)
-        expect(nextState.getIn(['time', 'phase'])).to.equal(2)
-      })
-      it('resets week to 1 if > 3', () => {
-        initialState = initialState.updateIn(['time', 'phase'], (value) => 3)
-        const nextState = reducer(initialState, action)
-        expect(nextState.get('gameover')).to.be.true
-      })
-    })
+describe('days', () => {
+  it('increases the day', () => {
+    initialState = initialState.updateIn(['time', 'hour'], (value) => 21)
+    const nextState = reducer(initialState, action)
+    expect(nextState.getIn(['time', 'hour'])).to.equal(7)
+    expect(nextState.getIn(['time', 'day'])).to.equal(2)
   })
+  it('resets day to 1 if > 5', () => {
+    initialState = initialState.updateIn(['time', 'day'], (value) => 5)
+    const nextState = reducer(initialState, action)
+    expect(nextState.getIn(['time', 'day'])).to.equal(1)
+    expect(nextState.getIn(['time', 'week'])).to.equal(2)
+  })
+})
+describe('weeks', () => {
+  it('increases week', () => {
+    initialState = initialState.updateIn(['time', 'hour'], (value) => 21)
+    initialState = initialState.updateIn(['time', 'day'], (value) => 5)
+    const nextState = reducer(initialState, action)
+    expect(nextState.getIn(['time', 'week'])).to.equal(2)
+  })
+  it('resets week to 1 if > 3', () => {
+    initialState = initialState.updateIn(['time', 'week'], (value) => 3)
+    const nextState = reducer(initialState, action)
+    expect(nextState.getIn(['time', 'week'])).to.equal(1)
+    expect(nextState.getIn(['time', 'phase'])).to.equal(2)
+  })
+})
+describe('phases', () => {
+  it('increases phase', () => {
+    initialState = initialState.updateIn(['time', 'hour'], (value) => 21)
+    initialState = initialState.updateIn(['time', 'day'], (value) => 5)
+    initialState = initialState.updateIn(['time', 'week'], (value) => 3)
+    const nextState = reducer(initialState, action)
+    expect(nextState.getIn(['time', 'phase'])).to.equal(2)
+  })
+  it('resets week to 1 if > 3', () => {
+    initialState = initialState.updateIn(['time', 'phase'], (value) => 3)
+    const nextState = reducer(initialState, action)
+    expect(nextState.get('gameover')).to.be.true
+  })
+})
+})
 describe('ACTIVATE_TASK', () => {
   let initialState = Map({
     activeTask: 'Pair Programming',
