@@ -34,5 +34,4 @@ describe('<Skill/>', () => {
     expect(wrapper.find('.level')).to.have.text('1')
   })
 
-  //ADD AMOUNT OF XP NEEDED PROPERTY TEST
 })

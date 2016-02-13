@@ -22,13 +22,3 @@ export class Skill extends Component {
     )
   }
 }
-
-reactMixin(Skill.prototype, PureRenderMixin)
-
-function mapStateToProps(state) {
-  return {
-
-  }
-}
-
-export const SkillContainer = connect(mapStateToProps, actionCreators)(Skill)
