@@ -28,8 +28,6 @@ function depleteResources (state, task, taskId) {
   for (let i =0; i < Object.keys(costs).length;  i++) {
     const cost = costs[Object.keys(costs)[i]]
     const resource = state.toJS().resources[Object.keys(costs)[i]]
-    console.log(cost)
-    console.log(resource)
     if (resource < cost) return newState
     newState = newState.updateIn(['resources', Object.keys(costs)[i]],
       (resource) => resource-cost)
@@ -45,11 +43,9 @@ function undergoTask(state, task, taskId) {
   const sortedKeys = Object.keys(resources).sort((a, b) => {
     return resources[a] - resources[b]
   }).filter((value) => Object.keys(costs).indexOf(value) !== -1)
-  console.log(sortedKeys)
   for (let i =0; i < Object.keys(costs).length;  i++) {
     const cost = costs[sortedKeys[i]]
     const resource = state.toJS().resources[sortedKeys[i]]
-    console.log(resource)
     if (resource < Math.abs(cost)) {
       newState = newState.update('activeTask', (value) => '')
       return newState

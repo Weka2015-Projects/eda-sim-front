@@ -12,7 +12,7 @@ describe('<Status />', () => {
     const wrapper = shallow(<Status/>)
     expect(wrapper).to.be.ok
   })
-  xit('has a classname of items', () => {
+  xit('has a classname of status', () => {
     const wrapper = shallow(<Status />)
     expect(wrapper).to.have.className('status')
   })
