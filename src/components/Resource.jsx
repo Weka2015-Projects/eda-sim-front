@@ -12,11 +12,8 @@ export class Resource extends Component {
   render() {
     return (
       <div className="resource">
-          <h6>{this.props.name}</h6>
-          <div className="statusbar">
-            <div className="quantity" style={{width: this.props.quantity + '%'}}></div>
-            <div className="statusNumber">{this.props.quantity}/100</div>
-        </div>
+        <h6>{this.props.name}</h6>
+        <div className="quantity">{this.props.quantity}</div>
       </div>
     )
   }

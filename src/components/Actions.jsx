@@ -18,7 +18,9 @@ export class Actions extends Component {
     })
     return (
       <div className="actions">
-        <h4>Actions</h4>
+        <div className="header">
+          <h4>actions</h4>
+        </div>
         {actions}
       </div>
     )

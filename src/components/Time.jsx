@@ -13,10 +13,14 @@ export class Time extends Component {
     const { time } = this.props
     return (
       <div className="time">
+        <div className="header">
+          <div className="phase">Phase: {time.get('phase')}</div>
+        </div>
         <div className="hour">{time.get('hour')}:00</div>
-        <div className="day">Day: {time.get('day')}</div>
-        <div className="week">Week: {time.get('week')}</div>
-        <div className="phase">Phase: {time.get('phase')}</div>
+        <div className="time-group">
+          <div className="day">Day: {time.get('day')}</div>
+          <div className="week">Week: {time.get('week')}</div>
+        </div>
       </div>
     )
   }

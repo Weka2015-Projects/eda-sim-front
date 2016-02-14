@@ -1,3 +1,158 @@
-h6 {
-  text-transform: capitalize;
+//Time
+.timne {
+  .header {
+    .phase {
+
+    }
+  }
+  .hour {
+
+  }
+  .time-group {
+    .day {
+
+    }
+    .week {
+
+    }
+  }
+}
+
+//Resources
+
+.resources {
+  .header {
+    h4 {
+
+    }
+  }
+  .resources-container {
+    .resource {
+      h6 {
+
+      }
+      .quantity {
+
+      }
+    }
+    .money {
+
+    }
+  }
+}
+
+.skills {
+  .header {
+    h4 {}
+  }
+  .skills-container {
+    .skill {
+      h6 {
+
+      }
+      .experience {
+        .amountOfExp {
+
+        }
+        .expNumber { }
+      }
+      .level {
+
+      }
+    }
+  }
+
+}
+
+// Interactions
+.interactions {
+
+  .actions {
+    .header {
+      h4 {
+
+      }
+    }
+
+    .action {
+
+      .header {
+
+        h6 {
+
+        }
+        button {
+
+          &:hover{
+
+          }
+        }
+      }
+      .action-details {
+        max-height: 0;
+        transition: max-height 0.5s ease-out;
+        overflow: hidden;
+        .skills {
+
+          .skill {
+
+          }
+        }
+        .cost {
+
+          .resource {
+
+          }
+        }
+        .initial-costs {
+
+        }
+      }
+      &:hover {
+        .action-details {
+          max-height: 500px;
+          transition: max-height 0.75s ease-in;
+        }
+      }
+    }
+  }
+  .items {
+    .header {
+      h4 {
+
+      }
+    }
+    .item {
+      .header {
+
+        h6 {
+
+        }
+        button {
+
+          &:hover{
+
+          }
+        }
+      }
+      .item-details {
+          max-height: 0;
+          transition: max-height 0.5s ease-out;
+          overflow: hidden;
+        .money {
+
+        }
+        .resources-gained {
+          .resource {}
+        }
+      }
+      &:hover {
+        .item-details {
+          max-height: 500px;
+          transition: max-height 0.75s ease-in;
+
+        }
+      }
+    }
+  }
 }
