@@ -1,5 +1,4 @@
 import { List, Map, fromJS} from 'immutable'
-import _ from 'lodash'
 import initialState  from './reductions/initial-state'
 import next from './reductions/next'
 import {activateTask } from './reductions/tasks'
