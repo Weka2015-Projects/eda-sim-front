@@ -28,6 +28,9 @@ describe('reducer', () => {
       })
       describe('active tasks', () => {
         it('depletes resources if a task is defined', () => {
+          initialState = initialState.updateIn(['time', 'hour'], (value) => 7)
+          initialState = initialState.updateIn(['resources', 'energy'], (value) => 500)
+          initialState = initialState.updateIn(['resources', 'mood'], (value) => 100)
           const nextState = reducer(initialState, action)
           expect(nextState.getIn(['resources', 'energy'])).to.equal(490)
           expect(nextState.getIn(['resources', 'mood'])).to.equal(97)
@@ -88,150 +91,186 @@ describe('reducer', () => {
           expect(nextState.getIn(['skills', 'softSkills', 'exp'])).to.equal(53)
         })
       })
-    })
-    describe('days', () => {
-      it('increases the day', () => {
-        initialState = initialState.updateIn(['time', 'hour'], (value) => 21)
-        const nextState = reducer(initialState, action)
-        expect(nextState.getIn(['time', 'hour'])).to.equal(7)
-        expect(nextState.getIn(['time', 'day'])).to.equal(2)
-      })
-      it('resets day to 1 if > 5', () => {
-        initialState = initialState.updateIn(['time', 'day'], (value) => 5)
-        const nextState = reducer(initialState, action)
-        expect(nextState.getIn(['time', 'day'])).to.equal(1)
-        expect(nextState.getIn(['time', 'week'])).to.equal(2)
-      })
-    })
-    describe('weeks', () => {
-      it('increases week', () => {
-        initialState = initialState.updateIn(['time', 'hour'], (value) => 21)
-        initialState = initialState.updateIn(['time', 'day'], (value) => 5)
-        const nextState = reducer(initialState, action)
-        expect(nextState.getIn(['time', 'week'])).to.equal(2)
-      })
-      it('resets week to 1 if > 3', () => {
-        initialState = initialState.updateIn(['time', 'week'], (value) => 3)
-        const nextState = reducer(initialState, action)
-        expect(nextState.getIn(['time', 'week'])).to.equal(1)
-        expect(nextState.getIn(['time', 'phase'])).to.equal(2)
-      })
-    })
-    describe('phases', () => {
-      it('increases phase', () => {
-        initialState = initialState.updateIn(['time', 'hour'], (value) => 21)
-        initialState = initialState.updateIn(['time', 'day'], (value) => 5)
-        initialState = initialState.updateIn(['time', 'week'], (value) => 3)
-        const nextState = reducer(initialState, action)
-        expect(nextState.getIn(['time', 'phase'])).to.equal(2)
-      })
-      it('resets week to 1 if > 3', () => {
-        initialState = initialState.updateIn(['time', 'phase'], (value) => 3)
-        const nextState = reducer(initialState, action)
-        expect(nextState.get('gameover')).to.be.true
-      })
+})
+describe('days', () => {
+  it('increases the day', () => {
+    initialState = initialState.updateIn(['time', 'hour'], (value) => 21)
+    const nextState = reducer(initialState, action)
+    expect(nextState.getIn(['time', 'hour'])).to.equal(7)
+    expect(nextState.getIn(['time', 'day'])).to.equal(2)
+  })
+  it('resets day to 1 if > 5', () => {
+    initialState = initialState.updateIn(['time', 'day'], (value) => 5)
+    const nextState = reducer(initialState, action)
+    expect(nextState.getIn(['time', 'day'])).to.equal(1)
+    expect(nextState.getIn(['time', 'week'])).to.equal(2)
+  })
+  describe('recharges resources', () => {
+    it('recharges resources at the end of the day', () => {
+      initialState = initialState.updateIn(['time', 'hour'], (value) => 22)
+      initialState = initialState.updateIn(['time', 'day'], (value) => 1)
+      initialState = initialState.updateIn(['resources', 'energy'], (value) => 500)
+      initialState = initialState.updateIn(['resources', 'mood'], (value) => 100)
+      const nextState = reducer(initialState, action)
+      expect(nextState.getIn(['resources', 'energy'])).to.equal(495)
+      expect(nextState.getIn(['resources', 'mood'])).to.equal(102)
     })
   })
-  describe('ACTIVATE_TASK', () => {
-    let initialState = sourceState
-    const action = {
-      type: 'ACTIVATE_TASK',
-      task: 'Pair Programming'
-    }
-    describe('Activates the task', () => {
-      it('sets the active task to be the specified task', () => {
-        initialState = initialState.updateIn(['activeTask'], (value) => '')
-        const nextState = reducer(initialState, action)
-        expect(nextState.get('activeTask')).to.equal('Pair Programming')
-      })
-      it('does not change task if task is already active', () => {
-        initialState = initialState.updateIn(['activeTask'],
-          (value) => 'Pair Programming')
-        const nextState = reducer(initialState, action)
-        expect(nextState.get('activeTask')).to.equal('Pair Programming')
-        expect(nextState.getIn(['resources', 'energy'])).to.equal(500)
-        expect(nextState.getIn(['resources', 'mood'])).to.equal(100)
-      })
-    })
-    describe('Depletes resouces', () => {
-      it('Depletes resources by inital cost of task', () => {
-        initialState = initialState.updateIn(['activeTask'], (value) => '')
-        const nextState = reducer(initialState, action)
-        expect(nextState.getIn(['resources', 'energy'])).to.equal(470)
-        expect(nextState.getIn(['resources', 'mood'])).to.equal(90)
-      })
-      it('Does not deplete resources if not enough resources to ask task', () => {
-        initialState = initialState.updateIn(['resources', 'energy'],
-          (value) => 0)
-        const nextState = reducer(initialState, action)
-        expect(nextState.getIn(['resources', 'energy'])).to.equal(0)
-        expect(nextState.getIn(['resources', 'mood'])).to.equal(100)
-      })
-      it('does not deplete resources if task is already active', () => {
-        initialState = initialState.updateIn(['activeTask'],
-          (value) => 'Pair Programming')
-        initialState = initialState.updateIn(['resources', 'energy'],
-          (value) => 500)
-        initialState = initialState.updateIn(['resources', 'mood'],
-          (value) => 100)
-        const nextState = reducer(initialState, action)
-        expect(nextState.getIn(['resources', 'energy'])).to.equal(500)
-        expect(nextState.getIn(['resources', 'mood'])).to.equal(100)
-      })
+})
+describe('weeks', () => {
+  it('increases week', () => {
+    initialState = initialState.updateIn(['time', 'hour'], (value) => 21)
+    initialState = initialState.updateIn(['time', 'day'], (value) => 5)
+    const nextState = reducer(initialState, action)
+    expect(nextState.getIn(['time', 'week'])).to.equal(2)
+  })
+  it('resets week to 1 if > 3', () => {
+    initialState = initialState.updateIn(['time', 'week'], (value) => 3)
+    const nextState = reducer(initialState, action)
+    expect(nextState.getIn(['time', 'week'])).to.equal(1)
+    expect(nextState.getIn(['time', 'phase'])).to.equal(2)
+  })
+  describe('recharges resources', () => {
+    it('recharges resources at the end of the week', () => {
+      initialState = initialState.updateIn(['time', 'hour'], (value) => 21)
+      initialState = initialState.updateIn(['time', 'day'], (value) => 5)
+      initialState = initialState.updateIn(['time', 'week'], (value) => 1)
+      initialState = initialState.updateIn(['resources', 'energy'], (value) => 500)
+      initialState = initialState.updateIn(['resources', 'mood'], (value) => 100)
+      const nextState = reducer(initialState, action)
+      expect(nextState.getIn(['resources', 'energy'])).to.equal(510)
+      expect(nextState.getIn(['resources', 'mood'])).to.equal(117)
     })
   })
-  describe('BUY_ITEM', () => {
-    let initialState = sourceState
-    const action = {
-      type: 'BUY_ITEM',
-      item: 'Mountain Dew'
-    }
-    describe('Handles Money', () => {
-      it('does not deplete money if funds < cost ', () => {
-        initialState = initialState.updateIn(['money'], (value) => 0)
-        const nextState = reducer(initialState, action)
-        expect(nextState.get('money')).to.equal(0)
-      })
-      it('depletes money on purchase', () => {
-        initialState = initialState.updateIn(['money'], (value) => 15)
-        const nextState = reducer(initialState, action)
-        expect(nextState.get('money')).to.equal(10)
-      })
-       it('depletes money on subsequent purchase', () => {
-        initialState = initialState.updateIn(['money'], (value) => 15)
-        const nextState = reducer(initialState, action)
-        const furtherState = reducer(nextState, action)
-        expect(furtherState.get('money')).to.equal(5)
-      })
-    })
-    describe('Handles Resouces', () => {
-      it('Does not increase resources if funds < cost', () => {
-        initialState = initialState.updateIn(['money'], (value) => 0)
-        initialState = initialState.updateIn(['resources', 'energy'],
-          (value) => 500)
-        initialState = initialState.updateIn(['resources', 'mood'],
-          (value) => 100)
-        const nextState = reducer(initialState, action)
-        expect(nextState.getIn(['resources', 'energy'])).to.equal(500)
-        expect(nextState.getIn(['resources', 'mood'])).to.equal(100)
-      })
-      it('increases resources on purchase', () => {
-        initialState = initialState.updateIn(['money'], (value) => 15)
-        const nextState = reducer(initialState, action)
-        expect(nextState.getIn(['resources', 'energy'])).to.equal(505)
-        expect(nextState.getIn(['resources', 'mood'])).to.equal(101)
-      })
-      it('increases resources on subsequent purchase', () => {
-        initialState = initialState.updateIn(['money'], (value) => 15)
-        initialState = initialState.updateIn(['resources', 'energy'],
-          (value) => 500)
-        initialState = initialState.updateIn(['resources', 'mood'],
-          (value) => 100)
-        const nextState = reducer(initialState, action)
-        const furtherState = reducer(nextState, action)
-        expect(furtherState.getIn(['resources', 'energy'])).to.equal(510)
-        expect(furtherState.getIn(['resources', 'mood'])).to.equal(102)
-      })
+})
+describe('phases', () => {
+  it('increases phase', () => {
+    initialState = initialState.updateIn(['time', 'hour'], (value) => 21)
+    initialState = initialState.updateIn(['time', 'day'], (value) => 5)
+    initialState = initialState.updateIn(['time', 'week'], (value) => 3)
+    const nextState = reducer(initialState, action)
+    expect(nextState.getIn(['time', 'phase'])).to.equal(2)
+  })
+  it('resets week to 1 if > 3', () => {
+    initialState = initialState.updateIn(['time', 'phase'], (value) => 3)
+    const nextState = reducer(initialState, action)
+    expect(nextState.get('gameover')).to.be.true
+  })
+  describe('recharges resources', () => {
+    it('recharges resources at the end of the phase', () => {
+      initialState = initialState.updateIn(['time', 'hour'], (value) => 21)
+      initialState = initialState.updateIn(['time', 'day'], (value) => 5)
+      initialState = initialState.updateIn(['time', 'week'], (value) => 3)
+      initialState = initialState.updateIn(['time', 'phase'], (value) => 1)
+      initialState = initialState.updateIn(['resources', 'energy'], (value) => 500)
+      initialState = initialState.updateIn(['resources', 'mood'], (value) => 100)
+      const nextState = reducer(initialState, action)
+      expect(nextState.getIn(['resources', 'energy'])).to.equal(560)
+      expect(nextState.getIn(['resources', 'mood'])).to.equal(167)
     })
   })
+})
+})
+describe('ACTIVATE_TASK', () => {
+  let initialState = sourceState
+  const action = {
+    type: 'ACTIVATE_TASK',
+    task: 'Pair Programming'
+  }
+  describe('Activates the task', () => {
+    it('sets the active task to be the specified task', () => {
+      initialState = initialState.updateIn(['activeTask'], (value) => '')
+      const nextState = reducer(initialState, action)
+      expect(nextState.get('activeTask')).to.equal('Pair Programming')
+    })
+    it('does not change task if task is already active', () => {
+      initialState = initialState.updateIn(['activeTask'],
+        (value) => 'Pair Programming')
+      const nextState = reducer(initialState, action)
+      expect(nextState.get('activeTask')).to.equal('Pair Programming')
+      expect(nextState.getIn(['resources', 'energy'])).to.equal(500)
+      expect(nextState.getIn(['resources', 'mood'])).to.equal(100)
+    })
+  })
+  describe('Depletes resouces', () => {
+    it('Depletes resources by inital cost of task', () => {
+      initialState = initialState.updateIn(['activeTask'], (value) => '')
+      const nextState = reducer(initialState, action)
+      expect(nextState.getIn(['resources', 'energy'])).to.equal(470)
+      expect(nextState.getIn(['resources', 'mood'])).to.equal(90)
+    })
+    it('Does not deplete resources if not enough resources to ask task', () => {
+      initialState = initialState.updateIn(['resources', 'energy'],
+        (value) => 0)
+      const nextState = reducer(initialState, action)
+      expect(nextState.getIn(['resources', 'energy'])).to.equal(0)
+      expect(nextState.getIn(['resources', 'mood'])).to.equal(100)
+    })
+    it('does not deplete resources if task is already active', () => {
+      initialState = initialState.updateIn(['activeTask'],
+        (value) => 'Pair Programming')
+      initialState = initialState.updateIn(['resources', 'energy'],
+        (value) => 500)
+      initialState = initialState.updateIn(['resources', 'mood'],
+        (value) => 100)
+      const nextState = reducer(initialState, action)
+      expect(nextState.getIn(['resources', 'energy'])).to.equal(500)
+      expect(nextState.getIn(['resources', 'mood'])).to.equal(100)
+    })
+  })
+})
+describe('BUY_ITEM', () => {
+  let initialState = sourceState
+  const action = {
+    type: 'BUY_ITEM',
+    item: 'Mountain Dew'
+  }
+  describe('Handles Money', () => {
+    it('does not deplete money if funds < cost ', () => {
+      initialState = initialState.updateIn(['money'], (value) => 0)
+      const nextState = reducer(initialState, action)
+      expect(nextState.get('money')).to.equal(0)
+    })
+    it('depletes money on purchase', () => {
+      initialState = initialState.updateIn(['money'], (value) => 15)
+      const nextState = reducer(initialState, action)
+      expect(nextState.get('money')).to.equal(10)
+    })
+    it('depletes money on subsequent purchase', () => {
+      initialState = initialState.updateIn(['money'], (value) => 15)
+      const nextState = reducer(initialState, action)
+      const furtherState = reducer(nextState, action)
+      expect(furtherState.get('money')).to.equal(5)
+    })
+  })
+  describe('Handles Resouces', () => {
+    it('Does not increase resources if funds < cost', () => {
+      initialState = initialState.updateIn(['money'], (value) => 0)
+      initialState = initialState.updateIn(['resources', 'energy'],
+        (value) => 500)
+      initialState = initialState.updateIn(['resources', 'mood'],
+        (value) => 100)
+      const nextState = reducer(initialState, action)
+      expect(nextState.getIn(['resources', 'energy'])).to.equal(500)
+      expect(nextState.getIn(['resources', 'mood'])).to.equal(100)
+    })
+    it('increases resources on purchase', () => {
+      initialState = initialState.updateIn(['money'], (value) => 15)
+      const nextState = reducer(initialState, action)
+      expect(nextState.getIn(['resources', 'energy'])).to.equal(505)
+      expect(nextState.getIn(['resources', 'mood'])).to.equal(101)
+    })
+    it('increases resources on subsequent purchase', () => {
+      initialState = initialState.updateIn(['money'], (value) => 15)
+      initialState = initialState.updateIn(['resources', 'energy'],
+        (value) => 500)
+      initialState = initialState.updateIn(['resources', 'mood'],
+        (value) => 100)
+      const nextState = reducer(initialState, action)
+      const furtherState = reducer(nextState, action)
+      expect(furtherState.getIn(['resources', 'energy'])).to.equal(510)
+      expect(furtherState.getIn(['resources', 'mood'])).to.equal(102)
+    })
+  })
+})
 })
