@@ -17,7 +17,7 @@ export class Actions extends Component {
       return <Action startAction={this.clickToStart.bind(this)} name={action.get('name')} skills={action.get('skills')} resources={action.get('resources')} initialCosts={action.get('initialCosts')} key={idx} />
     })
     return (
-      <div className="actions">
+      <div className="actions widget">
         <div className="header">
           <h4>actions</h4>
         </div>

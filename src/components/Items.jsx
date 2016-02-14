@@ -18,7 +18,9 @@ export class Items extends Component {
     })
     return (
       <div className="items widget">
-        <h4>items</h4>
+        <div className="header">
+          <h4>items</h4>
+        </div>
         {items}
       </div>
     )

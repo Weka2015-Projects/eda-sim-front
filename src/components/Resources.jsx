@@ -16,7 +16,7 @@ export class Resources extends Component {
       return <Resource name={idx} quantity={r} />
     })
     return (
-      <div className="resources">
+      <div className="resources widget">
         <div className="header">
           <h4>Resources</h4>
         </div>

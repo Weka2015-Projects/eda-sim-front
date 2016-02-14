@@ -1,7 +1,27 @@
+//Global
+
+.widget {
+  >.header {
+    text-align: center;
+  }
+}
+
 .game {
   margin: 50px 0 0 0;
 }
+//Status
+.status {
+  text-align: center;
+  font-size: 3rem;
 
+}
+.start {
+  button {
+    margin:auto;
+    display: block;
+  }
+
+}
 //Time
 .time {
   .header {

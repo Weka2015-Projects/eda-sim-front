@@ -18,7 +18,7 @@ export class Skills extends Component {
       skillArray.push(<Skill key={idx} name={idx} level={s.get('level')} exp={s.get('exp')} expToLevel={s.get('expToLevel')}/>)
     })
     return (
-      <div className="skills">
+      <div className="skills widget">
         <div className="header">
           <h4>Skills</h4>
         </div>
