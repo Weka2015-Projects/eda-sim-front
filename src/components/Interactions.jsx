@@ -13,7 +13,7 @@ export class Interactions extends Component {
   }
   render() {
     return (
-      <div className="interactions">Interactions
+      <div className="interactions">
         <ActionsContainer />
         <ItemsContainer />
       </div>

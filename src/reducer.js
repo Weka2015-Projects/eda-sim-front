@@ -9,7 +9,7 @@ import buy from './reductions/buy'
 function reducer(state = initialState, action) {
   switch (action.type) {
     case 'START_GAME':
-    return state
+    return state.set('isPlaying', true)
     case 'END_GAME':
     return state
     case 'NEXT':

@@ -8,11 +8,13 @@ import { Action } from './Action'
 export class Actions extends Component {
   constructor(props) {
     super(props)
-
+  }
+  clickToStart(action){
+    this.props.startAction(action)
   }
   render() {
     const actions = this.props.actions.map((action, idx) => {
-      return <Action name={action.get('name')} skills={action.get('skills')} resources={action.get('resources')} initialCosts={action.get('initialCosts')} key={idx} />
+      return <Action startAction={this.clickToStart.bind(this)} name={action.get('name')} skills={action.get('skills')} resources={action.get('resources')} initialCosts={action.get('initialCosts')} key={idx} />
     })
     return (
       <div className="actions">

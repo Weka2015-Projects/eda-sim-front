@@ -19,7 +19,9 @@ export class Skills extends Component {
     })
     return (
       <div className="skills">
-        <h4>Skills</h4>
+        <div className="header">
+          <h4>Skills</h4>
+        </div>
         <div className="skills-container">
           {skillArray}
         </div>

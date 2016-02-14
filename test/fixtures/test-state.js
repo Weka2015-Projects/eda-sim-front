@@ -1,8 +1,8 @@
 import { Map, List } from 'immutable'
 let initialState = Map({
-  isPlaying: false,
+  isPlaying: true,
   money: 200,
-  activeTask: '',
+  activeTask: 'Pair Programming',
   time: Map({
     hour: 7,
     day: 1,
@@ -10,7 +10,7 @@ let initialState = Map({
     phase: 1
   }),
   resources: Map({
-    energy: 100,
+    energy: 500,
     mood: 100,
     health: 100,
     enthusiasm: 100
@@ -43,15 +43,6 @@ let initialState = Map({
         energy: 30,
         mood: 5,
         health: -5
-      })
-    }),
-    Map({
-      name: 'Chicken Curry',
-      money: 12,
-      resources: Map({
-        energy: 30,
-        mood: 50,
-        health: 20
       })
     })
   ]),
@@ -87,7 +78,7 @@ let initialState = Map({
       })
     }),
     Map({
-      name: 'Working on Group Projects',
+      name: 'Group Projects',
       resources: Map({
         energy: -10,
         mood: -3
@@ -116,7 +107,7 @@ let initialState = Map({
         mood: 10
       })
     })
-  ])
+    ])
 })
 
 export default initialState

@@ -8,11 +8,13 @@ import { Item } from './item'
 export class Items extends Component {
   constructor(props) {
     super(props)
-
+  }
+  clickToBuy(item){
+    this.props.buyItem(item)
   }
   render() {
     const items = this.props.items.map((item, idx) => {
-      return <Item name={item.get('name')} money={item.get('money')} resources={item.get('resources')} key={idx}/>
+      return <Item buyItem={this.clickToBuy.bind(this)} name={item.get('name')} money={item.get('money')} resources={item.get('resources')} key={idx}/>
     })
     return (
       <div className="items">

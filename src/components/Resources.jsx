@@ -17,8 +17,13 @@ export class Resources extends Component {
     })
     return (
       <div className="resources">
-        {resourceArray}
-        <Money amount={this.props.money}/>
+        <div className="header">
+          <h4>Resources</h4>
+        </div>
+        <div className="resources-container">
+          {resourceArray}
+          <Money amount={this.props.money}/>
+        </div>
       </div>
     )
   }

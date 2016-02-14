@@ -1,6 +1,6 @@
 import { expect } from 'chai'
 import { List, Map, fromJS } from 'immutable'
-import sourceState from '../../src/reductions/initial-state.js'
+import sourceState from '../fixtures/test-state.js'
 import reducer from '../../src/reducer.js'
 
 describe('reducer', () => {

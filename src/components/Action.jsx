@@ -8,7 +8,10 @@ export class Action extends Component {
   constructor(props) {
     super(props)
   }
-
+  handleClick(e) {
+    e.preventDefault()
+    this.props.startAction(this.props.name)
+  }
   render() {
     const skillsArray = this.props.skills.map((skill, index) => {
       return <div className="skill">{index}: +{skill}</div>
@@ -22,6 +25,7 @@ export class Action extends Component {
     return (
       <div className="action">
         <h6>{this.props.name}</h6>
+        <button onClick={this.handleClick.bind(this)}>Do this</button>
         <div className="action-details">
           <div className="skills">{skillsArray}</div>
           <div className="cost">{resourcesArray}</div>
