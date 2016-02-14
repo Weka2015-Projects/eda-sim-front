@@ -12,7 +12,7 @@ export class Actions extends Component {
   }
   render() {
     const actions = this.props.actions.map((action, idx) => {
-      return <Action name={action.get('name')} skills={action.get('skills')} resources={action.get('resources')} initialCosts={action.get('initialCosts')} />
+      return <Action name={action.get('name')} skills={action.get('skills')} resources={action.get('resources')} initialCosts={action.get('initialCosts')} key={idx} />
     })
     return (
       <div className="actions">

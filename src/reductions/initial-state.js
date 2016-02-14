@@ -34,10 +34,55 @@ let initialState = Map({
         mood: 1,
       })
     })
-    ]),
+  ]),
   tasks: List([
     Map({
       name: 'Pair Programming',
+      resources: Map({
+        energy: -10,
+        mood: -3
+      }),
+      skills: Map({
+        softSkills: 3,
+        techSkills: 1
+      }),
+      initialCosts: Map({
+        energy: 30,
+        mood: 10
+      })
+    }),
+    Map({
+      name: 'Solo Programming',
+      resources: Map({
+        energy: -10,
+        mood: -3
+      }),
+      skills: Map({
+        softSkills: 3,
+        techSkills: 1
+      }),
+      initialCosts: Map({
+        energy: 30,
+        mood: 10
+      })
+    }),
+    Map({
+      name: 'Group Projects',
+      resources: Map({
+        energy: -10,
+        mood: -3
+      }),
+      skills: Map({
+        softSkills: 3,
+        techSkills: 1
+      }),
+      initialCosts: Map({
+        energy: 30,
+        mood: 10
+      })
+    }),
+    Map({
+      name: 'Napping',
       resources: Map({
         energy: -10,
         mood: -3
