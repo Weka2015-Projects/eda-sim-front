@@ -59,7 +59,7 @@ let initialState = Map({
     Map({
       name: 'Pair Programming',
       resources: Map({
-        energy: -10,
+        energy: -15,
         mood: -3
       }),
       skills: Map({

@@ -40,7 +40,6 @@ export class Game extends Component {
           </div>
           <div className="col-lg-3">
             <InteractionsContainer />
-
           </div>
         </div>
 

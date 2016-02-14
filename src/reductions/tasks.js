@@ -19,8 +19,7 @@ function continueTask (state, task) {
   if (task === '') return state
   const taskId = state.toJS().tasks.findIndex(
     (indexes) => indexes.name === task)
-  return hasEnoughResources(state, taskId) ? undergoTask(state, task, taskId) :
-  state
+  return undergoTask(state, task, taskId)
 }
 
 function depleteResources (state, task, taskId) {
@@ -42,8 +41,12 @@ function undergoTask(state, task, taskId) {
   for (let i =0; i < Object.keys(costs).length;  i++) {
     const cost = costs[Object.keys(costs)[i]]
     const resource = state.toJS().resources[Object.keys(costs)[i]]
-    newState = newState.updateIn(['resources', Object.keys(costs)[i]],
+    if (resource <= Math.abs(cost)) {
+      newState = newState.update('activeTask', (value) => '')
+    } else {
+      newState = newState.updateIn(['resources', Object.keys(costs)[i]],
       (resource) => resource+cost)
+    }
   }
   const gains = state.toJS().tasks[taskId].skills
   for (let i =0; i < Object.keys(gains).length;  i++) {
@@ -64,6 +67,7 @@ function undergoTask(state, task, taskId) {
       (skill) => remainder)
     }
   }
+  console.log(newState.get('activeTask'))
   return newState
 }
 
