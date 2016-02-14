@@ -11,7 +11,7 @@ export class Status extends Component {
   }
   render() {
     return (
-      <div className="status">Status</div>
+      <div className="status">You are doing {this.props.activeTask.length > 1 ? this.props.activeTask : 'nothing'}</div>
     )
   }
 }
@@ -20,7 +20,7 @@ reactMixin(Status.prototype, PureRenderMixin)
 
 function mapStateToProps(state) {
   return {
-
+    activeTask: state.get('activeTask')
   }
 }
 

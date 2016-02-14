@@ -4,7 +4,7 @@ import PureRenderMixin from 'react-addons-pure-render-mixin'
 import { connect } from 'react-redux'
 import * as actionCreators from '../action_creators'
 import { Resource } from './Resource'
-
+import { Money } from './Money'
 export class Resources extends Component {
   constructor(props) {
     super(props)
@@ -18,6 +18,7 @@ export class Resources extends Component {
     return (
       <div className="resources">
         {resourceArray}
+        <Money amount={this.props.money}/>
       </div>
     )
   }
@@ -27,6 +28,7 @@ reactMixin(Resources.prototype, PureRenderMixin)
 
 function mapStateToProps(state) {
   return {
+    money: state.get('money'),
     resources: state.get('resources')
   }
 }
