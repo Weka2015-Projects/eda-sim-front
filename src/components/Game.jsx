@@ -5,10 +5,10 @@ import { connect } from 'react-redux'
 import * as actionCreators from '../action_creators'
 import { TimeContainer } from './Time'
 import { ResourcesContainer } from './Resources'
-import { InteractionsContainer } from './Interactions'
 import { SkillsContainer } from './Skills'
 import { StatusContainer } from './Status'
-
+import { ItemsContainer } from './Items'
+import { ActionsContainer } from './Actions'
 export class Game extends Component {
   constructor(props) {
     super(props)
@@ -27,19 +27,20 @@ export class Game extends Component {
     return (
       <div className="game">
         <div className="row">
-          <div className="col-lg-3">
+          <div className="col-md-3">
             <TimeContainer />
             <ResourcesContainer />
             <SkillsContainer />
           </div>
-          <div className="col-lg-6">
+          <div className="col-md-6">
             <StatusContainer />
             <div className="start">
               <button onClick={this.startGame.bind(this)}>Start Game</button>
             </div>
           </div>
-          <div className="col-lg-3">
-            <InteractionsContainer />
+          <div className="col-md-3">
+            <ActionsContainer />
+            <ItemsContainer />
           </div>
         </div>
 

@@ -12,9 +12,9 @@ export class Time extends Component {
   render() {
     const { time } = this.props
     return (
-      <div className="time">
+      <div className="time widget">
         <div className="header">
-          <div className="phase">Phase: {time.get('phase')}</div>
+          <h4 className="phase">Phase: {time.get('phase')}</h4>
         </div>
         <div className="hour">{time.get('hour')}:00</div>
         <div className="time-group">
