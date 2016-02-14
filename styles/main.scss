@@ -1,5 +1,5 @@
 #app {
-  width: 400px;
+  width: 800px;
 }
 
 .game {
@@ -13,6 +13,18 @@
   .time {
     padding: 15px;
     border: 1px solid black;
+    .hour{
+
+    }
+    .day {
+
+    }
+    .week {
+
+    }
+    .phase {
+      
+    }
   }
   .resources {
     padding: 15px;
@@ -45,7 +57,7 @@
     .items {
       padding: 15px;
       border: 1px solid black;
-      
+
       .item {
         padding: 15px;
         border: 1px solid black;
