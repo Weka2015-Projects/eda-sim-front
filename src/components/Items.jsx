@@ -12,7 +12,7 @@ export class Items extends Component {
   }
   render() {
     const items = this.props.items.map((item, idx) => {
-      return <Item name={item.get('name')} skills={item.get('skills')} resources={item.get('resources')} initialCosts={item.get('initialCosts')} />
+      return <Item name={item.get('name')} money={item.get('money')} resources={item.get('resources')}/>
     })
     return (
       <div className="items">
@@ -23,7 +23,7 @@ export class Items extends Component {
   }
 }
 
-reactMixin(items.prototype, PureRenderMixin)
+reactMixin(Items.prototype, PureRenderMixin)
 
 function mapStateToProps(state) {
   return {
