@@ -7,22 +7,30 @@ chai.use(chaiEnzyme())
 
 import { mount, render, shallow } from 'enzyme'
 import {Time} from '../../src/components/Time.jsx'
+import initialState from '../fixtures/test-state.js'
 
 describe('<Time/>', () => {
-  xit('renders without any props', () => {
-    const wrapper = shallow(<Time/>)
-    expect(wrapper).to.be.ok
-  })
-  xit('has a classname of time', () => {
-    const wrapper = shallow(<Time/>)
+  it('has a classname of time', () => {
+    const wrapper = shallow(<Time time={initialState.get('time')}/>)
     expect(wrapper).to.have.className('time')
   })
-  xit('renders with the correct text of time', () => {
-    const wrapper = shallow(<Time name="time" quantity="12"/>)
-    expect(wrapper.find('.setTime')).to.have.text('12/24')
+  it('renders the correct hour', () => {
+    const wrapper = shallow(<Time time={initialState.get('time')}/>)
+    expect(wrapper.find('.hour')).to.have.text('7:00')
   })
-  xit('renders out the quantity of the time in hours', () => {
-    const wrapper = shallow(<Time name='time' quantity='12'/>)
-    expect(wrapper.find('.timerender')).to.have.style('width', '12hours')
+  it('renders the correct day', () => {
+    const wrapper = shallow(<Time time={initialState.get('time')}/>)
+    expect(wrapper.find('.day')).to.have.text('Day: 1')
+
+  })
+  it('renders the correct week', () => {
+    const wrapper = shallow(<Time time={initialState.get('time')}/>)
+    expect(wrapper.find('.week')).to.have.text('Week: 1')
+
+  })
+  it('renders the correct phase', () => {
+    const wrapper = shallow(<Time time={initialState.get('time')}/>)
+    expect(wrapper.find('.phase')).to.have.text('Phase: 1')
+
   })
 })

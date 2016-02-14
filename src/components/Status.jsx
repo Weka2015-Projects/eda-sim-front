@@ -11,7 +11,7 @@ export class Status extends Component {
   }
   render() {
     return (
-      <div className="status">You are {this.props.activeTask.length > 1 ? this.props.activeTask : ' doing nothing'}</div>
+      <div className="status">You are {this.props.activeTask.length > 1 ? this.props.activeTask : 'doing Nothing'}</div>
     )
   }
 }
