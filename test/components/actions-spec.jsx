@@ -30,4 +30,8 @@ describe('<Actions />', () => {
     const wrapper = mount(<Actions actions={actionList} />)
     expect(wrapper).to.have.className('actions')
   })
+  it('renders 1 <Action /> components', () => {
+    const wrapper = mount(<Actions actions={actionList} />)
+    expect(wrapper.find('.action').length).to.equal(1)
+    })
 })
