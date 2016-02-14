@@ -31,4 +31,4 @@ function mapStateToProps(state) {
   }
 }
 
-export const ActionsContainer = connect(mapStateToProps, actionCreators)(Items)
+export const ItemsContainer = connect(mapStateToProps, actionCreators)(Items)
