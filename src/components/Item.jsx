@@ -7,21 +7,29 @@ import * as actionCreators from '../action_creators'
 export class Item extends Component {
   constructor(props) {
     super(props)
-
   }
+
   render() {
+    const skillsArray = this.props.skills.map((skill, index) => {
+      return <div className="skill">{index}: +{skill}</div>
+    })
+    const resourcesArray = this.props.resources.map((resource, index) => {
+      return <div className="resource">{index}: {resource}</div>
+    })
+    const initialCosts = this.props.initialCosts.map(cost, index) => {
+      return <div className="initial-cost">{index}: -{cost}</div>
+    })
     return (
-      <div className="item">Item</div>
+      <div className="item">
+        <h6>{this.props.name}</h6>
+        <div className="item-details">
+          <div className="skills">{skillsArray}</div>
+          <div className="cost">{resourcesArray}</div>
+          <div className="initial-costs">{initialCosts}</div>
+        </div>
+      </div>
     )
   }
 }
 
 reactMixin(Item.prototype, PureRenderMixin)
-
-function mapStateToProps(state) {
-  return {
-
-  }
-}
-
-export const ItemContainer = connect(mapStateToProps, actionCreators)(Item)
