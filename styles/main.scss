@@ -1,3 +1,7 @@
+.game {
+  margin: 50px 0 0 0;
+}
+
 //Time
 .time {
   .header {
@@ -64,8 +68,7 @@
 
 }
 
-// Interactions
-.interactions {
+// Actions
 
   .actions {
     .header {
@@ -116,6 +119,7 @@
       }
     }
   }
+//Items
   .items {
     .header {
       h4 {
@@ -155,4 +159,3 @@
       }
     }
   }
-}

@@ -17,7 +17,7 @@ export class Items extends Component {
       return <Item buyItem={this.clickToBuy.bind(this)} name={item.get('name')} money={item.get('money')} resources={item.get('resources')} key={idx}/>
     })
     return (
-      <div className="items">
+      <div className="items widget">
         <h4>items</h4>
         {items}
       </div>
