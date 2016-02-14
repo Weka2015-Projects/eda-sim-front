@@ -18,8 +18,10 @@ export class Item extends Component {
     })
     return (
       <div className="item">
-        <h6>{this.props.name}</h6>
-        <button onClick={this.handleClick.bind(this)}>Buy</button>
+        <div className="header">
+          <h6>{this.props.name}</h6>
+          <button onClick={this.handleClick.bind(this)}>Buy</button>
+        </div>
         <div className="item-details">
           <div className="money">{this.props.money}</div>
           <div className="resources-gained">Resources Gained: {resourcesArray}</div>

@@ -24,8 +24,10 @@ export class Action extends Component {
     })
     return (
       <div className="action">
-        <h6>{this.props.name}</h6>
-        <button onClick={this.handleClick.bind(this)}>Do this</button>
+        <div className="header">
+          <h6>{this.props.name}</h6>
+          <button onClick={this.handleClick.bind(this)}>Do this</button>
+        </div>
         <div className="action-details">
           <div className="skills">{skillsArray}</div>
           <div className="cost">{resourcesArray}</div>
