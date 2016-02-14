@@ -9,16 +9,16 @@ function hasEnoughResources(state, task){
 
 function activateTask(state, task) {
   if (task === state.get('activeTask')) return state
-  const taskId = state.toJS().tasks.findIndex(
-    (indexes) => indexes.name === task)
+    const taskId = state.toJS().tasks.findIndex(
+      (indexes) => indexes.name === task)
   return hasEnoughResources(state, taskId) ?
   depleteResources(state, task, taskId) : state
 }
 
 function continueTask (state, task) {
   if (task === '') return state
-  const taskId = state.toJS().tasks.findIndex(
-    (indexes) => indexes.name === task)
+    const taskId = state.toJS().tasks.findIndex(
+      (indexes) => indexes.name === task)
   return undergoTask(state, task, taskId)
 }
 
@@ -28,6 +28,9 @@ function depleteResources (state, task, taskId) {
   for (let i =0; i < Object.keys(costs).length;  i++) {
     const cost = costs[Object.keys(costs)[i]]
     const resource = state.toJS().resources[Object.keys(costs)[i]]
+    console.log(cost)
+    console.log(resource)
+    if (resource < cost) return newState
     newState = newState.updateIn(['resources', Object.keys(costs)[i]],
       (resource) => resource-cost)
   }
@@ -38,15 +41,21 @@ function depleteResources (state, task, taskId) {
 function undergoTask(state, task, taskId) {
   let newState = state
   const costs = state.toJS().tasks[taskId].resources
+  const resources = state.toJS().resources
+  const sortedKeys = Object.keys(resources).sort((a, b) => {
+    return resources[a] - resources[b]
+  }).filter((value) => Object.keys(costs).indexOf(value) !== -1)
+  console.log(sortedKeys)
   for (let i =0; i < Object.keys(costs).length;  i++) {
-    const cost = costs[Object.keys(costs)[i]]
-    const resource = state.toJS().resources[Object.keys(costs)[i]]
-    if (resource <= Math.abs(cost)) {
+    const cost = costs[sortedKeys[i]]
+    const resource = state.toJS().resources[sortedKeys[i]]
+    console.log(resource)
+    if (resource < Math.abs(cost)) {
       newState = newState.update('activeTask', (value) => '')
-    } else {
-      newState = newState.updateIn(['resources', Object.keys(costs)[i]],
-      (resource) => resource+cost)
+      return newState
     }
+    newState = newState.updateIn(['resources', sortedKeys[i]],
+      (resource) => resource+cost)
   }
   const gains = state.toJS().tasks[taskId].skills
   for (let i =0; i < Object.keys(gains).length;  i++) {
@@ -62,12 +71,11 @@ function undergoTask(state, task, taskId) {
     const remainder = exp % expToLevel
     if (exp >= expToLevel) {
       newState = newState.updateIn(['skills', Object.keys(gains)[i], 'level'],
-      (level) => level+levelIncrement)
+        (level) => level+levelIncrement)
       newState = newState.updateIn(['skills', Object.keys(gains)[i], 'exp'],
-      (skill) => remainder)
+        (skill) => remainder)
     }
   }
-  console.log(newState.get('activeTask'))
   return newState
 }
 
