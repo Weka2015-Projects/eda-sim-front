@@ -1,5 +1,5 @@
 function hasEnoughResources(state, task){
-  const costs = state.toJS().tasks[task].initalCosts
+  const costs = state.toJS().tasks[task].initialCosts
   for (let j =0; j < Object.keys(costs).length;  j++) {
     const cost = costs[Object.keys(costs)[j]]
     const resource = state.toJS().resources[Object.keys(costs)[j]]
@@ -25,7 +25,7 @@ function continueTask (state, task) {
 
 function depleteResources (state, task, taskId) {
   let newState = state
-  const costs = state.toJS().tasks[taskId].initalCosts
+  const costs = state.toJS().tasks[taskId].initialCosts
   for (let i =0; i < Object.keys(costs).length;  i++) {
     const cost = costs[Object.keys(costs)[i]]
     const resource = state.toJS().resources[Object.keys(costs)[i]]

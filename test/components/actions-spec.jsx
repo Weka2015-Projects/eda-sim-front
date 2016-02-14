@@ -20,7 +20,7 @@ describe('<Actions />', () => {
         softSkills: 3,
         techSkills: 1
       }),
-      initalCosts: Map({
+      initialCosts: Map({
         energy: 30,
         mood: 10
       })
