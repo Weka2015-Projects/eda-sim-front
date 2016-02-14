@@ -1,4 +1,5 @@
 import { continueTask } from './tasks'
+import recharge from './recharge'
 
 function next(state) {
   return validState(state) ? nextHour(state) : state.set('gameover', true)
@@ -13,20 +14,23 @@ function nextHour(state) {
 
 function nextDay (state) {
   const nextDay = state.getIn(['time', 'day']) + 1
-  return nextDay > 5 ? nextWeek(state.setIn(['time', 'day'], 1)) :
-  state.setIn(['time', 'day'], nextDay)
+  const nextState = recharge(state, 'day')
+  return nextDay > 5 ? nextWeek(nextState.setIn(['time', 'day'], 1)) :
+  nextState.setIn(['time', 'day'], nextDay)
 }
 
 function nextWeek (state) {
   const nextWeek = state.getIn(['time', 'week']) + 1
-  return nextWeek > 3 ? nextPhase(state.setIn(['time', 'week'], 1)) :
-  state.setIn(['time', 'week'], nextWeek)
+  const nextState = recharge(state, 'week')
+  return nextWeek > 3 ? nextPhase(nextState.setIn(['time', 'week'], 1)) :
+  nextState.setIn(['time', 'week'], nextWeek)
 }
 
 function nextPhase (state) {
   const nextPhase = state.getIn(['time', 'phase']) + 1
-  return nextPhase > 3 ? state.set('gameover', true) :
-  state.setIn(['time', 'phase'], nextPhase)
+  const nextState = recharge(state, 'phase')
+  return nextPhase > 3 ? nextState.set('gameover', true) :
+  nextState.setIn(['time', 'phase'], nextPhase)
 }
 
 function validState(state) {
