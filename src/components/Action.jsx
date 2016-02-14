@@ -7,7 +7,6 @@ import * as actionCreators from '../action_creators'
 export class Action extends Component {
   constructor(props) {
     super(props)
-
   }
 
   render() {
@@ -34,11 +33,3 @@ export class Action extends Component {
 }
 
 reactMixin(Action.prototype, PureRenderMixin)
-
-function mapStateToProps(state) {
-  return {
-
-  }
-}
-
-export const ActionContainer = connect(mapStateToProps, actionCreators)(Action)

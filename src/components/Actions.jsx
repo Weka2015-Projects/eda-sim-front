@@ -3,7 +3,7 @@ import reactMixin from 'react-mixin'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
 import { connect } from 'react-redux'
 import * as actionCreators from '../action_creators'
-import { ActionContainer } from './Action'
+import { Action } from './Action'
 
 export class Actions extends Component {
   constructor(props) {
@@ -11,10 +11,9 @@ export class Actions extends Component {
 
   }
   render() {
+  
     return (
       <div className="actions">
-        Actions
-        <ActionContainer />
       </div>
     )
   }
@@ -24,7 +23,7 @@ reactMixin(Actions.prototype, PureRenderMixin)
 
 function mapStateToProps(state) {
   return {
-
+    actions: state.get('tasks')
   }
 }
 
