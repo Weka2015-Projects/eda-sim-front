@@ -8,12 +8,12 @@ import { mount, render, shallow } from 'enzyme'
 import {Status} from '../../src/components/Status.jsx'
 
 describe('<Status />', () => {
-  xit('renders without any props', () => {
-    const wrapper = shallow(<Status/>)
+it('renders without any props', () => {
+    const wrapper = shallow(<Status activeTask=''/>)
     expect(wrapper).to.be.ok
   })
-  xit('has a classname of status', () => {
-    const wrapper = shallow(<Status />)
+  it('has a classname of status', () => {
+    const wrapper = shallow(<Status activeTask=''/>)
     expect(wrapper).to.have.className('status')
   })
 
