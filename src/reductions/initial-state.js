@@ -11,7 +11,7 @@ let initialState = Map({
   }),
   resources: Map({
     energy: 100,
-    mood: 100,
+    mood: 10,
     health: 100,
     enthusiasm: 100
   }),
