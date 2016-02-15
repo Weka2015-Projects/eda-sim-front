@@ -9,7 +9,7 @@ module.exports = {
 
     browser.assert.elementPresent('.phase')
 
-    browser.expect.element('div.status').text.to.contain('You are doing nothing')
+    browser.expect.element('div.status').text.to.contain('You are doing Nothing')
 
   }, 'you can start the timer' : function (browser) {
     // click the a start timer buttom
