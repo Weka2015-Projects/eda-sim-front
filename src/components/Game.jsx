@@ -9,6 +9,8 @@ import { SkillsContainer } from './Skills'
 import { StatusContainer } from './Status'
 import { ItemsContainer } from './Items'
 import { ActionsContainer } from './Actions'
+import { DialogContainer } from './DialogBox'
+
 export class Game extends Component {
   constructor(props) {
     super(props)
@@ -43,7 +45,6 @@ export class Game extends Component {
             <ItemsContainer />
           </div>
         </div>
-
       </div>
     )
   }
