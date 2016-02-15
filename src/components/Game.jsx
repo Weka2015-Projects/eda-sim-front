@@ -13,14 +13,19 @@ export class Game extends Component {
   constructor(props) {
     super(props)
   }
-  startGame(e){
+  toggleGame(e){
     e.preventDefault()
-    this.props.startGame()
+    this.props.toggleGame()
 
   }
   componentDidUpdate() {
+    console.log(this.interval)
+
     if(!this.interval && this.props.isPlaying) {
       this.interval = setInterval(this.props.next, 1000)
+    } else if (this.interval && !this.props.isPlaying) {
+      clearInterval(this.interval)
+      this.interval = undefined
     }
   }
   render() {
@@ -35,7 +40,7 @@ export class Game extends Component {
           <div className="col-md-6">
             <StatusContainer />
             <div className="start">
-              <button onClick={this.startGame.bind(this)} style={{display: this.props.isPlaying ? 'none' : 'block'}}>Start Game</button>
+              <button onClick={this.toggleGame.bind(this)} >{this.props.isPlaying ? 'Pause Game' : 'Start Game' }</button>
             </div>
           </div>
           <div className="col-md-3">

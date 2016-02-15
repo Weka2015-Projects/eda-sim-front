@@ -1,14 +1,10 @@
-export function startGame() {
+
+export function toggleGame() {
   return {
-    type: 'START_GAME'
+    type: 'TOGGLE_GAME'
   }
 }
 
-export function endGame() {
-  return {
-    type: 'END_GAME'
-  }
-}
 
 export function next() {
   return {
