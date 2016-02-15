@@ -11,7 +11,7 @@ let initialState = Map({
   }),
   resources: Map({
     energy: 100,
-    mood: 10,
+    mood: 100,
     health: 100,
     enthusiasm: 100
   }),
@@ -87,7 +87,7 @@ let initialState = Map({
       })
     }),
     Map({
-      name: 'Working on Group Projects',
+      name: 'Doing Group Projects',
       resources: Map({
         energy: -10,
         mood: -3
