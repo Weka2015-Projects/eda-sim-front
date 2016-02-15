@@ -20,11 +20,3 @@ export class App extends Component {
 }
 
 reactMixin(App.prototype, PureRenderMixin)
-
-function mapStateToProps(state) {
-  return {
-
-  }
-}
-
-export const AppContainer = connect(mapStateToProps, actionCreators)(App)
