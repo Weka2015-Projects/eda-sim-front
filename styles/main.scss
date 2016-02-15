@@ -31,7 +31,7 @@
 }
 .start {
   button {
-    margin:auto;
+    margin:100px auto;
     display: block;
   }
 
@@ -107,22 +107,29 @@
 }
 
 .skills {
-  .header {
-    h4 {}
-  }
   .skills-container {
     .skill {
       h6 {
-
+        text-transform: capitalize;
+        line-height: 3rem;
+        font-size: 1.5rem;
       }
       .experience {
+        height: 20px;
+        background-color: #eee;
         .amountOfExp {
-
+          height: 20px;
+          background-color: #DF493B;
+          display:inline-block;
         }
-        .expNumber { }
+        .expNumber {
+          display: none;
+        }
       }
       .level {
-
+        &:before {
+          content: 'Level '
+        }
       }
     }
   }
