@@ -77,15 +77,31 @@
   }
   .resources-container {
     .resource {
-      h6 {
-
-      }
+      padding: 10px;
+      display: inline-block;
+      width: 100%;
+    h6 {
+        text-transform: capitalize;
+        margin: 0;
+        line-height: 3rem;
+        font-size: 1.5rem;
+        width: 70%;
+        display: inline-block;
+        float:left;
+    }
       .quantity {
-
+        margin: 0;
+        line-height: 3rem;
+        font-size: 1.5rem;
+        float: left;
+        display: inline-block;
+        width: 30%;
+        text-align: right;
       }
     }
     .money {
-
+      text-align: center;
+      font-size: 2rem;
     }
   }
 }
