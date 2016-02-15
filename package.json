@@ -4,6 +4,7 @@
   "description": "our awesome front end game app",
   "main": "index.js",
   "scripts": {
+    "start": "webpack-dev-server",
     "test": "mocha --compilers js:babel-core/register --require ./test/test-helper.js \"test/**/*.@(js|jsx)\""
   },
   "repository": {
