@@ -2,4 +2,3 @@ node_modules
 bin
 dist/bundle.js
 reports
-test/integration
