@@ -9,6 +9,7 @@ import { SkillsContainer } from './Skills'
 import { StatusContainer } from './Status'
 import { ItemsContainer } from './Items'
 import { ActionsContainer } from './Actions'
+
 export class Game extends Component {
   constructor(props) {
     super(props)
