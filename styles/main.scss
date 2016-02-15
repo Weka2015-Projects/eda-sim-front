@@ -180,9 +180,10 @@
         position: absolute;
         display:none;
         background: #fff;
-        left: -130px;
-        top: -5px;
+        left: -230px;
+        top: -35px;
         border-radius: 15px;
+        width: 200px;
         &:before, &:after{
           left: 100%;
           top: 50%;
@@ -300,7 +301,11 @@
           margin-top: -53px;
         }
         .money {
-
+          font-size: 2rem;
+          text-align: center;
+          &:before {
+            content: '$'
+          }
         }
         .resources-gained {
           .resource {}

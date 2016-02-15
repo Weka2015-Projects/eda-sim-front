@@ -14,26 +14,33 @@ export class Action extends Component {
   }
   render() {
     const skillsArray = this.props.skills.map((skill, index) => {
-      return <div className="skill">{index}: +{skill}</div>
+      return <div className="skill">{index}: <span>+{skill}</span></div>
     })
     const resourcesArray = this.props.resources.map((resource, index) => {
-      return <div className="resource">{index}: {resource}</div>
+      return <div className="resource">{index}: <span>{resource}</span></div>
     })
     const initialCosts = this.props.initialCosts.map((cost, index) => {
-      return <div className="initial-cost">{index}: -{cost}</div>
+      return <div className="initial-cost">{index}: <span>-{cost}</span></div>
     })
     return (
       <div className="action">
         <div className="header">
           <h6>{this.props.name}</h6>
           <div className="button-wrapper">
-            <button disabled={!this.props.disabled} onClick={this.handleClick.bind(this)}>Do This</button>
+            <button disabled={!this.props.disabled} onClick={this.handleClick.bind(this)}>Do It</button>
           </div>
         </div>
         <div className="action-details">
-          <div className="skills">{skillsArray}</div>
-          <div className="cost">{resourcesArray}</div>
-          <div className="initial-costs">{initialCosts}</div>
+          <div className="skills">
+            <strong>Experience Per Hour</strong>
+            {skillsArray}</div>
+          <div className="cost">
+            <strong>Cost Per Hour</strong>
+            {resourcesArray}
+          </div>
+          <div className="initial-costs">
+            <strong>Cost To Start</strong>
+            {initialCosts}</div>
         </div>
       </div>
     )
