@@ -3,7 +3,7 @@ import reactMixin from 'react-mixin'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
 import { connect } from 'react-redux'
 import * as actionCreators from '../action_creators'
-import { Item } from './item'
+import { Item } from './Item'
 
 export class Items extends Component {
   constructor(props) {
