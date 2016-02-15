@@ -27,7 +27,7 @@ export class Action extends Component {
         <div className="header">
           <h6>{this.props.name}</h6>
           <div className="button-wrapper">
-            <button onClick={this.handleClick.bind(this)}>Do This</button>
+            <button disabled={!this.props.disabled} onClick={this.handleClick.bind(this)}>Do This</button>
           </div>
         </div>
         <div className="action-details">

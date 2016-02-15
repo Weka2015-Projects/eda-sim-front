@@ -21,7 +21,7 @@ export class Item extends Component {
         <div className="header">
           <h6>{this.props.name}</h6>
           <div className="button-wrapper">
-            <button onClick={this.handleClick.bind(this)}>Buy</button>
+            <button disabled={!this.props.disabled} onClick={this.handleClick.bind(this)}>Buy</button>
           </div>
         </div>
         <div className="item-details">

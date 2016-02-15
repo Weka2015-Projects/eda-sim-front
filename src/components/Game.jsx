@@ -35,7 +35,7 @@ export class Game extends Component {
           <div className="col-md-6">
             <StatusContainer />
             <div className="start">
-              <button onClick={this.startGame.bind(this)}>Start Game</button>
+              <button onClick={this.startGame.bind(this)} style={{display: this.props.isPlaying ? 'none' : 'block'}}>Start Game</button>
             </div>
           </div>
           <div className="col-md-3">
