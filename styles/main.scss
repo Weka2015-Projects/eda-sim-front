@@ -1,181 +1,26 @@
-//Global
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700|Open+Sans:400,600,400italic,700,800,300);
 
 .widget {
   >.header {
+    font-family: 'Montserrat';
     text-align: center;
+    background-color: #8BC53F;
+    color: #fff;
+    text-transform: uppercase;
+    padding: 5px;
+    letter-spacing: 1px;
+  h4 {
+    margin: 0;
+    font-size: 1.5rem;
+    }
   }
 }
 
-.game {
-  margin: 50px 0 0 0;
-}
-//Status
-.status {
-  text-align: center;
-  font-size: 3rem;
-
-}
 .start {
   button {
-    margin:auto;
+    margin: 100px auto;
     display: block;
-  }
-
-}
-//Time
-.time {
-  .header {
-    .phase {
-
-    }
-  }
-  .hour {
-
-  }
-  .time-group {
-    .day {
-
-    }
-    .week {
-
-    }
+    background-color: #E792B5;
+    color: #fff;
   }
 }
-
-//Resources
-
-.resources {
-  .header {
-    h4 {
-
-    }
-  }
-  .resources-container {
-    .resource {
-      h6 {
-
-      }
-      .quantity {
-
-      }
-    }
-    .money {
-
-    }
-  }
-}
-
-.skills {
-  .header {
-    h4 {}
-  }
-  .skills-container {
-    .skill {
-      h6 {
-
-      }
-      .experience {
-        .amountOfExp {
-
-        }
-        .expNumber { }
-      }
-      .level {
-
-      }
-    }
-  }
-
-}
-
-// Actions
-
-  .actions {
-    .header {
-      h4 {
-
-      }
-    }
-
-    .action {
-
-      .header {
-
-        h6 {
-
-        }
-        button {
-
-          &:hover{
-
-          }
-        }
-      }
-      .action-details {
-        max-height: 0;
-        transition: max-height 0.5s ease-out;
-        overflow: hidden;
-        .skills {
-
-          .skill {
-
-          }
-        }
-        .cost {
-
-          .resource {
-
-          }
-        }
-        .initial-costs {
-
-        }
-      }
-      &:hover {
-        .action-details {
-          max-height: 500px;
-          transition: max-height 0.75s ease-in;
-        }
-      }
-    }
-  }
-//Items
-  .items {
-    .header {
-      h4 {
-
-      }
-    }
-    .item {
-      .header {
-
-        h6 {
-
-        }
-        button {
-
-          &:hover{
-
-          }
-        }
-      }
-      .item-details {
-          max-height: 0;
-          transition: max-height 0.5s ease-out;
-          overflow: hidden;
-        .money {
-
-        }
-        .resources-gained {
-          .resource {}
-        }
-      }
-      &:hover {
-        .item-details {
-          max-height: 500px;
-          transition: max-height 0.75s ease-in;
-
-        }
-      }
-    }
-  }
