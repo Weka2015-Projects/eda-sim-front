@@ -11,7 +11,9 @@ export class Money extends Component {
   }
   render() {
     return (
-      <div className="money">${this.props.amount}</div>
+      <div className="money">
+        ${this.props.amount}
+      </div>
     )
   }
 }

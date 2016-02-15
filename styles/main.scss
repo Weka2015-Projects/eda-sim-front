@@ -1,8 +1,22 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700|Open+Sans:400,600,400italic,700,800,300);
 //Global
 
+
 .widget {
+  margin: 0 0 15px 0;
   >.header {
+    font-family: 'Montserrat';
     text-align: center;
+    background-color: #DF493B;
+    color: #fff;
+    text-transform: uppercase;
+    padding: 5px;
+    letter-spacing: 1px;
+    h4 {
+      margin: 0;
+      font-size: 1.5rem;
+
+    }
   }
 }
 
@@ -30,14 +44,25 @@
     }
   }
   .hour {
-
+    text-align: center;
+    font-family: 'Open Sans';
+    font-size: 3rem;
+    font-weight: bold;
   }
   .time-group {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    font-size: 1.7rem;
     .day {
-
+      width: 50%;
+      display: inline-block;
+      float: left;
     }
     .week {
-
+      width: 50%;
+      display: inline-block;
+      float: left;
     }
   }
 }
@@ -52,15 +77,31 @@
   }
   .resources-container {
     .resource {
-      h6 {
-
-      }
+      padding: 10px;
+      display: inline-block;
+      width: 100%;
+    h6 {
+        text-transform: capitalize;
+        margin: 0;
+        line-height: 3rem;
+        font-size: 1.5rem;
+        width: 70%;
+        display: inline-block;
+        float:left;
+    }
       .quantity {
-
+        margin: 0;
+        line-height: 3rem;
+        font-size: 1.5rem;
+        float: left;
+        display: inline-block;
+        width: 30%;
+        text-align: right;
       }
     }
     .money {
-
+      text-align: center;
+      font-size: 2rem;
     }
   }
 }
@@ -98,23 +139,66 @@
     }
 
     .action {
-
+      position:relative;
       .header {
-
+        padding: 10px;
+        display: inline-block;
+        width: 100%;
         h6 {
-
+          margin: 0;
+          line-height: 3rem;
+          font-size: 1.5rem;
+          width: 70%;
+          display: inline-block;
+          float:left;
         }
-        button {
+        .button-wrapper {
+          line-height: 3rem;
+          width: 30%;
+          display: inline-block;
+          float:left;
+          button {
+            width: 100%;
+            line-height: 2.5rem;
+            &:hover{
 
-          &:hover{
-
+            }
           }
+
         }
       }
       .action-details {
-        max-height: 0;
-        transition: max-height 0.5s ease-out;
-        overflow: hidden;
+        border: 3px solid #DF493B;
+        padding: 10px;
+        position: absolute;
+        display:none;
+        background: #fff;
+        left: -130px;
+        top: -5px;
+        border-radius: 15px;
+        &:before, &:after{
+          left: 100%;
+          top: 50%;
+          border: solid transparent;
+          content: " ";
+          height: 0;
+          width: 0;
+          position: absolute;
+          pointer-events: none;
+        }
+        &:after {
+          border-color: rgba(136, 183, 213, 0);
+          border-left-color: #fff;
+          border-width: 10px;
+          margin-top: -53px;
+
+        }
+        &:before {
+          border-color: rgba(194, 225, 245, 0);
+          border-left-color: #DF493B;
+          border-width: 14px;
+          margin-top: -57px;
+        }
         .skills {
 
           .skill {
@@ -133,8 +217,8 @@
       }
       &:hover {
         .action-details {
-          max-height: 500px;
-          transition: max-height 0.75s ease-in;
+          display: block;
+          z-index: 100;
         }
       }
     }
@@ -147,22 +231,67 @@
       }
     }
     .item {
+      position: relative;
       .header {
-
+        padding: 10px;
+        display: inline-block;
+        width: 100%;
         h6 {
-
+          margin: 0;
+          line-height: 3rem;
+          font-size: 1.5rem;
+          width: 70%;
+          display: inline-block;
+          float:left;
         }
-        button {
+        .button-wrapper {
+          line-height: 3rem;
+          width: 30%;
+          display: inline-block;
+          float:left;
+          button {
+            width: 100%;
+            line-height: 2.5rem;
+            &:hover{
 
-          &:hover{
-
+            }
           }
+
         }
       }
       .item-details {
-          max-height: 0;
-          transition: max-height 0.5s ease-out;
-          overflow: hidden;
+        height: 150px;
+        border: 3px solid #DF493B;
+        padding: 10px;
+        position: absolute;
+        display:none;
+        background: #fff;
+        left: -130px;
+        top: -5px;
+        border-radius: 15px;
+        &:before, &:after{
+          left: 100%;
+          top: 50%;
+          border: solid transparent;
+          content: " ";
+          height: 0;
+          width: 0;
+          position: absolute;
+          pointer-events: none;
+        }
+        &:after {
+          border-color: rgba(136, 183, 213, 0);
+          border-left-color: #fff;
+          border-width: 10px;
+          margin-top: -49px;
+
+        }
+        &:before {
+          border-color: rgba(194, 225, 245, 0);
+          border-left-color: #DF493B;
+          border-width: 14px;
+          margin-top: -53px;
+        }
         .money {
 
         }
@@ -172,8 +301,8 @@
       }
       &:hover {
         .item-details {
-          max-height: 500px;
-          transition: max-height 0.75s ease-in;
+          display: block;
+          z-index: 100;
 
         }
       }

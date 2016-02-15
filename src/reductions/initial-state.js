@@ -11,17 +11,22 @@ let initialState = Map({
   }),
   resources: Map({
     energy: 100,
-    mood: 10,
+    mood: 100,
     health: 100,
     enthusiasm: 100
   }),
   skills: Map({
-    softSkills: Map({
+    soft: Map({
       level: 1,
       exp: 0,
       expToLevel: 250
     }),
-    techSkills: Map({
+    tech: Map({
+      level: 1,
+      exp: 0,
+      expToLevel: 250
+    }),
+    creative: Map({
       level: 1,
       exp: 0,
       expToLevel: 250
@@ -63,8 +68,8 @@ let initialState = Map({
         mood: -3
       }),
       skills: Map({
-        softSkills: 3,
-        techSkills: 1
+        soft: 3,
+        tech: 1
       }),
       initialCosts: Map({
         energy: 30,
@@ -87,14 +92,14 @@ let initialState = Map({
       })
     }),
     Map({
-      name: 'Working on Group Projects',
+      name: 'Doing Group Projects',
       resources: Map({
         energy: -10,
         mood: -3
       }),
       skills: Map({
-        softSkills: 3,
-        techSkills: 1
+        soft: 3,
+        tech: 1
       }),
       initialCosts: Map({
         energy: 30,
@@ -108,8 +113,8 @@ let initialState = Map({
         mood: -3
       }),
       skills: Map({
-        softSkills: 3,
-        techSkills: 1
+        soft: 3,
+        tech: 1
       }),
       initialCosts: Map({
         energy: 30,
