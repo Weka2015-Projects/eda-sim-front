@@ -273,4 +273,37 @@ describe('BUY_ITEM', () => {
     })
   })
 })
+describe('TOGGLE_GAME', () => {
+  let initialState = sourceState
+  const action = {
+    type: 'TOGGLE_GAME'
+  }
+  it('starts the game if not playing', () => {
+    initialState = initialState.update('isPlaying', (value) => false)
+    const nextState = reducer(initialState, action)
+    expect(nextState.get('isPlaying')).to.equal(true)
+  })
+  it('pauses the game if playing', () => {
+    initialState = initialState.update('isPlaying', (value) => true)
+    const nextState = reducer(initialState, action)
+    expect(nextState.get('isPlaying')).to.equal(false)
+  })
+})
+describe('END_GAME', () => {
+  let initialState = sourceState
+  const action = {
+    type: 'END_GAME'
+  }
+  it('sets the game to be no longer playing', () => {
+    initialState = initialState.update('isPlaying', (value) => true)
+    const nextState = reducer(initialState, action)
+    expect(nextState.get('isPlaying')).to.equal(false)
+  })
+  it('ends the game', () => {
+    initialState = initialState.update('gameover', (value) => false)
+    const nextState = reducer(initialState, action)
+    expect(nextState.get('gameover')).to.equal(true)
+    expect(nextState.get('isPlaying')).to.equal(false)
+  })
+})
 })

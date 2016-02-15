@@ -4,6 +4,7 @@ import next from './reductions/next'
 import {activateTask } from './reductions/tasks'
 import buy from './reductions/buy'
 import toggle from './reductions/toggle'
+import end from './reductions/end'
 
 
 function reducer(state = initialState, action) {
@@ -11,7 +12,7 @@ function reducer(state = initialState, action) {
     case 'TOGGLE_GAME':
       return toggle(state)
     case 'END_GAME':
-      return state
+      return end(state)
     case 'NEXT':
       return next(state)
     case 'ACTIVATE_TASK':

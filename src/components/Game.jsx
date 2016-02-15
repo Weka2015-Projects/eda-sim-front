@@ -47,7 +47,6 @@ export class Game extends Component {
             <ItemsContainer />
           </div>
         </div>
-
       </div>
     )
   }
