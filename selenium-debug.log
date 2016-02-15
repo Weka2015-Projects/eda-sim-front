@@ -1,0 +1,54 @@
+10:08:14.817 INFO - Launching a standalone Selenium Server
+10:08:14.986 INFO - Java: Oracle Corporation 25.73-b02
+10:08:14.986 INFO - OS: Windows 10 10.0 x86
+10:08:15.018 INFO - v2.52.0, with Core v2.52.0. Built from revision 4c2593c
+10:08:15.136 INFO - Driver class not found: com.opera.core.systems.OperaDriver
+10:08:15.136 INFO - Driver provider com.opera.core.systems.OperaDriver is not registered
+10:08:15.187 INFO - Driver provider org.openqa.selenium.safari.SafariDriver registration is skipped:
+registration capabilities Capabilities [{browserName=safari, version=, platform=MAC}] does not match the current platform WIN10
+10:08:15.406 INFO - RemoteWebDriver instances should connect to: http://127.0.0.1:4444/wd/hub
+10:08:15.406 INFO - Selenium Server is up and running
+10:08:16.476 INFO - Executing: [new session: Capabilities [{acceptSslCerts=true, name=Example, browserName=firefox, javascriptEnabled=true, platform=ANY}]])
+10:08:16.492 INFO - Creating a new session for Capabilities [{acceptSslCerts=true, name=Example, browserName=firefox, javascriptEnabled=true, platform=ANY}]
+10:08:31.704 INFO - Done: [new session: Capabilities [{acceptSslCerts=true, name=Example, browserName=firefox, javascriptEnabled=true, platform=ANY}]]
+10:08:31.715 INFO - Executing: [get: http://www.google.com])
+10:08:34.993 INFO - Done: [get: http://www.google.com]
+10:08:35.002 INFO - Executing: [find elements: By.cssSelector: body])
+10:08:35.287 INFO - Done: [find elements: By.cssSelector: body]
+10:08:35.294 INFO - Executing: [is displayed: 0 [[FirefoxDriver: firefox on WINDOWS (a795834f-90df-463b-8ce5-0d28e187a1fc)] -> css selector: body]])
+10:08:35.308 INFO - Done: [is displayed: 0 [[FirefoxDriver: firefox on WINDOWS (a795834f-90df-463b-8ce5-0d28e187a1fc)] -> css selector: body]]
+10:08:35.315 INFO - Executing: [find element: By.cssSelector: input[type=text]])
+10:08:35.330 INFO - Done: [find element: By.cssSelector: input[type=text]]
+10:08:35.333 INFO - Executing: [send keys: 1 [[FirefoxDriver: firefox on WINDOWS (a795834f-90df-463b-8ce5-0d28e187a1fc)] -> css selector: input[type=text]], [n, i, g, h, t, w, a, t, c, h]])
+10:08:35.428 INFO - Done: [send keys: 1 [[FirefoxDriver: firefox on WINDOWS (a795834f-90df-463b-8ce5-0d28e187a1fc)] -> css selector: input[type=text]], [n, i, g, h, t, w, a, t, c, h]]
+10:08:35.436 INFO - Executing: [find elements: By.cssSelector: button[name=btnG]])
+10:08:35.450 INFO - Done: [find elements: By.cssSelector: button[name=btnG]]
+10:08:35.453 INFO - Executing: [is displayed: 2 [[FirefoxDriver: firefox on WINDOWS (a795834f-90df-463b-8ce5-0d28e187a1fc)] -> css selector: button[name=btnG]]])
+10:08:35.470 INFO - Done: [is displayed: 2 [[FirefoxDriver: firefox on WINDOWS (a795834f-90df-463b-8ce5-0d28e187a1fc)] -> css selector: button[name=btnG]]]
+10:08:35.474 INFO - Executing: [find element: By.cssSelector: button[name=btnG]])
+10:08:35.499 INFO - Done: [find element: By.cssSelector: button[name=btnG]]
+10:08:35.503 INFO - Executing: [click: 2 [[FirefoxDriver: firefox on WINDOWS (a795834f-90df-463b-8ce5-0d28e187a1fc)] -> css selector: button[name=btnG]]])
+10:08:35.819 INFO - Done: [click: 2 [[FirefoxDriver: firefox on WINDOWS (a795834f-90df-463b-8ce5-0d28e187a1fc)] -> css selector: button[name=btnG]]]
+10:08:36.825 INFO - Executing: [find element: By.cssSelector: #main])
+10:08:37.823 INFO - Done: [find element: By.cssSelector: #main]
+10:08:37.826 INFO - Executing: [get text: 3 [[FirefoxDriver: firefox on WINDOWS (a795834f-90df-463b-8ce5-0d28e187a1fc)] -> css selector: #main]])
+10:08:39.234 INFO - Done: [get text: 3 [[FirefoxDriver: firefox on WINDOWS (a795834f-90df-463b-8ce5-0d28e187a1fc)] -> css selector: #main]]
+10:08:39.250 INFO - Executing: [delete session: 1584b7a8-c9d5-48e0-9e7a-db2a8b4eaa12])
+10:08:40.368 INFO - Done: [delete session: 1584b7a8-c9d5-48e0-9e7a-db2a8b4eaa12]
+10:08:40.498 INFO - Executing: [new session: Capabilities [{acceptSslCerts=true, name=Front Page, browserName=firefox, javascriptEnabled=true, platform=ANY}]])
+10:08:40.499 INFO - Creating a new session for Capabilities [{acceptSslCerts=true, name=Front Page, browserName=firefox, javascriptEnabled=true, platform=ANY}]
+10:08:46.614 INFO - Done: [new session: Capabilities [{acceptSslCerts=true, name=Front Page, browserName=firefox, javascriptEnabled=true, platform=ANY}]]
+10:08:46.620 INFO - Executing: [get: file:C:\Users\nkula\Desktop\workspace\eda-sim-front\dist\index.html])
+10:08:49.632 INFO - Done: [get: file:C:\Users\nkula\Desktop\workspace\eda-sim-front\dist\index.html]
+10:08:49.636 INFO - Executing: [find elements: By.cssSelector: body])
+10:08:49.685 INFO - Done: [find elements: By.cssSelector: body]
+10:08:49.689 INFO - Executing: [is displayed: 0 [[FirefoxDriver: firefox on WINDOWS (3063eec4-96be-4d06-8713-09e91005de2b)] -> css selector: body]])
+10:08:49.703 INFO - Done: [is displayed: 0 [[FirefoxDriver: firefox on WINDOWS (3063eec4-96be-4d06-8713-09e91005de2b)] -> css selector: body]]
+10:08:50.709 INFO - Executing: [find elements: By.cssSelector: .phase])
+10:08:50.733 INFO - Done: [find elements: By.cssSelector: .phase]
+10:08:50.738 INFO - Executing: [find elements: By.cssSelector: div.status])
+10:08:50.753 INFO - Done: [find elements: By.cssSelector: div.status]
+10:08:50.756 INFO - Executing: [get text: 2 [[FirefoxDriver: firefox on WINDOWS (3063eec4-96be-4d06-8713-09e91005de2b)] -> css selector: div.status]])
+10:08:50.778 INFO - Done: [get text: 2 [[FirefoxDriver: firefox on WINDOWS (3063eec4-96be-4d06-8713-09e91005de2b)] -> css selector: div.status]]
+10:08:50.796 INFO - Executing: [delete session: 9f8fd651-c9c7-4d71-9265-8815eb88397f])
+10:08:51.090 INFO - Done: [delete session: 9f8fd651-c9c7-4d71-9265-8815eb88397f]
