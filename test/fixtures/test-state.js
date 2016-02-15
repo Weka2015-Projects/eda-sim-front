@@ -1,4 +1,5 @@
 import { Map, List } from 'immutable'
+//const
 let initialState = Map({
   isPlaying: true,
   money: 200,
