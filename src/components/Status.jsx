@@ -24,4 +24,4 @@ function mapStateToProps(state) {
   }
 }
 
-export const StatusContainer = connect(mapStateToProps, actionCreators)(Status)
+export const StatusContainer = connect(mapStateToProps)(Status)

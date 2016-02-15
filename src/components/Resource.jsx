@@ -20,11 +20,3 @@ export class Resource extends Component {
 }
 
 reactMixin(Resource.prototype, PureRenderMixin)
-
-function mapStateToProps(state) {
-  return {
-
-  }
-}
-
-export const ResourceContainer = connect(mapStateToProps, actionCreators)(Resource)

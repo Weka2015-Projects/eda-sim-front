@@ -38,4 +38,4 @@ function mapStateToProps(state) {
   }
 }
 
-export const ResourcesContainer = connect(mapStateToProps, actionCreators)(Resources)
+export const ResourcesContainer = connect(mapStateToProps)(Resources)

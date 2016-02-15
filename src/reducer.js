@@ -1,5 +1,5 @@
 import { List, Map, fromJS} from 'immutable'
-import initialState  from './reductions/initial-state'
+import initialState  from './data/initial-state'
 import next from './reductions/next'
 import {activateTask } from './reductions/tasks'
 import buy from './reductions/buy'
