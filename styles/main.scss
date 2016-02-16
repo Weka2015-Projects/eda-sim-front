@@ -184,6 +184,8 @@
         background: #fff;
         left: -230px;
         top: -35px;
+        border-radius: 15px;
+
         width: 200px;
         &:before, &:after{
           left: 100%;
@@ -277,6 +279,9 @@
         background: #fff;
         left: -130px;
         top: -5px;
+
+        border-radius: 15px;
+
         &:before, &:after{
           left: 100%;
           top: 50%;
@@ -320,3 +325,35 @@
       }
     }
   }
+.DialogueBox {
+  font-family: 'Open Sans';
+  border-radius: 10px;
+  -webkit-box-shadow: -2px 9px 10px -7px rgba(128,128,128,1);
+  -moz-box-shadow: -2px 7px 10px -7px rgba(128,128,128,1);
+  box-shadow: -2px 9px 30px -7px rgba(128,128,128,1);
+  text-align: center;
+}
+
+.img {
+  border-radius: 50%;
+  display: block;
+  margin-left: 190px;
+}
+
+
+.Text {
+  animation-duration: 3s;
+  animation-name: slidein;
+}
+
+@keyframes slidein {
+  from {
+    margin-left: 10%;
+    width: 300%;
+  }
+
+  to {
+    margin-left: 0%;
+    width: 60%;
+  }
+}
