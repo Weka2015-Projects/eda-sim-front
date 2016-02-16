@@ -4,19 +4,19 @@ import PureRenderMixin from 'react-addons-pure-render-mixin'
 import { connect } from 'react-redux'
 import * as actionCreators from '../action_creators'
 
-export class MixDialogBox extends Component {
+export class SimonDialogueBox extends Component {
   constructor(props) {
     super(props)
 
   }
   render() {
     return (
-      <div className="MixDialogBox">
-        <div className="MixImage">
-          <img className="mix" src="../img/mix.png"></img>
+      <div className="SimonDialogueBox">
+        <div className="SimonImage">
+          <img className="Simon" src="../img/simon.jpg"></img>
         </div>
-        <div className="MixDialog">
-          <p>"your third quest is: make a diagram"</p>
+        <div className="SimonDialogue">
+          <p>"your first quest is: cry"</p>
           <button>Continue</button>
         </div>
       </div>
@@ -24,7 +24,7 @@ export class MixDialogBox extends Component {
   }
 }
 
-reactMixin(MixDialogBox.prototype, PureRenderMixin)
+reactMixin(SimonDialogueBox.prototype, PureRenderMixin)
 
 function mapStateToProps(state) {
   return {
@@ -32,4 +32,4 @@ function mapStateToProps(state) {
   }
 }
 
-export const MixDialogContainer = connect(mapStateToProps)(MixDialogBox)
+export const SimonDialogueContainer = connect(mapStateToProps)(SimonDialogueBox)

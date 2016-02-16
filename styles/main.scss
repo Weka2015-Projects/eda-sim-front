@@ -325,12 +325,13 @@
       }
     }
   }
-.JoshDialogBox {
+.JoshDialogueBox {
   font-family: 'Open Sans';
   border-radius: 10px;
   -webkit-box-shadow: -2px 9px 10px -7px rgba(128,128,128,1);
   -moz-box-shadow: -2px 7px 10px -7px rgba(128,128,128,1);
   box-shadow: -2px 9px 30px -7px rgba(128,128,128,1);
+  text-align: center;
 }
 
 .josh {
@@ -339,7 +340,7 @@
   margin-left: 190px;
 }
 
-.SimonDialogBox {
+.SimonDialogueBox {
   font-family: 'Open Sans';
   border-radius: 10px;
   -webkit-box-shadow: -2px 9px 50px -7px rgba(128,128,128,1);
@@ -353,7 +354,7 @@
   margin-left: 190px;
 }
 
-.PietDialogBox {
+.PietDialogueBox {
   font-family: 'Open Sans';
   border-radius: 10px;
   -webkit-box-shadow: -2px 9px 50px -7px rgba(128,128,128,1);
@@ -375,7 +376,7 @@
 
   to {
     margin-left: 0%;
-    width: 100%;
+    width: 60%;
   }
 }
 
@@ -392,7 +393,7 @@
   margin-left: 90px;
 }
 
-.MixDialogBox {
+.MixDialogueBox {
   font-family: 'Open Sans';
   border-radius: 10px;
   -webkit-box-shadow: -2px 9px 50px -7px rgba(128,128,128,1);

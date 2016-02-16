@@ -1,4 +1,4 @@
-const dialogs = {
+const Dialogues = {
   scripted: [
     {
       name: 'welcome',
@@ -13,4 +13,4 @@ const dialogs = {
   ]
 }
 
-export default dialogs
+export default Dialogues
