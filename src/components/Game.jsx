@@ -10,6 +10,7 @@ import { StatusContainer } from './Status'
 import { ItemsContainer } from './Items'
 import { ActionsContainer } from './Actions'
 import { SubmitContainer } from './Submit'
+import { QuestsContainer } from './Quests'
 
 export class Game extends Component {
   constructor(props) {
@@ -45,6 +46,7 @@ export class Game extends Component {
             {this.props.newQuest ? <QuestDialog /> : ''}
           </div>
           <div className="col-md-3">
+            <QuestsContainer />
             <ActionsContainer />
             <ItemsContainer />
           </div>

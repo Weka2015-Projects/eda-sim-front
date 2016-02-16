@@ -8,13 +8,9 @@ function quests(state) {
 export default quests
 
 function updateQuestProgress(state) {
-  if(state.get('activeTask') === state.getIn(['activeQuest', 'task'])){
+  if (state.get('activeTask') === state.getIn(['activeQuest', 'task'])) {
     const progress = state.setIn(['activeQuest', 'progress'], state.getIn(['activeQuest', 'progress']) + 1)
-    if(progress.getIn(['activeQuest', 'progress']) === progress.getIn(['activeQuest', 'requirement'])) {
-      return completeQuest(progress)
-    } else {
-      return progress
-    }
+    return progress.getIn(['activeQuest', 'progress']) === progress.getIn(['activeQuest', 'requirement']) ? completeQuest(progress) : progress
   } else {
     return state
   }
