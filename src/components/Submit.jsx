@@ -3,22 +3,27 @@ import reactMixin from 'react-mixin'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
 import { connect } from 'react-redux'
 import * as actionCreators from '../action_creators'
+import SubmitForm from './SubmitForm'
 
-class SubmitScore extends Component {
+export class Submit extends Component {
   constructor(props) {
     super(props)
   }
   render() {
-    return () 
+    return (
+      <div className="submit">
+        <SubmitForm score={this.props.score} />
+      </div>
+    ) 
   }
 }
 
-reactMixin(SubmitScore.prototype, PureRenderMixin)
+reactMixin(Submit.prototype, PureRenderMixin)
 
 function mapStateToProps(state) {
   return {
-
+    score: state.get('score')
   }
 }
 
-export const Container = connect(mapStateToProps, actionCreators)()
+export const SubmitContainer = connect(mapStateToProps, actionCreators)(Submit)

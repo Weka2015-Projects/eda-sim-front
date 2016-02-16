@@ -2,7 +2,7 @@ import { expect } from 'chai'
 import { List, Map, fromJS } from 'immutable'
 import sourceState from '../fixtures/test-state.js'
 import reducer from '../../src/reducer.js'
-import request from 'superagent'
+import request from 'supertest'
 
 describe('reducer', () => {
   describe('NEXT', () => {
@@ -92,7 +92,7 @@ describe('reducer', () => {
           expect(nextState.getIn(['skills', 'soft', 'exp'])).to.equal(53)
         })
       })
-})
+    })
 describe('days', () => {
   it('increases the day', () => {
     initialState = initialState.updateIn(['time', 'hour'], (value) => 21)
@@ -306,14 +306,6 @@ describe('END_GAME', () => {
     expect(nextState.get('gameover')).to.equal(true)
     expect(nextState.get('isPlaying')).to.equal(false)
   })
-  it('ends the game', () => {
-    expect(nextState.get('gameover')).to.equal(true)
-    expect(nextState.get('isPlaying')).to.equal(false)
-  })
-  it('submits a score', () => {
-    const req = request.get('localhost:4000/api/v1/scores').query({name:'InsertNameHere'}).end((err, res) => console.log(res.body))
-    console.log(req)
-    expect(req).to.be.ok
-  })
+
 })
 })
