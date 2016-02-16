@@ -139,31 +139,31 @@
     50%{transform: rotate(-5deg)}
     100%{transform: rotate(10deg);}
 }
-
-#armOne{
-    -webkit-transform-origin: 50% 0;
-    transform-origin: 50% 0;
-    -webkit-animation: swinging 3.5s ease-in-out forwards infinite;
-    animation: swinging 3.5s ease-in-out forwards infinite;
-}
-#armTwo{
-    -webkit-transform-origin: 50% 0;
-    transform-origin: 50% 0;
-    -webkit-animation: swinging 3.5s ease-in-out forwards infinite;
-    animation: swinging 3.5s ease-in-out forwards infinite;
-}
-#legOne{
-    -webkit-transform-origin: 50% 0;
-    transform-origin: 50% 0;
-    -webkit-animation: swinging 3.5s ease-in-out forwards infinite;
-    animation: swinging 3.5s ease-in-out forwards infinite;
-}
-#legTwo{
-    -webkit-transform-origin: 90% 0;
-    transform-origin: 90% 0;
-    -webkit-animation: swinging 3.5s ease-in-out forwards infinite;
-    animation: swinging 3.5s ease-in-out forwards infinite;
-}
+// 
+// #armOne{
+//     -webkit-transform-origin: 50% 0;
+//     transform-origin: 50% 0;
+//     -webkit-animation: swinging 3.5s ease-in-out forwards infinite;
+//     animation: swinging 3.5s ease-in-out forwards infinite;
+// }
+// #armTwo{
+//     -webkit-transform-origin: 50% 0;
+//     transform-origin: 50% 0;
+//     -webkit-animation: swinging 3.5s ease-in-out forwards infinite;
+//     animation: swinging 3.5s ease-in-out forwards infinite;
+// }
+// #legOne{
+//     -webkit-transform-origin: 50% 0;
+//     transform-origin: 50% 0;
+//     -webkit-animation: swinging 3.5s ease-in-out forwards infinite;
+//     animation: swinging 3.5s ease-in-out forwards infinite;
+// }
+// #legTwo{
+//     -webkit-transform-origin: 90% 0;
+//     transform-origin: 90% 0;
+//     -webkit-animation: swinging 3.5s ease-in-out forwards infinite;
+//     animation: swinging 3.5s ease-in-out forwards infinite;
+// }
 #face{
     -webkit-transform-origin: 50% 0;
     transform-origin: 50% 0;
