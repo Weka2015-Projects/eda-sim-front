@@ -3,7 +3,7 @@ import { List, Map, fromJS } from 'immutable'
 import initialState from '../fixtures/quest-state.js'
 import reducer from '../../src/reducer.js'
 
-describe('quests', () => {
+describe('Quests', () => {
 
   it('assigns quest on first day', () => {
     const action = {
