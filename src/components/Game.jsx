@@ -11,6 +11,8 @@ import { ItemsContainer } from './Items'
 import { ActionsContainer } from './Actions'
 import { DialogueContainer } from './DialogueBox'
 import { SubmitContainer } from './Submit'
+import { QuestsContainer } from './Quests'
+import { DialoguesContainer } from './Dialogues'
 
 export class Game extends Component {
   constructor(props) {
@@ -21,6 +23,7 @@ export class Game extends Component {
     this.props.toggleGame()
   }
   componentDidUpdate() {
+
     if(!this.interval && this.props.isPlaying) {
       this.interval = setInterval(this.props.next, 1000)
     } else {
@@ -29,6 +32,7 @@ export class Game extends Component {
     }
   }
   render() {
+    console.log(this.props.newQuest)
     return (
       <div className="game">
         <div className="row">
@@ -38,14 +42,11 @@ export class Game extends Component {
             <SkillsContainer />
           </div>
           <div className="col-md-6">
-            {this.props.gameover ? '': <StatusContainer />}
-            <div className="start">
-              {this.props.gameover ? <SubmitContainer /> : <button onClick={this.toggleGame.bind(this)}>{this.props.isPlaying ? 'Pause Game' : 'Start Game' }</button>}
-            </div>
-            {this.props.gameOver ? <SubmitScore /> : ''}
-            {this.props.newQuest ? <QuestDialog /> : ''}
+            {this.props.gameover ? <SubmitScore /> : <StatusContainer />}
+            {this.props.newQuest ? <DialoguesContainer/> : <div className="start"><button onClick={this.toggleGame.bind(this)}>{this.props.isPlaying ? 'Pause Game' : 'Start Game' }</button></div>}
           </div>
           <div className="col-md-3">
+            <QuestsContainer />
             <ActionsContainer />
             <ItemsContainer />
           </div>
@@ -61,7 +62,8 @@ reactMixin(Game.prototype, PureRenderMixin)
 function mapStateToProps(state) {
   return {
     isPlaying: state.get('isPlaying'),
-    gameover: state.get('gameover')
+    gameover: state.get('gameover'),
+    newQuest: state.get('newQuest')
   }
 }
 

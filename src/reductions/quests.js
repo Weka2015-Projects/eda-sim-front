@@ -8,13 +8,9 @@ function quests(state) {
 export default quests
 
 function updateQuestProgress(state) {
-  if(state.get('activeTask') === state.getIn(['activeQuest', 'task'])){
+  if (state.get('activeTask') === state.getIn(['activeQuest', 'task'])) {
     const progress = state.setIn(['activeQuest', 'progress'], state.getIn(['activeQuest', 'progress']) + 1)
-    if(progress.getIn(['activeQuest', 'progress']) === progress.getIn(['activeQuest', 'requirement'])) {
-      return completeQuest(progress)
-    } else {
-      return progress
-    }
+    return progress.getIn(['activeQuest', 'progress']) === progress.getIn(['activeQuest', 'requirement']) ? completeQuest(progress) : progress
   } else {
     return state
   }
@@ -37,5 +33,5 @@ function spawnQuest(state){
   const newQuest = questData.get('scripted').filter((quest) => {
     return is(quest.get('time'), time)
   })
-  return newQuest.size > 0 ? state.set('activeQuest', newQuest.get(0).get('quest')) : state
+  return newQuest.size > 0 ? state.set('activeQuest', newQuest.get(0).get('quest')).set('newQuest', true).set('isPlaying', false) : state
 }
