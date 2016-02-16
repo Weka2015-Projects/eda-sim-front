@@ -2,6 +2,7 @@ import { expect } from 'chai'
 import { List, Map, fromJS } from 'immutable'
 import sourceState from '../fixtures/test-state.js'
 import reducer from '../../src/reducer.js'
+import request from 'supertest'
 
 describe('reducer', () => {
   describe('NEXT', () => {
@@ -91,7 +92,7 @@ describe('reducer', () => {
           expect(nextState.getIn(['skills', 'soft', 'exp'])).to.equal(53)
         })
       })
-})
+    })
 describe('days', () => {
   it('increases the day', () => {
     initialState = initialState.updateIn(['time', 'hour'], (value) => 21)
@@ -290,20 +291,21 @@ describe('TOGGLE_GAME', () => {
   })
 })
 describe('END_GAME', () => {
-  let initialState = sourceState
   const action = {
     type: 'END_GAME'
   }
+  let initialState = sourceState
+  initialState = initialState.update('isPlaying', (value) => true)
+  initialState = initialState.update('gameover', (value) => false)
+  const nextState = reducer(initialState, action)
+  
   it('sets the game to be no longer playing', () => {
-    initialState = initialState.update('isPlaying', (value) => true)
-    const nextState = reducer(initialState, action)
     expect(nextState.get('isPlaying')).to.equal(false)
   })
   it('ends the game', () => {
-    initialState = initialState.update('gameover', (value) => false)
-    const nextState = reducer(initialState, action)
     expect(nextState.get('gameover')).to.equal(true)
     expect(nextState.get('isPlaying')).to.equal(false)
   })
+
 })
 })

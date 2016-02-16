@@ -1,4 +1,3 @@
-
 export function toggleGame() {
   return {
     type: 'TOGGLE_GAME'
@@ -24,5 +23,12 @@ export function buyItem(item) {
   return {
     type: 'BUY_ITEM',
     item: item
+  }
+}
+
+export function submitScore(name) {
+  return {
+    type: 'SUBMIT_SCORE',
+    name: name
   }
 }

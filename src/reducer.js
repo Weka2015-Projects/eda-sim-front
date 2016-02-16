@@ -5,7 +5,7 @@ import {activateTask } from './reductions/tasks'
 import buy from './reductions/buy'
 import toggle from './reductions/toggle'
 import end from './reductions/end'
-
+import submit from './reductions/submit'
 
 function reducer(state = initialState, action) {
   switch (action.type) {
@@ -19,7 +19,8 @@ function reducer(state = initialState, action) {
       return activateTask(state, action.task)
     case 'BUY_ITEM':
       return buy(state, action.item)
-
+    case 'SUBMIT_SCORE':
+      return submit(state, action.name)
   }
   return state
 }
