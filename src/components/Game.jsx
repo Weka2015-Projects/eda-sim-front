@@ -9,7 +9,10 @@ import { SkillsContainer } from './Skills'
 import { StatusContainer } from './Status'
 import { ItemsContainer } from './Items'
 import { ActionsContainer } from './Actions'
-import { DialogContainer } from './JoshDialogBox'
+import { JoshDialogContainer } from './JoshDialogBox'
+import { SimonDialogContainer } from './SimonDialogBox'
+import { PietDialogContainer } from './PietDialogBox'
+import { MixDialogContainer } from './MixDialogBox'
 
 export class Game extends Component {
   constructor(props) {
@@ -37,7 +40,7 @@ export class Game extends Component {
           <div className="col-md-6">
             <StatusContainer />
             <div className="start">
-              {this.props.isPlaying ? <DialogContainer /> : <button onClick={this.startGame.bind(this)}>Start Game</button>}
+              {this.props.isPlaying ? <JoshDialogContainer /> : <button onClick={this.startGame.bind(this)}>Start Game</button>}
             </div>
           </div>
           <div className="col-md-3">
