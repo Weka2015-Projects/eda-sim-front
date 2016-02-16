@@ -18,5 +18,6 @@ describe('<Dialogues/>', () => {
   it('renders correct teacher name', () => {
     const wrapper = shallow(<Dialogues quest={questState.get('activeQuest')}/>)
     expect(wrapper.find('h3')).to.have.text('joshua')
+
   })
 })
