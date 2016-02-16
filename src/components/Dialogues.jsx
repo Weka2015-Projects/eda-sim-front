@@ -17,12 +17,12 @@ export class Dialogues extends Component {
     const { quest } = this.props
     return (
       <div className="dialogue">
-          <div className="Image">
+          <div className="image-wrapper">
             <img className="img" src={`../img/${quest.get('giver')}.jpg`}></img>
           </div>
-        <div className="Dialogue">
+        <div className="info">
           <h3>{quest.get('giver')}</h3>
-          <p className="Text">{quest.get('content')}</p>
+          <p className="text">{quest.get('content')}</p>
           <button onClick={this.toggleGame.bind(this)}>Continue</button>
         </div>
       </div>
