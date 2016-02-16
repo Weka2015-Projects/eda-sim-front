@@ -12,7 +12,7 @@ export class Submit extends Component {
   render() {
     return (
       <div className="submit">
-        <SubmitForm score={this.props.score} submitScore={this.props.submitScore.bind(this)} />
+        <SubmitForm score={this.props.score} submitScore={this.props.submitScore} />
       </div>
     )
   }
