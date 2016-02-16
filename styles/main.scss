@@ -24,3 +24,162 @@
     color: #fff;
   }
 }
+
+.time {
+  .header {
+    .phase {
+
+    }
+  }
+  .hour {
+    text-align: center;
+    font-family: 'Open Sans';
+    font-size: 3rem;
+    font-weight: bold;
+  }
+  .time-group {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    font-size: bold;
+  }
+  .time-group {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    font-size: 1.7rem;
+    .day {
+      width: 50%;
+      display: inline-block;
+      float: left;
+    }
+    .week {
+      width: 50%;
+      display: inline-block;
+      float: left;
+    }
+  }
+}
+
+.resources {
+  .header {
+    h4 {
+
+    }
+  }
+  .resources-container {
+    .resource {
+      padding: 3px 10px;
+      display: inline-block;
+      width: 100%;
+    }
+    h6 {
+      text-transform: capitalize;
+      margin: 0;
+      line-height: 3rem;
+      font-size: 1.5rem;
+      width: 70%;
+      display: inline-block;
+      float: left;
+    }
+    .quantity {
+      margin: 0;
+      line-height: 3rem;
+      font-size: 1.5rem;
+      float: left;
+      display: inline-block;
+      width: 30%;
+      text-align: right;
+    }
+  }
+  .money {
+    text-align: center;
+    font-size: 2rem;
+  }
+}
+
+.skills {
+  .skills-container {
+    .skill {
+      padding: 0 10px;
+      h6 {
+        margin: 0;
+        text-transform: capitalize;
+        line-height: 3rem;
+        font-size: 1.5rem;
+      }
+      .experience {
+        height: 20px;
+        background-color: #eee;
+        .amountOfExp {
+          height: 20px;
+          background-color: #DF493B;
+          display: inline-block;
+        }
+        .expNumber {
+          display: none;
+        }
+      }
+      .level {
+        &:before {
+          content: 'Level'
+        }
+      }
+    }
+  }
+}
+@-webkit-keyframes swinging{
+    0%{-webkit-transform: rotate(10deg);}
+    50%{-webkit-transform: rotate(-5deg)}
+    100%{-webkit-transform: rotate(10deg);}
+}
+
+@keyframes swinging{
+    0%{transform: rotate(10deg);}
+    50%{transform: rotate(-5deg)}
+    100%{transform: rotate(10deg);}
+}
+
+#armOne{
+    -webkit-transform-origin: 50% 0;
+    transform-origin: 50% 0;
+    -webkit-animation: swinging 3.5s ease-in-out forwards infinite;
+    animation: swinging 3.5s ease-in-out forwards infinite;
+}
+#armTwo{
+    -webkit-transform-origin: 50% 0;
+    transform-origin: 50% 0;
+    -webkit-animation: swinging 3.5s ease-in-out forwards infinite;
+    animation: swinging 3.5s ease-in-out forwards infinite;
+}
+#legOne{
+    -webkit-transform-origin: 50% 0;
+    transform-origin: 50% 0;
+    -webkit-animation: swinging 3.5s ease-in-out forwards infinite;
+    animation: swinging 3.5s ease-in-out forwards infinite;
+}
+#legTwo{
+    -webkit-transform-origin: 90% 0;
+    transform-origin: 90% 0;
+    -webkit-animation: swinging 3.5s ease-in-out forwards infinite;
+    animation: swinging 3.5s ease-in-out forwards infinite;
+}
+#face{
+    -webkit-transform-origin: 50% 0;
+    transform-origin: 50% 0;
+    -webkit-animation: swinging 3.5s ease-in-out forwards infinite;
+    animation: swinging 3.5s ease-in-out forwards infinite;
+}
+
+#eyeOne{
+    -webkit-transform-origin: 50% 0;
+    transform-origin: 50% 0;
+    -webkit-animation: swinging 3.5s ease-in-out forwards infinite;
+    animation: swinging 3.5s ease-in-out forwards infinite;
+}
+#eyeTwo{
+    -webkit-transform-origin: 80% 0;
+    transform-origin: 80% 0;
+    -webkit-animation: swinging 3.5s ease-in-out forwards infinite;
+    animation: swinging 3.5s ease-in-out forwards infinite;
+}

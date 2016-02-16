@@ -9,6 +9,7 @@ import { SkillsContainer } from './Skills'
 import { StatusContainer } from './Status'
 import { ItemsContainer } from './Items'
 import { ActionsContainer } from './Actions'
+import { DancingManContainer } from './DancingMan'
 export class Game extends Component {
   constructor(props) {
     super(props)
@@ -37,6 +38,8 @@ export class Game extends Component {
             <div className="start">
               <button onClick={this.startGame.bind(this)}>Start Game</button>
             </div>
+            <DancingManContainer />
+
           </div>
           <div className="col-md-3">
             <ActionsContainer />
