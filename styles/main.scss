@@ -325,7 +325,7 @@
       }
     }
   }
-.JoshDialogueBox {
+.DialogueBox {
   font-family: 'Open Sans';
   border-radius: 10px;
   -webkit-box-shadow: -2px 9px 10px -7px rgba(128,128,128,1);
@@ -334,37 +334,14 @@
   text-align: center;
 }
 
-.josh {
+.img {
   border-radius: 50%;
   display: block;
   margin-left: 190px;
 }
 
-.SimonDialogueBox {
-  font-family: 'Open Sans';
-  border-radius: 10px;
-  -webkit-box-shadow: -2px 9px 50px -7px rgba(128,128,128,1);
-  -moz-box-shadow: -2px 9px 50px -7px rgba(128,128,128,1);
-  box-shadow: -2px 9px 50px -7px rgba(128,128,128,1);
-  text-align: center;
-}
 
-.Simon {
-  border-radius: 50%;
-  display: block;
-  margin-left: 190px;
-}
-
-.PietDialogueBox {
-  font-family: 'Open Sans';
-  border-radius: 10px;
-  -webkit-box-shadow: -2px 9px 50px -7px rgba(128,128,128,1);
-  -moz-box-shadow: -2px 9px 50px -7px rgba(128,128,128,1);
-  box-shadow: -2px 9px 50px -7px rgba(128,128,128,1);
-  text-align: center;
-}
-
-.JoshWords {
+.Text {
   animation-duration: 3s;
   animation-name: slidein;
 }
@@ -379,26 +356,4 @@
     margin-left: 0%;
     width: 60%;
   }
-}
-
-
-.Piet {
-  border-radius: 50%;
-  display: block;
-  margin-left: 90px;
-}
-
-.Mix {
-  border-radius: 90%;
-  display: block;
-  margin-left: 90px;
-}
-
-.MixDialogueBox {
-  font-family: 'Open Sans';
-  border-radius: 10px;
-  -webkit-box-shadow: -2px 9px 50px -7px rgba(128,128,128,1);
-  -moz-box-shadow: -2px 9px 50px -7px rgba(128,128,128,1);
-  box-shadow: -2px 9px 50px -7px rgba(128,128,128,1);
-  text-align: center;
 }

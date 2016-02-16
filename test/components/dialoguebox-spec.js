@@ -25,4 +25,8 @@ describe('<DialogueBox/>', () => {
     const wrapper = shallow(<DialogueBox/>)
     expect(wrapper.find('p')).to.have.text('')
   })
+  it('renders the correct image', () => {
+    const wrapper = shallow(<DialogueBox/>)
+    expect(wrapper.find('img')).to.have.
+  })
 })
