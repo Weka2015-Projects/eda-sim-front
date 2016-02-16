@@ -9,11 +9,7 @@ import { SkillsContainer } from './Skills'
 import { StatusContainer } from './Status'
 import { ItemsContainer } from './Items'
 import { ActionsContainer } from './Actions'
-import { JoshDialogueContainer } from './JoshDialogueBox'
-import { SimonDialogueContainer } from './SimonDialogueBox'
-import { PietDialogueContainer } from './PietDialogueBox'
-import { MixDialogueContainer } from './MixDialogueBox'
-
+import { DialogueContainer } from './DialogueBox'
 
 export class Game extends Component {
   constructor(props) {
