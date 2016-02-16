@@ -38,4 +38,4 @@ function mapStateToProps(state) {
   }
 }
 
-export const SkillsContainer = connect(mapStateToProps, actionCreators)(Skills)
+export const SkillsContainer = connect(mapStateToProps)(Skills)

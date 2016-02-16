@@ -16,12 +16,12 @@ let initialState = Map({
     enthusiasm: 100
   }),
   skills: Map({
-    softSkills: Map({
+    soft: Map({
       level: 1,
       exp: 0,
       expToLevel: 250
     }),
-    techSkills: Map({
+    tech: Map({
       level: 1,
       exp: 0,
       expToLevel: 250
@@ -54,8 +54,8 @@ let initialState = Map({
         mood: -3
       }),
       skills: Map({
-        softSkills: 3,
-        techSkills: 1
+        soft: 3,
+        tech: 1
       }),
       initialCosts: Map({
         energy: 30,
@@ -69,8 +69,8 @@ let initialState = Map({
         mood: -3
       }),
       skills: Map({
-        softSkills: 3,
-        techSkills: 1
+        soft: 3,
+        tech: 1
       }),
       initialCosts: Map({
         energy: 30,
@@ -84,8 +84,8 @@ let initialState = Map({
         mood: -3
       }),
       skills: Map({
-        softSkills: 3,
-        techSkills: 1
+        soft: 3,
+        tech: 1
       }),
       initialCosts: Map({
         energy: 30,
@@ -99,8 +99,8 @@ let initialState = Map({
         mood: -3
       }),
       skills: Map({
-        softSkills: 3,
-        techSkills: 1
+        soft: 3,
+        tech: 1
       }),
       initialCosts: Map({
         energy: 30,

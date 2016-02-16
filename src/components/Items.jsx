@@ -3,7 +3,7 @@ import reactMixin from 'react-mixin'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
 import { connect } from 'react-redux'
 import * as actionCreators from '../action_creators'
-import { Item } from './item'
+import { Item } from './Item'
 
 export class Items extends Component {
   constructor(props) {
@@ -14,7 +14,7 @@ export class Items extends Component {
   }
   render() {
     const items = this.props.items.map((item, idx) => {
-      return <Item buyItem={this.clickToBuy.bind(this)} name={item.get('name')} money={item.get('money')} resources={item.get('resources')} key={idx}/>
+      return <Item disabled={this.props.disabled} buyItem={this.clickToBuy.bind(this)} name={item.get('name')} money={item.get('money')} resources={item.get('resources')} key={idx}/>
     })
     return (
       <div className="items widget">
@@ -31,6 +31,7 @@ reactMixin(Items.prototype, PureRenderMixin)
 
 function mapStateToProps(state) {
   return {
+    disabled: state.get('isPlaying'),
     items: state.get('items')
   }
 }

@@ -4,6 +4,8 @@
   "description": "our awesome front end game app",
   "main": "index.js",
   "scripts": {
+    "start": "webpack-dev-server",
+    "test:integration": "webpack & nightwatch",
     "test": "mocha --compilers js:babel-core/register --require ./test/test-helper.js \"test/**/*.@(js|jsx)\""
   },
   "repository": {
@@ -46,6 +48,7 @@
     "history": "^1.17.0",
     "immutable": "^3.7.6",
     "lodash": "^4.3.0",
+    "nightwatch": "^0.8.16",
     "pure-render-decorator": "^0.2.0",
     "react": "^0.14.7",
     "react-addons-pure-render-mixin": "^0.14.7",

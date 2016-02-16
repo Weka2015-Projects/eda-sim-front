@@ -20,11 +20,13 @@ export class Item extends Component {
       <div className="item">
         <div className="header">
           <h6>{this.props.name}</h6>
-          <button onClick={this.handleClick.bind(this)}>Buy</button>
+          <div className="button-wrapper">
+            <button disabled={!this.props.disabled} onClick={this.handleClick.bind(this)}>Buy</button>
+          </div>
         </div>
         <div className="item-details">
           <div className="money">{this.props.money}</div>
-          <div className="resources-gained">Resources Gained: {resourcesArray}</div>
+          <div className="resources-gained">Resources: {resourcesArray}</div>
         </div>
       </div>
     )

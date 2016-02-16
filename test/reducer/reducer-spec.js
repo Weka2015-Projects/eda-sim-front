@@ -50,45 +50,45 @@ describe('reducer', () => {
         it('increases skils exp if a task is defined', () => {
           initialState = initialState.updateIn(['activeTask'], (value) => 'Pair Programming')
           const nextState = reducer(initialState, action)
-          expect(nextState.getIn(['skills', 'softSkills', 'exp'])).to.equal(3)
-          expect(nextState.getIn(['skills', 'techSkills', 'exp'])).to.equal(1)
+          expect(nextState.getIn(['skills', 'soft', 'exp'])).to.equal(3)
+          expect(nextState.getIn(['skills', 'tech', 'exp'])).to.equal(1)
         })
         it('ensures that skill exp is incresed with every next call', () => {
           const nextState = reducer(initialState, action)
           const furtherState = reducer(nextState, action)
-          expect(furtherState.getIn(['skills', 'softSkills', 'exp'])).to.equal(6)
-          expect(furtherState.getIn(['skills', 'techSkills', 'exp'])).to.equal(2)
+          expect(furtherState.getIn(['skills', 'soft', 'exp'])).to.equal(6)
+          expect(furtherState.getIn(['skills', 'tech', 'exp'])).to.equal(2)
         })
         it('does not increase skill exp if no task is defined', () => {
           initialState = initialState.updateIn(['activeTask'], (value) => '')
           const nextState = reducer(initialState, action)
-          expect(nextState.getIn(['skills', 'softSkills', 'exp'])).to.equal(0)
-          expect(nextState.getIn(['skills', 'techSkills', 'exp'])).to.equal(0)
+          expect(nextState.getIn(['skills', 'soft', 'exp'])).to.equal(0)
+          expect(nextState.getIn(['skills', 'tech', 'exp'])).to.equal(0)
         })
         it('increases skill level if experience is greater than exp level', () => {
           initialState = initialState.updateIn(['activeTask'], (value) => 'Pair Programming')
-          initialState = initialState.updateIn(['skills', 'softSkills', 'exp'], (value) => 247)
+          initialState = initialState.updateIn(['skills', 'soft', 'exp'], (value) => 247)
           const nextState = reducer(initialState, action)
-          expect(nextState.getIn(['skills', 'softSkills', 'level'])).to.equal(2)
-          expect(nextState.getIn(['skills', 'softSkills', 'exp'])).to.equal(0)
+          expect(nextState.getIn(['skills', 'soft', 'level'])).to.equal(2)
+          expect(nextState.getIn(['skills', 'soft', 'exp'])).to.equal(0)
         })
         it('enures exp is carried over after levelling', () => {
-          initialState = initialState.updateIn(['skills', 'softSkills', 'exp'], (value) => 280)
+          initialState = initialState.updateIn(['skills', 'soft', 'exp'], (value) => 280)
           const nextState = reducer(initialState, action)
-          expect(nextState.getIn(['skills', 'softSkills', 'level'])).to.equal(2)
-          expect(nextState.getIn(['skills', 'softSkills', 'exp'])).to.equal(33)
+          expect(nextState.getIn(['skills', 'soft', 'level'])).to.equal(2)
+          expect(nextState.getIn(['skills', 'soft', 'exp'])).to.equal(33)
         })
         it('allows double levelling', () => {
-          initialState = initialState.updateIn(['skills', 'softSkills', 'exp'], (value) => 580)
+          initialState = initialState.updateIn(['skills', 'soft', 'exp'], (value) => 580)
           const nextState = reducer(initialState, action)
-          expect(nextState.getIn(['skills', 'softSkills', 'level'])).to.equal(3)
-          expect(nextState.getIn(['skills', 'softSkills', 'exp'])).to.equal(83)
+          expect(nextState.getIn(['skills', 'soft', 'level'])).to.equal(3)
+          expect(nextState.getIn(['skills', 'soft', 'exp'])).to.equal(83)
         })
         it('enures exp is carried over after double levelling', () => {
-          initialState = initialState.updateIn(['skills', 'softSkills', 'exp'], (value) => 800)
+          initialState = initialState.updateIn(['skills', 'soft', 'exp'], (value) => 800)
           const nextState = reducer(initialState, action)
-          expect(nextState.getIn(['skills', 'softSkills', 'level'])).to.equal(4)
-          expect(nextState.getIn(['skills', 'softSkills', 'exp'])).to.equal(53)
+          expect(nextState.getIn(['skills', 'soft', 'level'])).to.equal(4)
+          expect(nextState.getIn(['skills', 'soft', 'exp'])).to.equal(53)
         })
       })
 })
@@ -271,6 +271,39 @@ describe('BUY_ITEM', () => {
       expect(furtherState.getIn(['resources', 'energy'])).to.equal(510)
       expect(furtherState.getIn(['resources', 'mood'])).to.equal(102)
     })
+  })
+})
+describe('TOGGLE_GAME', () => {
+  let initialState = sourceState
+  const action = {
+    type: 'TOGGLE_GAME'
+  }
+  it('starts the game if not playing', () => {
+    initialState = initialState.update('isPlaying', (value) => false)
+    const nextState = reducer(initialState, action)
+    expect(nextState.get('isPlaying')).to.equal(true)
+  })
+  it('pauses the game if playing', () => {
+    initialState = initialState.update('isPlaying', (value) => true)
+    const nextState = reducer(initialState, action)
+    expect(nextState.get('isPlaying')).to.equal(false)
+  })
+})
+describe('END_GAME', () => {
+  let initialState = sourceState
+  const action = {
+    type: 'END_GAME'
+  }
+  it('sets the game to be no longer playing', () => {
+    initialState = initialState.update('isPlaying', (value) => true)
+    const nextState = reducer(initialState, action)
+    expect(nextState.get('isPlaying')).to.equal(false)
+  })
+  it('ends the game', () => {
+    initialState = initialState.update('gameover', (value) => false)
+    const nextState = reducer(initialState, action)
+    expect(nextState.get('gameover')).to.equal(true)
+    expect(nextState.get('isPlaying')).to.equal(false)
   })
 })
 })
