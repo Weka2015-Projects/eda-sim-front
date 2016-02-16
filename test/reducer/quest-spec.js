@@ -10,7 +10,6 @@ describe('quests', () => {
       type: 'NEXT'
     }
     const nextState = reducer(initialState.set('activeQuest', undefined), action)
-    console.log(nextState)
     expect(nextState.getIn(['activeQuest', 'name'])).to.equal('No more flying solo!')
 })
   it('tracks quest progress', () => {
@@ -27,7 +26,14 @@ describe('quests', () => {
     }
     const nextState = reducer(almostCompletedQuest, action)
     expect(nextState.get('activeQuest')).to.be.undefined
-    expect(nextState.getIn(['skills', 'soft', 'level'])).to.equal(2)
   })
-  it('completing quest gives player correct rewards')
+  it('completing quest gives player correct rewards', () => {
+    const almostCompletedQuest = initialState.setIn(['activeQuest', 'progress'], 23)
+    const action = {
+      type: 'NEXT'
+    }
+    const nextState = reducer(almostCompletedQuest, action)
+    expect(nextState.getIn(['skills', 'soft', 'level'])).to.equal(2)
+    expect(nextState.getIn(['skills', 'soft', 'exp'])).to.equal(53)
+  })
 })

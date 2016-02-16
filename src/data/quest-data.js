@@ -15,7 +15,7 @@ const questData = Map({
         reward: Map({
           experience: Map({
             soft: 300,
-            tech: 500
+            tech: 200
           })
         })
     })

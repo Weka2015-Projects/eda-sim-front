@@ -34,24 +34,8 @@ function levelUp(skill){
 
 function spawnQuest(state){
   const time = state.get('time')
-  const time1 = Map({
-    hour: 7,
-    day: 1,
-    week: 1,
-    phase: 1
+  const newQuest = questData.get('scripted').filter((quest) => {
+    return is(quest.get('time'), time)
   })
-  if(is(time, time1)) {
-    return state.set('activeQuest', questData.get('scripted').get(0).get('quest'))
-  } else {
-    return state
-
-  }
-  //Else trys to randomly spawn event
-}
-
-
-
-function randomSpawn(state) {
-  //Randomly decides whether a quest should be given to the user.
-  //Randomly selects a quest from the unscripted quest
+  return newQuest.size > 0 ? state.set('activeQuest', newQuest.get(0).get('quest')) : state
 }
