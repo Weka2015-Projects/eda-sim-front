@@ -41,6 +41,8 @@ export class Game extends Component {
             <div className="start">
               <button onClick={this.toggleGame.bind(this)} >{this.props.isPlaying ? 'Pause Game' : 'Start Game' }</button>
             </div>
+            {this.props.gameOver ? <SubmitScore /> : ''}
+            {this.props.newQuest ? <QuestDialog /> : ''}
           </div>
           <div className="col-md-3">
             <ActionsContainer />
