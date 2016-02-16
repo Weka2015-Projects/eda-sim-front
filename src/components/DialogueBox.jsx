@@ -11,40 +11,14 @@ export class DialogueBox extends Component {
   }
   render() {
     return (
-      <div className="JoshDialogueBox">
-        <div className="JoshImage">
-          <img className="josh" src="../img/josh.jpg"></img>
-        </div>
-        <div className="JoshDialogue">
-          <p className="JoshWords">"Hello welcome to EDA! My name is Josh. Please choose your first challenge."</p>
+      <div className="DialogueBox">
+          <div className="Image">
+            <img className="img" src={`../img/${this.props.giver}`}></img>
+          </div>
+        <div className="Dialogue">
+          <h3>{this.props.giver}</h3>
+          <p className="Text">{this.props.content}</p>
           <button onClick={this.startGame}>Continue</button>
-        </div>
-      </div>
-      <div className="MixDialogueBox">
-        <div className="MixImage">
-          <img className="mix" src="../img/mix.png"></img>
-        </div>
-        <div className="MixDialogue">
-          <p>"your third quest is: make a diagram"</p>
-          <button>Continue</button>
-        </div>
-      </div>
-      <div className="PietDialogueBox">
-        <div className="PietImage">
-          <img className="Piet" src="../img/piet.jpg"></img>
-        </div>
-        <div className="PietDialogue">
-          <p>"your second quest is: sleep"</p>
-          <button>Continue</button>
-        </div>
-      </div>
-      <div className="SimonDialogueBox">
-        <div className="SimonImage">
-          <img className="Simon" src="../img/simon.jpg"></img>
-        </div>
-        <div className="SimonDialogue">
-          <p>"your first quest is: cry"</p>
-          <button>Continue</button>
         </div>
       </div>
     )
