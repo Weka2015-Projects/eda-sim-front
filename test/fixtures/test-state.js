@@ -1,6 +1,8 @@
 import { Map, List } from 'immutable'
 let initialState = Map({
   isPlaying: true,
+  gameover: false,
+  score: 312344,
   money: 200,
   activeTask: 'Pair Programming',
   time: Map({
