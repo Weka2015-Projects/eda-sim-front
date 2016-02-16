@@ -22,7 +22,7 @@ describe('<DialogueBox/>', () => {
     expect(wrapper.find('h3')).to.have.text('Josh')
   })
   it('renders correct text', () => {
-    const wrapper = shallow(<DialogueBox/>)
-    expect(wrapper.find('p')).to.have.text('')
+    const wrapper = shallow(<DialogueBox content='whoispiet?'/>)
+    expect(wrapper.find('p')).to.have.text('whoispiet?')
   })
 })
