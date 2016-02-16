@@ -1,8 +1,6 @@
 import { Map, List } from 'immutable'
-let initialState = Map({
+let questState = Map({
   isPlaying: true,
-  gameover: false,
-  score: 312344,
   money: 200,
   activeTask: 'Pair Programming',
   time: Map({
@@ -110,7 +108,21 @@ let initialState = Map({
       })
     })
   ]),
-  activeQuest: undefined
+  activeQuest: Map({
+    name: 'No more flying solo!',
+    content: 'At Enspiral Sim Academy, we use the buddy system. No more flying solo. You need somebody watching your back - AT ALL TIMES.',
+    giver: 'joshua',
+    type: 'task',
+    progress: 0,
+    requirement: 24,
+    task: 'Pair Programming',
+    reward: Map({
+      experience: Map({
+        soft: 300,
+        tech: 400
+      })
+    })
+  })
 })
 
-export default initialState
+export default questState

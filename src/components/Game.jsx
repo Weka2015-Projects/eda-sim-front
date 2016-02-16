@@ -10,6 +10,7 @@ import { StatusContainer } from './Status'
 import { ItemsContainer } from './Items'
 import { ActionsContainer } from './Actions'
 import { DialogueContainer } from './DialogueBox'
+import { SubmitContainer } from './Submit'
 
 export class Game extends Component {
   constructor(props) {
@@ -18,7 +19,6 @@ export class Game extends Component {
   toggleGame(e){
     e.preventDefault()
     this.props.toggleGame()
-
   }
   componentDidUpdate() {
     if(!this.interval && this.props.isPlaying) {
@@ -38,10 +38,12 @@ export class Game extends Component {
             <SkillsContainer />
           </div>
           <div className="col-md-6">
-            <StatusContainer />
+            {this.props.gameover ? '': <StatusContainer />}
             <div className="start">
-              <button onClick={this.toggleGame.bind(this)} >{this.props.isPlaying ? 'Pause Game' : 'Start Game' }</button>
+              {this.props.gameover ? <SubmitContainer /> : <button onClick={this.toggleGame.bind(this)}>{this.props.isPlaying ? 'Pause Game' : 'Start Game' }</button>}
             </div>
+            {this.props.gameOver ? <SubmitScore /> : ''}
+            {this.props.newQuest ? <QuestDialog /> : ''}
           </div>
           <div className="col-md-3">
             <ActionsContainer />
@@ -52,6 +54,7 @@ export class Game extends Component {
     )
   }
 }
+
 
 reactMixin(Game.prototype, PureRenderMixin)
 

@@ -12,5 +12,4 @@ module.exports = {
       .assert.containsText('#main', 'Night Watch')
       .end();
   },
-
 };
