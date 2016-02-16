@@ -472,7 +472,7 @@
     50%{transform: rotate(-5deg)}
     100%{transform: rotate(10deg);}
 }
-// 
+//
 // #armOne{
 //     -webkit-transform-origin: 50% 0;
 //     transform-origin: 50% 0;
@@ -500,19 +500,19 @@
 #face{
     -webkit-transform-origin: 50% 0;
     transform-origin: 50% 0;
-    -webkit-animation: swinging 3.5s ease-in-out forwards infinite;
-    animation: swinging 3.5s ease-in-out forwards infinite;
+    -webkit-animation: swinging 1.5s ease-in-out forwards infinite;
+    animation: swinging 1.5s ease-in-out forwards infinite;
 }
 
 #eyeOne{
     -webkit-transform-origin: 50% 0;
     transform-origin: 50% 0;
-    -webkit-animation: swinging 3.5s ease-in-out forwards infinite;
-    animation: swinging 3.5s ease-in-out forwards infinite;
+    -webkit-animation: swinging 1.5s ease-in-out forwards infinite;
+    animation: swinging 1.5s ease-in-out forwards infinite;
 }
 #eyeTwo{
     -webkit-transform-origin: 80% 0;
     transform-origin: 80% 0;
-    -webkit-animation: swinging 3.5s ease-in-out forwards infinite;
-    animation: swinging 3.5s ease-in-out forwards infinite;
+    -webkit-animation: swinging 1.5s ease-in-out forwards infinite;
+    animation: swinging 1.5s ease-in-out forwards infinite;
 }
