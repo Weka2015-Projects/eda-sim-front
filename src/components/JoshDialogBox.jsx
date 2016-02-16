@@ -17,6 +17,7 @@ export class DialogBox extends Component {
         </div>
         <div className="dialog">
           <p>"Hello welcome to EDA! My name is Josh. Please choose your first challenge."</p>
+          <button onClick={this.startGame}>Continue</button>
         </div>
       </div>
     )

@@ -27,9 +27,6 @@ let initialState = Map({
       expToLevel: 250
     })
   }),
-  startDialog: Map({
-    teacher: <DialogBox />
-  })
   items: List([
     Map({
       name: 'Mountain Dew',
