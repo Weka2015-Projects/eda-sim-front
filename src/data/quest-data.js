@@ -4,7 +4,7 @@ const questData = {
       name: 'No more flying solo!',
       content: 'At Enspiral Sim Academy, we use the buddy system. No more flying solo. You need somebody watching your back - AT ALL TIMES.',
       giver: 'joshua',
-      type: ''
+      type: 'task',
       progress: 0,
       requirement: 24,
       task: 'Pair Programming',

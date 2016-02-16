@@ -1,20 +1,25 @@
 function quests(state) {
-  //Checks for active quest
-  //If active then it updates questProgress
-  //Else try to randomly spawn a quest
-  return state
+  return state.get('activeQuest') ? updateQuestProgress(state) : spawnQuest(state)
 }
 
 export default quests
 
 function updateQuestProgress(state) {
-  //Check type of quest
-  //Function for that type of quest is called to update progress and check for completion
-  //If complete calls the complete quest function
+  if(state.get('activeTask') === state.getIn(['activeQuest', 'task'])){
+    const progress = state.setIn(['activeQuest', 'progress'], state.getIn(['activeQuest', 'progress']) + 1)
+    if(progress.getIn(['activeQuest', 'progress']) === progress.getIn(['activeQuest', 'requirement'])) {
+      completeQuest(progress)
+    } else {
+      return progress
+    }
+  } else {
+    return state
+  }
 }
 
 function completeQuest(state) {
   //Updates Resources and XP based on quest rewards
+
 }
 
 function spawnQuest(state){

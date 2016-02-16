@@ -1,5 +1,6 @@
 import { continueTask } from './tasks'
 import recharge from './recharge'
+import quests from './quests'
 
 function next(state) {
   return validState(state) ? nextHour(state) : state.set('gameover', true)
@@ -7,9 +8,10 @@ function next(state) {
 
 function nextHour(state) {
   const nextHour =  state.getIn(['time', 'hour']) + 1
-  const nextState = continueTask(state, state.get('activeTask'))
-  return (nextHour > 21) ? nextDay(nextState.setIn(['time', 'hour'], 7)) :
-  nextState.setIn(['time', 'hour'], nextHour)
+  const nextStateTask = continueTask(state, state.get('activeTask'))
+  const nextStateQuest = quests(nextStateTask)
+  return (nextHour > 21) ? nextDay(nextStateQuest.setIn(['time', 'hour'], 7)) :
+  nextStateQuest.setIn(['time', 'hour'], nextHour)
 }
 
 function nextDay (state) {
