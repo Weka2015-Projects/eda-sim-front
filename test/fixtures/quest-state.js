@@ -116,12 +116,12 @@ let questState = Map({
     progress: 0,
     requirement: 24,
     task: 'Pair Programming',
-    reward: {
-      experience: {
+    reward: Map({
+      experience: Map({
         soft: 300,
-        tech: 500
-      }
-    }
+        tech: 400
+      })
+    })
   })
 })
 

@@ -1,7 +1,7 @@
 import { continueTask } from './tasks'
 import recharge from './recharge'
 import quests from './quests'
-
+import {toJS} from 'immutable'
 function next(state) {
   return validState(state) ? nextHour(state) : state.set('gameover', true)
 }
