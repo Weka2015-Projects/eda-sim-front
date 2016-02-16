@@ -5,7 +5,14 @@ import reducer from '../../src/reducer.js'
 
 describe('quests', () => {
 
-  it('assigns quest on first day')
+  it('assigns quest on first day', () => {
+    const action = {
+      type: 'NEXT'
+    }
+    const nextState = reducer(initialState.set('activeQuest', undefined), action)
+    console.log(nextState)
+    expect(nextState.getIn(['activeQuest', 'name'])).to.equal('No more flying solo!')
+})
   it('tracks quest progress', () => {
     const action = {
       type: 'NEXT'

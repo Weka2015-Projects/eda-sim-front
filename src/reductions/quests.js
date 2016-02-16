@@ -1,5 +1,5 @@
 import questData from '../data/quest-data.js'
-
+import { Map, is } from 'immutable'
 
 function quests(state) {
   return state.get('activeQuest') ? updateQuestProgress(state) : spawnQuest(state)
@@ -33,11 +33,19 @@ function levelUp(skill){
 }
 
 function spawnQuest(state){
-  // switch (state.getIn(['time', 'phase'])) {
-  //   case 1:
-  //     return state.set('activeQuest', questData.getIn(['scripted', 0]))
-  // }
-  // return state
+  const time = state.get('time')
+  const time1 = Map({
+    hour: 7,
+    day: 1,
+    week: 1,
+    phase: 1
+  })
+  if(is(time, time1)) {
+    return state.set('activeQuest', questData.get('scripted').get(0).get('quest'))
+  } else {
+    return state
+
+  }
   //Else trys to randomly spawn event
 }
 
