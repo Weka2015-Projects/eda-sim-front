@@ -33,5 +33,5 @@ function spawnQuest(state){
   const newQuest = questData.get('scripted').filter((quest) => {
     return is(quest.get('time'), time)
   })
-  return newQuest.size > 0 ? state.set('activeQuest', newQuest.get(0).get('quest')) : state
+  return newQuest.size > 0 ? state.set('activeQuest', newQuest.get(0).get('quest')).set('newQuest', true).set('isPlaying', false) : state
 }
