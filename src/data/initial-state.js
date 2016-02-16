@@ -123,7 +123,8 @@ let initialState = Map({
         mood: 10
       })
     })
-  ])
+  ]),
+  activeQuest: undefined
 })
 
 export default initialState
