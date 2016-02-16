@@ -6,23 +6,17 @@ import chaiEnzyme from 'chai-enzyme'
 chai.use(chaiEnzyme())
 
 import { mount, render, shallow } from 'enzyme'
-import {DialogueBox} from '../../src/components/DialogueBox.jsx'
+import {Dialogues} from '../../src/components/Dialogues.jsx'
+import questState from '../fixtures/quest-state.js'
 
-describe('<DialogueBox/>', () => {
-  it('renders without any props', () => {
-    const wrapper = shallow(<DialogueBox />)
-    expect(wrapper).to.be.ok
-  })
-  it('has a classname of DialogueBox', () => {
-    const wrapper = shallow(<DialogueBox />)
-    expect(wrapper).to.have.className('DialogueBox')
+describe('<Dialogues/>', () => {
+
+  it('has a classname of Dialogues', () => {
+    const wrapper = shallow(<Dialogues quest={questState.get('activeQuest')}/>)
+    expect(wrapper).to.have.className('dialogue')
   })
   it('renders correct teacher name', () => {
-    const wrapper = shallow(<DialogueBox giver="Josh"/>)
-    expect(wrapper.find('h3')).to.have.text('Josh')
-  })
-  it('renders correct text', () => {
-    const wrapper = shallow(<DialogueBox content='whoispiet?'/>)
-    expect(wrapper.find('p')).to.have.text('whoispiet?')
+    const wrapper = shallow(<Dialogues quest={questState.get('activeQuest')}/>)
+    expect(wrapper.find('h3')).to.have.text('joshua')
   })
 })
