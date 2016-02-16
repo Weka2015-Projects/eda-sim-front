@@ -34,4 +34,4 @@ function mapStateToProps(state) {
   }
 }
 
-export const TimeContainer = connect(mapStateToProps, actionCreators)(Time)
+export const TimeContainer = connect(mapStateToProps)(Time)

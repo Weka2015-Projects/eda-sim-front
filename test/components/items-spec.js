@@ -23,4 +23,8 @@ describe('<Items />', () => {
     const wrapper = mount(<Items items={items} />)
     expect(wrapper).to.have.className('items')
   })
+  it('renders 1 <Item/> components', () => {
+    const wrapper = mount(<Items items={items} />)
+    expect(wrapper.find('.item').length).to.equal(1)
+    })
 })

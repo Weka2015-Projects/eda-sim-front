@@ -14,7 +14,7 @@ export class Actions extends Component {
   }
   render() {
     const actions = this.props.actions.map((action, idx) => {
-      return <Action startAction={this.clickToStart.bind(this)} name={action.get('name')} skills={action.get('skills')} resources={action.get('resources')} initialCosts={action.get('initialCosts')} key={idx} />
+      return <Action disabled={this.props.disabled} startAction={this.clickToStart.bind(this)} name={action.get('name')} skills={action.get('skills')} resources={action.get('resources')} initialCosts={action.get('initialCosts')} key={idx} />
     })
     return (
       <div className="actions widget">
@@ -31,6 +31,7 @@ reactMixin(Actions.prototype, PureRenderMixin)
 
 function mapStateToProps(state) {
   return {
+    disabled: state.get('isPlaying'),
     actions: state.get('tasks')
   }
 }

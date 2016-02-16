@@ -33,5 +33,4 @@ describe('<Skill/>', () => {
     const wrapper = shallow(<Skill level='1' name='soft' exp='50' expToLevel='100'/>)
     expect(wrapper.find('.level')).to.have.text('1')
   })
-
 })

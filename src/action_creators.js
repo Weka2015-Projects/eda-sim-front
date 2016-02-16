@@ -1,14 +1,9 @@
-export function startGame() {
+export function toggleGame() {
   return {
-    type: 'START_GAME'
+    type: 'TOGGLE_GAME'
   }
 }
 
-export function endGame() {
-  return {
-    type: 'END_GAME'
-  }
-}
 
 export function next() {
   return {
@@ -28,5 +23,12 @@ export function buyItem(item) {
   return {
     type: 'BUY_ITEM',
     item: item
+  }
+}
+
+export function submitScore(name) {
+  return {
+    type: 'SUBMIT_SCORE',
+    name: name
   }
 }
