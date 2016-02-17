@@ -38,43 +38,38 @@ function depleteResources (state, task, taskId) {
 function performTask(state, task, taskId) {
   let newState = state
   const costs = state.getIn(['tasks', taskId, 'resources'])
-  const resources = state.get('resources')
-  
-  const resourcesUsed = state.get('resources').keySeq().sort((a, b) =>
-    resources.get(a) - resources.get(b)).filter((value) =>
-    costs.keySeq().indexOf(value) !== -1)
-
-    for (let i = 0; i < costs.keySeq().size; i++) {
-      const sortedKey = resourcesUsed.get(i)
-      const cost = costs.getIn([sortedKey])
-      const resource = state.getIn(['resources', sortedKey])
-      if (resource < Math.abs(cost)) {
-        newState = newState.update('activeTask', (value) => '')
-        return newState
-      }
-      newState = newState.updateIn(['resources', sortedKey],
+  const resourcesUsed = state.get('resources').keySeq()
+  .sort((a, b) => state.getIn(['resources',a]) - state.get(['resources', b]))
+  .filter((value) => costs.keySeq().indexOf(value) !== -1)
+  if(!hasEnoughResources(state, taskId)) return state.update('activeTask', (value) => '')
+    costs.keySeq().forEach(function(key) {
+      const cost = costs.get(key)
+      const resource = state.getIn(['resources', key])
+      newState = newState.updateIn(['resources', key],
         (resource) => resource+cost)
-    }
+    })
+  const gains = state.getIn(['tasks', taskId, 'skills'])
+  gains.keySeq().forEach(function(key) {
+    newState = applyRewards(newState, key, gains)
+  })
+  return newState
+}
 
-    const gains = state.getIn(['tasks', taskId, 'skills'])
-
-    for (let i =0; i < Object.keys(gains).length;  i++) {
-      const skill = state.getIn('skills', gains.keySeq().get(i))
-      const gain = gains.get(skill)
-      newState = newState.updateIn(['skills', skill, 'exp'],
-        (exp) => exp+gain)
-      const exp = newState.getIn(['skills', skill, 'exp'])
-      const expToLevel = newState.getIn(['skills', skill, 'expToLevel'])
-      const levelIncrement = Math.floor((exp / expToLevel))
-      const remainder = exp % expToLevel
-      if (exp >= expToLevel) {
-        newState = newState.updateIn(['skills', skill, 'level'],
-          (level) => level+levelIncrement)
-        newState = newState.updateIn(['skills', skill, 'exp'],
-          (skill) => remainder)
-      }
-    }
-    return newState
+function applyRewards(state, key, parent) {
+  let newState = state
+  const skill = state.getIn('skills', key)
+  const gain = parent.get(skill)
+  newState = newState.updateIn(['skills', skill, 'exp'],
+    (exp) => exp+gain)
+  const exp = newState.getIn(['skills', skill, 'exp'])
+  const expToLevel = newState.getIn(['skills', skill, 'expToLevel'])
+  if (exp >= expToLevel) {
+    newState = newState.updateIn(['skills', skill, 'level'],
+      (level) => level+Math.floor((exp / expToLevel)))
+    newState = newState.updateIn(['skills', skill, 'exp'],
+      (skill) => exp % expToLevel)
   }
+  return newState
+}
 
-  export {activateTask, continueTask}
+export {activateTask, continueTask}
