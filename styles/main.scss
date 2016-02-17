@@ -7,8 +7,9 @@
   >.header {
     font-family: 'Montserrat';
     text-align: center;
-    background-color: #DF493B;
+    background-color: #ff7885;
     color: #fff;
+    border-radius: 5px;
     text-transform: uppercase;
     padding: 5px;
     letter-spacing: 1px;
@@ -33,6 +34,9 @@
   button {
     margin:100px auto;
     display: block;
+    background-color: #75af1d;
+    color: white;
+    border-radius: 5px;
   }
 
 }
@@ -118,10 +122,10 @@
       }
       .experience {
         height: 20px;
-        background-color: #eee;
+        background-color: #75af1d;
         .amountOfExp {
           height: 20px;
-          background-color: #DF493B;
+          background-color: #75af1d;
           display:inline-block;
         }
         .expNumber {
@@ -168,7 +172,10 @@
           float:left;
           button {
             width: 100%;
+            border-radius: 5px;
             line-height: 2.5rem;
+            color: white;
+            background-color: #75af1d;
             &:hover{
 
             }
@@ -177,7 +184,7 @@
         }
       }
       .action-details {
-        border: 3px solid #DF493B;
+        border: 3px solid #75af1d;
         padding: 10px;
         position: absolute;
         display:none;
@@ -262,7 +269,10 @@
           float:left;
           button {
             width: 100%;
+            border-radius: 5px;
             line-height: 2.5rem;
+            color: white;
+            background-color: #75af1d;
             &:hover{
 
             }
@@ -345,6 +355,7 @@
   animation-duration: 3s;
   animation-name: slidein;
 }
+
 
 @keyframes slidein {
   from {
@@ -472,31 +483,7 @@
     50%{transform: rotate(-5deg)}
     100%{transform: rotate(10deg);}
 }
-//
-// #armOne{
-//     -webkit-transform-origin: 50% 0;
-//     transform-origin: 50% 0;
-//     -webkit-animation: swinging 3.5s ease-in-out forwards infinite;
-//     animation: swinging 3.5s ease-in-out forwards infinite;
-// }
-// #armTwo{
-//     -webkit-transform-origin: 50% 0;
-//     transform-origin: 50% 0;
-//     -webkit-animation: swinging 3.5s ease-in-out forwards infinite;
-//     animation: swinging 3.5s ease-in-out forwards infinite;
-// }
-// #legOne{
-//     -webkit-transform-origin: 50% 0;
-//     transform-origin: 50% 0;
-//     -webkit-animation: swinging 3.5s ease-in-out forwards infinite;
-//     animation: swinging 3.5s ease-in-out forwards infinite;
-// }
-// #legTwo{
-//     -webkit-transform-origin: 90% 0;
-//     transform-origin: 90% 0;
-//     -webkit-animation: swinging 3.5s ease-in-out forwards infinite;
-//     animation: swinging 3.5s ease-in-out forwards infinite;
-// }
+
 #face{
     -webkit-transform-origin: 50% 0;
     transform-origin: 50% 0;
@@ -515,4 +502,16 @@
     transform-origin: 80% 0;
     -webkit-animation: swinging 1.5s ease-in-out forwards infinite;
     animation: swinging 1.5s ease-in-out forwards infinite;
+}
+
+#swissball{
+  -webkit-transform-origin: 500% 0;
+  transform-origin: 400% 0;
+  -webkit-animation: swinging 3.5s ease-in-out forwards infinite;
+  animation: swinging 3.5s ease-in-out forwards infinite;
+}
+
+@-webkit-keyframes swingball {
+  0%{transform: rotate(50deg);}
+  100%{transform: rotate(500deg);}
 }
