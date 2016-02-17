@@ -9,7 +9,6 @@ import { SkillsContainer } from './Skills'
 import { StatusContainer } from './Status'
 import { ItemsContainer } from './Items'
 import { ActionsContainer } from './Actions'
-import { DialogueContainer } from './DialogueBox'
 import { SubmitContainer } from './Submit'
 import { QuestsContainer } from './Quests'
 import { DialoguesContainer } from './Dialogues'
@@ -32,7 +31,6 @@ export class Game extends Component {
     }
   }
   render() {
-    console.log(this.props.newQuest)
     return (
       <div className="game">
         <div className="row">
@@ -42,8 +40,9 @@ export class Game extends Component {
             <SkillsContainer />
           </div>
           <div className="col-md-6">
-            {this.props.gameover ? <SubmitScore /> : <StatusContainer />}
-            {this.props.newQuest ? <DialoguesContainer/> : <div className="start"><button onClick={this.toggleGame.bind(this)}>{this.props.isPlaying ? 'Pause Game' : 'Start Game' }</button></div>}
+            {this.props.gameover ? <SubmitContainer /> :
+              this.props.newQuest ? <DialoguesContainer/> :
+              <div className="general"><StatusContainer /><div className="start"><button onClick={this.toggleGame.bind(this)}>{this.props.isPlaying ? 'Pause Game' : 'Start Game' }</button></div></div>}
           </div>
           <div className="col-md-3">
             <QuestsContainer />

@@ -1,6 +1,9 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700|Open+Sans:400,600,400italic,700,800,300);
 //Global
+body {
+  font-family: 'Open Sans';
 
+}
 
 .widget {
   margin: 0 0 15px 0;
@@ -23,6 +26,10 @@
 .game {
   margin: 50px 0 0 0;
 }
+.general {
+  padding: 25px;
+
+}
 //Status
 .status {
   text-align: center;
@@ -36,6 +43,46 @@
   }
 
 }
+//Dialogues
+.dialogue {
+  padding: 25px;
+  display: block;
+  width: 75%;
+  margin:auto;
+  h2 {
+    text-align: center;
+    font-family: 'Open Sans';
+    font-size: 3rem;
+    margin-top: 0;
+  }
+  .image-wrapper {
+
+    display: block;
+    text-align: center;
+    img {
+      border: 5px solid #DF493B;
+      border-radius: 50%;
+    }
+  }
+  .info {
+    h3 {
+      text-align: center;
+      text-transform: uppercase;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .text {
+      position: relative;
+      padding:0 15px;
+      text-align: center;
+    }
+    button {
+      display: block;
+      width: 150px;
+      margin: auto;
+    }
+  }
+}
+
 //Time
 .time {
   .header {
@@ -137,6 +184,121 @@
   }
 
 }
+// Quests
+  .quests {
+    .empty {
+
+      display: inline-block;
+      line-height: 3rem;
+      width: 100%;
+      padding: 15px;
+      h6 {
+        margin: 0;
+        font-size: 2rem;
+        width: 100%;
+        text-align: center;
+
+        display: inline-block;
+        float:left;
+      }
+    }
+
+    .quest {
+      position:relative;
+      .header {
+        padding: 10px;
+        display: inline-block;
+        width: 100%;
+        h6 {
+          margin: 0;
+          line-height: 3rem;
+          font-size: 2rem;
+          width: 100%;
+          text-align: center;
+
+          display: inline-block;
+          float:left;
+        }
+        .requirements {
+          text-align: center;
+          &:before, &:after{
+            content: '--'
+          }
+        }
+      }
+      .quest-details {
+        border: 3px solid #DF493B;
+        padding: 10px;
+        position: absolute;
+        display:none;
+        background: #fff;
+        left: -230px;
+        top: -35px;
+        border-radius: 15px;
+        width: 200px;
+        .giver {
+          text-align: center;
+          font-size: 2rem;
+          text-transform: uppercase;
+          font-family: 'Montserrat'
+        }
+      .rewards {
+        margin-top: 15px;
+        .reward {
+          span {
+            text-transform: capitalize;
+          }
+
+        }
+
+      }
+        &:before, &:after{
+          left: 100%;
+          top: 50%;
+          border: solid transparent;
+          content: " ";
+          height: 0;
+          width: 0;
+          position: absolute;
+          pointer-events: none;
+        }
+        &:after {
+          border-color: rgba(136, 183, 213, 0);
+          border-left-color: #fff;
+          border-width: 10px;
+          margin-top: -53px;
+
+        }
+        &:before {
+          border-color: rgba(194, 225, 245, 0);
+          border-left-color: #DF493B;
+          border-width: 14px;
+          margin-top: -57px;
+        }
+        .skills {
+
+          .skill {
+
+          }
+        }
+        .cost {
+
+          .resource {
+
+          }
+        }
+        .initial-costs {
+
+        }
+      }
+      &:hover {
+        .quest-details {
+          display: block;
+          z-index: 100;
+        }
+      }
+    }
+  }
 
 // Actions
 
@@ -325,35 +487,25 @@
       }
     }
   }
-.DialogueBox {
-  font-family: 'Open Sans';
-  border-radius: 10px;
-  -webkit-box-shadow: -2px 9px 10px -7px rgba(128,128,128,1);
-  -moz-box-shadow: -2px 7px 10px -7px rgba(128,128,128,1);
-  box-shadow: -2px 9px 30px -7px rgba(128,128,128,1);
-  text-align: center;
-}
-
-.img {
-  border-radius: 50%;
-  display: block;
-  margin-left: 190px;
-}
 
 
-.Text {
-  animation-duration: 3s;
-  animation-name: slidein;
-}
-
-@keyframes slidein {
-  from {
-    margin-left: 10%;
-    width: 300%;
+  .submit {
+    h1 {
+      text-align: center;
+      font-family: 'Montserrat';
+      text-transform: uppercase;
+    }
+    h2{
+      text-align: center;
+    }
+    input {
+      width: 300px;
+      display: block;
+      margin: 25px auto;
+    }
+    button {
+      display: block;
+      width: 300px;
+      margin: 25px auto;
+    }
   }
-
-  to {
-    margin-left: 0%;
-    width: 60%;
-  }
-}

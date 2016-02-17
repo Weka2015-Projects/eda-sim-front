@@ -17,7 +17,7 @@ export class Quests extends Component {
         <div className="header">
           <h4>quests</h4>
         </div>
-        {quest ? <Quest giver={quest.get('giver')} content={quest.get('content')} name={quest.get('name')} requirement={quest.get('requirement')} task={quest.get('task')} /> : <div className="empty">No Quests</div> }
+        {quest ? <Quest giver={quest.get('giver')} content={quest.get('content')} name={quest.get('name')} requirement={quest.get('requirement')} task={quest.get('task')} reward={quest.get('reward')}/> : <div className="empty"><h6>No Quests</h6></div> }
       </div>
     )
   }

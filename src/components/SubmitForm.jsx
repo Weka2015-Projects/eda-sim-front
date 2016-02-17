@@ -18,7 +18,7 @@ class SubmitForm extends Component {
     return (
         <form className="submit-form" onSubmit={this.handleSubmit.bind(this)}>
           <h1>You just Graduated!</h1>
-          <h2>Your Score is {this.props.score}</h2>
+          <h2>Your Score is {this.props.score || 0}</h2>
           <h2>What's your name?</h2>
           <input type="text" name="name" ref="name" />
           <button type="submit">Submit Score</button>
