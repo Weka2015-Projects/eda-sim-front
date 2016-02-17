@@ -5,7 +5,7 @@ function submitScore(state, name='InsertNameHere') {
   .post('https://edasimserver.herokuapp.com/api/v1/scores')
   .send({ score: { name: name, score: state.get('score') }})
   .end()
-  const newState = state.update('gameover', (bool) => false)
+  const newState = state.update('gameover', (bool) => false).set('playing', false)
   return newState
 }
 
