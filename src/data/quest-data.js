@@ -25,7 +25,7 @@ const questData = Map({
     time: Map({  hour: 7, day: 1, week: 1, phase: 2}),
     quest: Map({
       name: 'Test-imonials',
-      content: 'Need some help? Write some tests instead!  Oh yeah and do it with you\'re group.',
+      content: 'Need some help? Write some tests instead!  Oh yeah and do it with your group.',
       giver: 'piet',
       type: 'task',
       progress: 0,
