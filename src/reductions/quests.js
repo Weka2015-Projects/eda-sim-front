@@ -17,6 +17,7 @@ function updateQuestProgress(state) {
 }
 
 function completeQuest(state) {
+
   const applyQuestRewards = state.get('skills').map((skill, index) => {
     const skillPostReward = skill.set('exp', state.getIn(['activeQuest', 'reward', 'experience', index]) + skill.get('exp'))
     return skillPostReward.get('exp') > skillPostReward.get('expToLevel') ? levelUp(skillPostReward) : skillPostReward
@@ -25,7 +26,9 @@ function completeQuest(state) {
 }
 
 function levelUp(skill){
-  return skill.set('level', skill.get('level') + 1).set('exp', skill.get('exp') - skill.get('expToLevel'))
+  const leveledUp = skill.set('level', skill.get('level') + 1).set('exp', skill.get('exp') - skill.get('expToLevel'))
+  return leveledUp.get('exp') > leveledUp.get('expToLevel') ? levelUp(leveledUp) : leveledUp
+
 }
 
 function spawnQuest(state){

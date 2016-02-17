@@ -1,22 +1,47 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700|Open+Sans:400,600,400italic,700,800,300);
 //Global
+body {
+  font-family: 'Open Sans';
+}
+
+button {
+  color: #333;
+  background-color: #eee;
+  text-transform: uppercase;
+  border-radius: 5px;
+  font-family: 'Montserrat';
+  border: none;
+  box-shadow: none;
+  &:disabled {
+    opacity: .2;
+}
+}
+$bg-color: #DF493B;
+$txt-color: #fff;
+$line-height: 3rem;
+$align: center;
 
 
 .widget {
   margin: 0 0 15px 0;
   >.header {
     font-family: 'Montserrat';
+<<<<<<< HEAD
     text-align: center;
     background-color: #ff7885;
     color: #fff;
     border-radius: 5px;
+=======
+    text-align: $align;
+    background-color: $bg-color;
+    color: $txt-color;
+>>>>>>> 9c473f58181cbbba8a86cefbf6bab44e7babe742
     text-transform: uppercase;
     padding: 5px;
     letter-spacing: 1px;
     h4 {
       margin: 0;
       font-size: 1.5rem;
-
     }
   }
 }
@@ -24,15 +49,20 @@
 .game {
   margin: 50px 0 0 0;
 }
+.general {
+  padding: 25px;
+
+}
 //Status
 .status {
-  text-align: center;
+  text-align: $align;
   font-size: 3rem;
 
 }
 .start {
   button {
-    margin:100px auto;
+    padding: 10px 20px;
+    margin:20px auto;
     display: block;
     background-color: #75af1d;
     color: white;
@@ -40,6 +70,49 @@
   }
 
 }
+//Dialogues
+.dialogue {
+  padding: 25px;
+  display: block;
+  width: 75%;
+  margin:auto;
+  h2 {
+    text-align: center;
+    font-family: 'Open Sans';
+    font-size: 3rem;
+    margin-top: 0;
+  }
+  .image-wrapper {
+    width: 200px;
+    display: block;
+    margin: auto;
+    img {
+      width: 100%;
+      border: 5px solid #DF493B;
+      border-radius: 50%;
+    }
+  }
+  .info {
+    h3 {
+      text-align: center;
+      text-transform: uppercase;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .text {
+      position: relative;
+      padding:0 15px;
+      text-align: center;
+    }
+    button {
+      padding: 10px 20px;
+
+      display: block;
+      width: 150px;
+      margin: auto;
+    }
+  }
+}
+
 //Time
 .time {
   .header {
@@ -48,7 +121,7 @@
     }
   }
   .hour {
-    text-align: center;
+    text-align: $align;
     font-family: 'Open Sans';
     font-size: 3rem;
     font-weight: bold;
@@ -56,7 +129,7 @@
   .time-group {
     display: inline-block;
     width: 100%;
-    text-align: center;
+    text-align: $align;
     font-size: 1.7rem;
     .day {
       width: 50%;
@@ -87,7 +160,7 @@
     h6 {
         text-transform: capitalize;
         margin: 0;
-        line-height: 3rem;
+        line-height: $line-height;
         font-size: 1.5rem;
         width: 70%;
         display: inline-block;
@@ -95,7 +168,7 @@
     }
       .quantity {
         margin: 0;
-        line-height: 3rem;
+        line-height: $line-height;
         font-size: 1.5rem;
         float: left;
         display: inline-block;
@@ -104,7 +177,7 @@
       }
     }
     .money {
-      text-align: center;
+      text-align: $align;
       font-size: 2rem;
     }
   }
@@ -117,7 +190,7 @@
       h6 {
         margin: 0;
         text-transform: capitalize;
-        line-height: 3rem;
+        line-height: $line-height;
         font-size: 1.5rem;
       }
       .experience {
@@ -125,7 +198,11 @@
         background-color: #75af1d;
         .amountOfExp {
           height: 20px;
+<<<<<<< HEAD
           background-color: #75af1d;
+=======
+          background-color: $bg-color;
+>>>>>>> 9c473f58181cbbba8a86cefbf6bab44e7babe742
           display:inline-block;
         }
         .expNumber {
@@ -141,17 +218,26 @@
   }
 
 }
+// Quests
+  .quests {
+    .empty {
 
-// Actions
+      display: inline-block;
+      line-height: 3rem;
+      width: 100%;
+      padding: 15px;
+      h6 {
+        margin: 0;
+        font-size: 2rem;
+        width: 100%;
+        text-align: center;
 
-  .actions {
-    .header {
-      h4 {
-
+        display: inline-block;
+        float:left;
       }
     }
 
-    .action {
+    .quest {
       position:relative;
       .header {
         padding: 10px;
@@ -160,31 +246,22 @@
         h6 {
           margin: 0;
           line-height: 3rem;
-          font-size: 1.5rem;
-          width: 70%;
+          font-size: 2rem;
+          width: 100%;
+          text-align: center;
+
           display: inline-block;
           float:left;
         }
-        .button-wrapper {
-          line-height: 3rem;
-          width: 30%;
-          display: inline-block;
-          float:left;
-          button {
-            width: 100%;
-            border-radius: 5px;
-            line-height: 2.5rem;
-            color: white;
-            background-color: #75af1d;
-            &:hover{
-
-            }
+        .requirements {
+          text-align: center;
+          &:before, &:after{
+            content: '--'
           }
-
         }
       }
-      .action-details {
-        border: 3px solid #75af1d;
+      .quest-details {
+        border: 3px solid #DF493B;
         padding: 10px;
         position: absolute;
         display:none;
@@ -192,8 +269,23 @@
         left: -230px;
         top: -35px;
         border-radius: 15px;
-
         width: 200px;
+        .giver {
+          text-align: center;
+          font-size: 2rem;
+          text-transform: uppercase;
+          font-family: 'Montserrat'
+        }
+      .rewards {
+        margin-top: 15px;
+        .reward {
+          span {
+            text-transform: capitalize;
+          }
+
+        }
+
+      }
         &:before, &:after{
           left: 100%;
           top: 50%;
@@ -234,6 +326,110 @@
         }
       }
       &:hover {
+        .quest-details {
+          display: block;
+          z-index: 100;
+        }
+      }
+    }
+  }
+
+// Actions
+
+  .actions {
+    .header {
+      h4 {
+
+      }
+    }
+
+    .action {
+      position:relative;
+      .header {
+          height: 45px;
+        padding: 10px;
+        display: inline-block;
+        width: 100%;
+        h6 {
+          margin: 0;
+          line-height: $line-height;
+          font-size: 1.5rem;
+          width: 70%;
+          display: inline-block;
+          float:left;
+        }
+        .button-wrapper {
+          line-height: $line-height;
+          width: 30%;
+          display: inline-block;
+          float:left;
+          button {
+            width: 100%;
+            border-radius: 5px;
+            line-height: 2.5rem;
+            color: white;
+            background-color: #75af1d;
+            &:hover{
+
+            }
+          }
+
+        }
+      }
+      .action-details {
+<<<<<<< HEAD
+        border: 3px solid #75af1d;
+=======
+        border: 3px solid $bg-color;
+>>>>>>> 9c473f58181cbbba8a86cefbf6bab44e7babe742
+        padding: 10px;
+        position: absolute;
+        display:none;
+        background: $txt-color;
+        left: -230px;
+        top: -35px;
+        border-radius: 15px;
+
+        width: 200px;
+        &:before, &:after{
+          left: 100%;
+          top: 50%;
+          border: solid transparent;
+          content: " ";
+          height: 0;
+          width: 0;
+          position: absolute;
+          pointer-events: none;
+        }
+        &:after {
+          border-color: rgba(136, 183, 213, 0);
+          border-left-color: $txt-color;
+          border-width: 10px;
+          margin-top: -53px;
+        }
+        &:before {
+          border-color: rgba(194, 225, 245, 0);
+          border-left-color: $bg-color;
+          border-width: 14px;
+          margin-top: -57px;
+        }
+        .skills {
+
+          .skill {
+
+          }
+        }
+        .cost {
+
+          .resource {
+
+          }
+        }
+        .initial-costs {
+
+        }
+      }
+      &:hover {
         .action-details {
           display: block;
           z-index: 100;
@@ -251,19 +447,20 @@
     .item {
       position: relative;
       .header {
+            height: 45px;
         padding: 10px;
         display: inline-block;
         width: 100%;
         h6 {
           margin: 0;
-          line-height: 3rem;
+          line-height: $line-height;
           font-size: 1.5rem;
           width: 70%;
           display: inline-block;
           float:left;
         }
         .button-wrapper {
-          line-height: 3rem;
+          line-height: $line-height;
           width: 30%;
           display: inline-block;
           float:left;
@@ -282,11 +479,11 @@
       }
       .item-details {
         height: 150px;
-        border: 3px solid #DF493B;
+        border: 3px solid $bg-color;
         padding: 10px;
         position: absolute;
         display:none;
-        background: #fff;
+        background: $txt-color;
         left: -130px;
         top: -5px;
 
@@ -304,20 +501,20 @@
         }
         &:after {
           border-color: rgba(136, 183, 213, 0);
-          border-left-color: #fff;
+          border-left-color: $txt-color;
           border-width: 10px;
           margin-top: -49px;
 
         }
         &:before {
           border-color: rgba(194, 225, 245, 0);
-          border-left-color: #DF493B;
+          border-left-color: $bg-color;
           border-width: 14px;
           margin-top: -53px;
         }
         .money {
           font-size: 2rem;
-          text-align: center;
+          text-align: $align;
           &:before {
             content: '$'
           }
@@ -335,27 +532,9 @@
       }
     }
   }
-.DialogueBox {
-  font-family: 'Open Sans';
-  border-radius: 10px;
-  -webkit-box-shadow: -2px 9px 10px -7px rgba(128,128,128,1);
-  -moz-box-shadow: -2px 7px 10px -7px rgba(128,128,128,1);
-  box-shadow: -2px 9px 30px -7px rgba(128,128,128,1);
-  text-align: center;
-}
-
-.img {
-  border-radius: 50%;
-  display: block;
-  margin-left: 190px;
-}
 
 
-.Text {
-  animation-duration: 3s;
-  animation-name: slidein;
-}
-
+<<<<<<< HEAD
 
 @keyframes slidein {
   from {
@@ -515,3 +694,25 @@
   0%{transform: rotate(50deg);}
   100%{transform: rotate(500deg);}
 }
+=======
+  .submit {
+    h1 {
+      text-align: center;
+      font-family: 'Montserrat';
+      text-transform: uppercase;
+    }
+    h2{
+      text-align: center;
+    }
+    input {
+      width: 300px;
+      display: block;
+      margin: 25px auto;
+    }
+    button {
+      display: block;
+      width: 300px;
+      margin: 25px auto;
+    }
+  }
+>>>>>>> 9c473f58181cbbba8a86cefbf6bab44e7babe742

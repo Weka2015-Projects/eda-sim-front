@@ -32,7 +32,6 @@ export class Game extends Component {
     }
   }
   render() {
-    console.log(this.props.newQuest)
     return (
       <div className="game">
         <div className="row">
@@ -42,6 +41,7 @@ export class Game extends Component {
             <SkillsContainer />
           </div>
           <div className="col-md-6">
+<<<<<<< HEAD
             {this.props.gameover ? '': <StatusContainer />}
             <div className="start">
               {this.props.gameover ? <SubmitContainer /> : <button onClick={this.toggleGame.bind(this)}>{this.props.isPlaying ? 'Pause Game' : 'Start Game' }</button>}
@@ -51,6 +51,11 @@ export class Game extends Component {
             {this.props.newQuest ? <QuestDialog /> : ''}
             {this.props.gameover ? <SubmitScore /> : <StatusContainer />}
             {this.props.newQuest ? <DialoguesContainer/> : <div className="start"><button onClick={this.toggleGame.bind(this)}>{this.props.isPlaying ? 'Pause Game' : 'Start Game' }</button></div>}
+=======
+            {this.props.gameover ? <SubmitContainer /> :
+              this.props.newQuest ? <DialoguesContainer/> :
+              <div className="general"><StatusContainer /><div className="start"><button onClick={this.toggleGame.bind(this)}>{this.props.isPlaying ? 'Pause Game' : 'Start Game' }</button></div></div>}
+>>>>>>> 9c473f58181cbbba8a86cefbf6bab44e7babe742
           </div>
           <div className="col-md-3">
             <QuestsContainer />

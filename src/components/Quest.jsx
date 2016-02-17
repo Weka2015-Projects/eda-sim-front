@@ -10,7 +10,6 @@ export class Quest extends Component {
   }
 
   render() {
-    console.log(this.props)
     return (
       <div className="quest">
         <div className="header">
@@ -25,6 +24,12 @@ export class Quest extends Component {
           </div>
           <div className="content">
             {this.props.content}
+          </div>
+          <div className="rewards">
+            <strong>Rewards</strong>
+            {this.props.reward.get('experience').map((r, index) => {
+              return <div className="reward"><span>{index} skills</span>: {r} exp</div>
+            })}
           </div>
         </div>
       </div>

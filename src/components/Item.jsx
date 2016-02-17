@@ -26,7 +26,9 @@ export class Item extends Component {
         </div>
         <div className="item-details">
           <div className="money">{this.props.money}</div>
-          <div className="resources-gained">Resources: {resourcesArray}</div>
+          <div className="resources-gained">
+            <strong>Resources</strong>: {resourcesArray}
+          </div>
         </div>
       </div>
     )

@@ -1,4 +1,7 @@
 import { Map, List } from 'immutable'
+import tasks from './task-data'
+import items from './item-data'
+
 let initialState = Map({
   isPlaying: false,
   score: 0,
@@ -34,96 +37,8 @@ let initialState = Map({
       expToLevel: 250
     })
   }),
-  items: List([
-    Map({
-      name: 'Mountain Dew',
-      money: 5,
-      resources: Map({
-        energy: 5,
-        mood: 1,
-      })
-    }),
-    Map({
-      name: 'Red Bull',
-      money: 5,
-      resources: Map({
-        energy: 30,
-        mood: 5,
-        health: -5
-      })
-    }),
-    Map({
-      name: 'Chicken Curry',
-      money: 12,
-      resources: Map({
-        energy: 30,
-        mood: 50,
-        health: 20
-      })
-    })
-  ]),
-  tasks: List([
-    Map({
-      name: 'Pair Programming',
-      resources: Map({
-        energy: -10,
-        mood: -3
-      }),
-      skills: Map({
-        soft: 3,
-        tech: 1
-      }),
-      initialCosts: Map({
-        energy: 30,
-        mood: 10
-      })
-    }),
-    Map({
-      name: 'Solo Programming',
-      resources: Map({
-        energy: -10,
-        mood: -3
-      }),
-      skills: Map({
-        soft: 3,
-        tech: 1
-      }),
-      initialCosts: Map({
-        energy: 30,
-        mood: 10
-      })
-    }),
-    Map({
-      name: 'Doing Group Projects',
-      resources: Map({
-        energy: -10,
-        mood: -3
-      }),
-      skills: Map({
-        soft: 3,
-        tech: 1
-      }),
-      initialCosts: Map({
-        energy: 30,
-        mood: 10
-      })
-    }),
-    Map({
-      name: 'Napping',
-      resources: Map({
-        energy: -10,
-        mood: -3
-      }),
-      skills: Map({
-        soft: 3,
-        tech: 1
-      }),
-      initialCosts: Map({
-        energy: 30,
-        mood: 10
-      })
-    })
-  ]),
+  items: items,
+  tasks: tasks,
   activeQuest: undefined
 })
 

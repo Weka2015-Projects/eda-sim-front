@@ -17,6 +17,7 @@ export class Dialogues extends Component {
     const { quest } = this.props
     return (
       <div className="dialogue">
+        <h2>{quest.get('name')}</h2>
           <div className="image-wrapper">
             <img className="img" src={`../img/${quest.get('giver')}.jpg`}></img>
           </div>
