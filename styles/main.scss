@@ -2,7 +2,6 @@
 //Global
 body {
   font-family: 'Open Sans';
-
 }
 
 button {
@@ -17,21 +16,25 @@ button {
     opacity: .2;
 }
 }
+$bg-color: #DF493B;
+$txt-color: #fff;
+$line-height: 3rem;
+$align: center;
+
 
 .widget {
   margin: 0 0 15px 0;
   >.header {
     font-family: 'Montserrat';
-    text-align: center;
-    background-color: #DF493B;
-    color: #fff;
+    text-align: $align;
+    background-color: $bg-color;
+    color: $txt-color;
     text-transform: uppercase;
     padding: 5px;
     letter-spacing: 1px;
     h4 {
       margin: 0;
       font-size: 1.5rem;
-
     }
   }
 }
@@ -45,7 +48,7 @@ button {
 }
 //Status
 .status {
-  text-align: center;
+  text-align: $align;
   font-size: 3rem;
 
 }
@@ -107,7 +110,7 @@ button {
     }
   }
   .hour {
-    text-align: center;
+    text-align: $align;
     font-family: 'Open Sans';
     font-size: 3rem;
     font-weight: bold;
@@ -115,7 +118,7 @@ button {
   .time-group {
     display: inline-block;
     width: 100%;
-    text-align: center;
+    text-align: $align;
     font-size: 1.7rem;
     .day {
       width: 50%;
@@ -146,7 +149,7 @@ button {
     h6 {
         text-transform: capitalize;
         margin: 0;
-        line-height: 3rem;
+        line-height: $line-height;
         font-size: 1.5rem;
         width: 70%;
         display: inline-block;
@@ -154,7 +157,7 @@ button {
     }
       .quantity {
         margin: 0;
-        line-height: 3rem;
+        line-height: $line-height;
         font-size: 1.5rem;
         float: left;
         display: inline-block;
@@ -163,7 +166,7 @@ button {
       }
     }
     .money {
-      text-align: center;
+      text-align: $align;
       font-size: 2rem;
     }
   }
@@ -176,7 +179,7 @@ button {
       h6 {
         margin: 0;
         text-transform: capitalize;
-        line-height: 3rem;
+        line-height: $line-height;
         font-size: 1.5rem;
       }
       .experience {
@@ -184,7 +187,7 @@ button {
         background-color: #eee;
         .amountOfExp {
           height: 20px;
-          background-color: #DF493B;
+          background-color: $bg-color;
           display:inline-block;
         }
         .expNumber {
@@ -334,14 +337,14 @@ button {
         width: 100%;
         h6 {
           margin: 0;
-          line-height: 3rem;
+          line-height: $line-height;
           font-size: 1.5rem;
           width: 70%;
           display: inline-block;
           float:left;
         }
         .button-wrapper {
-          line-height: 3rem;
+          line-height: $line-height;
           width: 30%;
           display: inline-block;
           float:left;
@@ -356,11 +359,11 @@ button {
         }
       }
       .action-details {
-        border: 3px solid #DF493B;
+        border: 3px solid $bg-color;
         padding: 10px;
         position: absolute;
         display:none;
-        background: #fff;
+        background: $txt-color;
         left: -230px;
         top: -35px;
         border-radius: 15px;
@@ -378,14 +381,13 @@ button {
         }
         &:after {
           border-color: rgba(136, 183, 213, 0);
-          border-left-color: #fff;
+          border-left-color: $txt-color;
           border-width: 10px;
           margin-top: -53px;
-
         }
         &:before {
           border-color: rgba(194, 225, 245, 0);
-          border-left-color: #DF493B;
+          border-left-color: $bg-color;
           border-width: 14px;
           margin-top: -57px;
         }
@@ -429,14 +431,14 @@ button {
         width: 100%;
         h6 {
           margin: 0;
-          line-height: 3rem;
+          line-height: $line-height;
           font-size: 1.5rem;
           width: 70%;
           display: inline-block;
           float:left;
         }
         .button-wrapper {
-          line-height: 3rem;
+          line-height: $line-height;
           width: 30%;
           display: inline-block;
           float:left;
@@ -452,11 +454,11 @@ button {
       }
       .item-details {
         height: 150px;
-        border: 3px solid #DF493B;
+        border: 3px solid $bg-color;
         padding: 10px;
         position: absolute;
         display:none;
-        background: #fff;
+        background: $txt-color;
         left: -130px;
         top: -5px;
 
@@ -474,20 +476,20 @@ button {
         }
         &:after {
           border-color: rgba(136, 183, 213, 0);
-          border-left-color: #fff;
+          border-left-color: $txt-color;
           border-width: 10px;
           margin-top: -49px;
 
         }
         &:before {
           border-color: rgba(194, 225, 245, 0);
-          border-left-color: #DF493B;
+          border-left-color: $bg-color;
           border-width: 14px;
           margin-top: -53px;
         }
         .money {
           font-size: 2rem;
-          text-align: center;
+          text-align: $align;
           &:before {
             content: '$'
           }
