@@ -18,25 +18,25 @@ describe('<Quest/>', () => {
     })
   })
   const giver = 'simon'
+  const task = 'pair-programming'
   it('has a classname of quest', () => {
     const wrapper = shallow(<Quest reward={reward} />)
     expect(wrapper).to.have.className('quest')
   })
-  it('renders correct quest name', () => {
-    const wrapper = shallow(<Quest  reward={reward}/>)
+  it('renders the correct header', () => {
+    const wrapper = shallow(<Quest reward={reward} giver={giver} task={task}/>)
     expect(wrapper.find('h6')).to.have.text('')
   })
   xit('dispays correct task', () => {
-    const wrapper = shallow(<Quest reward={reward} />)
-    expect(wrapper)
+    const wrapper = shallow(<Quest reward={reward} giver={giver} task={task}/>)
+    expect(wrapper.find()).have.text('pair-programming')
   })
   xit('renders the correct requirments', () => {
     const wrapper = shallow(<Quest reward={reward}/>)
     expect(wrapper)
   })
-  it('displays correct quest giver', () => {
+  xit('displays correct quest giver', () => {
     const wrapper = shallow(<Quest giver={giver} reward={reward} />)
-    expect(wrapper)
+    expect(wrapper).to.have.text('simon')
   })
-
 })
