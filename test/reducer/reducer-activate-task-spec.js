@@ -28,8 +28,8 @@ describe('ACTIVATE_TASK', () => {
     it('Depletes resources by inital cost of task', () => {
       initialState = initialState.updateIn(['activeTask'], (value) => '')
       const nextState = reducer(initialState, action)
-      expect(nextState.getIn(['resources', 'energy'])).to.equal(470)
-      expect(nextState.getIn(['resources', 'mood'])).to.equal(90)
+      expect(nextState.getIn(['resources', 'energy'])).to.equal(485)
+      expect(nextState.getIn(['resources', 'mood'])).to.equal(95)
     })
     it('Does not deplete resources if not enough resources to ask task', () => {
       initialState = initialState.updateIn(['resources', 'energy'],
