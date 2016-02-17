@@ -11,7 +11,7 @@ export class Quest extends Component {
 
   render() {
     const questsArray = this.props.quests.map((skill, index) => {
-      return <div className="quest">{index}: <span>{quest}</span></div>
+      return <div className="quest"></div>
     })
     return (
       <div className="quest">

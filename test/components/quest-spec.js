@@ -5,12 +5,12 @@ import chai, { expect } from 'chai'
 import chaiEnzyme from 'chai-enzyme'
 
 chai.use(chaiEnzyme())
-
+import {Map} from 'immutable'
 import { mount, render, shallow } from 'enzyme'
 import {Quest} from '../../src/components/Quest.jsx'
 
 describe('<Quest/>', () => {
-  const  Map({
+    const quests = Map({
     name: 'No more flying solo!',
     content: 'At Enspiral Sim Academy, we use the buddy system. No more flying solo. You need somebody watching your back - AT ALL TIMES.',
     giver: 'joshua',
@@ -26,26 +26,26 @@ describe('<Quest/>', () => {
     })
   })
   it('has a classname of quest', () => {
-    const wrapper = shallow(<Quest quests={quests} rewards={rewards} />)
+    const wrapper = shallow(<Quest quests={quests} />)
     expect(wrapper).to.have.className('quest')
   })
   it('renders correct quest name', () => {
-    const wrapper = shallow(<Quest quests={quests} rewards={rewards} />)
+    const wrapper = shallow(<Quest quests={quests} />)
     expect(wrapper.find('h6')).to.have.text('')
   })
-  it('dispays correct task', () => {
+  xit('dispays correct task', () => {
     const wrapper = shallow(<Quest quests={quests} rewards={rewards} />)
     expect(wrapper)
   })
-  it('renders the correct requirments', () => {
+  xit('renders the correct requirments', () => {
     const wrapper = shallow(<Quest/>)
     expect(wrapper)
   })
-  it('displays correct quest giver', () => {
+  xit('displays correct quest giver', () => {
     const wrapper = shallow(<Quest quests={quests} rewards={rewards} />)
     expect(wrapper)
   })
-  it('renders the correct reward/experience' () => {
+  xit('renders the correct reward/experience', () => {
     const wrapper = shallow(<Quest/>)
     expect(wrapper)
   })
