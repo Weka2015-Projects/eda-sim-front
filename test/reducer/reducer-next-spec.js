@@ -65,7 +65,7 @@ describe('NEXT', () => {
         expect(nextState.getIn(['skills', 'tech', 'exp'])).to.equal(0)
       })
       it('increases skill level if experience is greater than exp level', () => {
-        initialState = initialState.updateIn(['activeTask'], (value) => 'Pair Programming')
+        initialState = initialState.updateIn(['activeTask'], (value) =>  'Pair Programming')
         initialState = initialState.updateIn(['skills', 'soft', 'exp'], (value) => 247)
         const nextState = reducer(initialState, action)
         expect(nextState.getIn(['skills', 'soft', 'level'])).to.equal(2)
