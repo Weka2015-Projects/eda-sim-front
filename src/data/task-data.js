@@ -65,7 +65,7 @@ const tasks = List([
       soft: 0
     }),
     initialCosts: Map({
-      enthusiasm: -10
+      enthusiasm: 10
     })
   })
 ])
