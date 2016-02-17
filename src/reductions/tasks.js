@@ -1,24 +1,21 @@
 function hasEnoughResources(state, task){
-  const costs = state.toJS().tasks[task].initialCosts
-  for (let j =0; j < Object.keys(costs).length;  j++) {
-    const cost = costs[Object.keys(costs)[j]]
-    const resource = state.toJS().resources[Object.keys(costs)[j]]
-    return resource >= cost
-  }
+  const costs = state.getIn(['tasks', task, 'initialCosts'])
+  costs.map((cost, key) => (state.getIn(['resources',key]) >= cost))
+  return costs
 }
 
 function activateTask(state, task) {
   if (task === state.get('activeTask')) return state
-    const taskId = state.toJS().tasks.findIndex(
-      (indexes) => indexes.name === task)
+  const taskId = state.get('tasks').findIndex(
+    (index) => index.get('name') === task)
   return hasEnoughResources(state, taskId) ?
   depleteResources(state, task, taskId) : state
 }
 
 function continueTask (state, task) {
   if (task === '') return state
-    const taskId = state.toJS().tasks.findIndex(
-      (indexes) => indexes.name === task)
+    const taskId = state.get('tasks').findIndex(
+      (index) => index.get('name') === task)
   return undergoTask(state, task, taskId)
 }
 

@@ -1,21 +1,25 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700|Open+Sans:400,600,400italic,700,800,300);
 //Global
 
+$bg-color: #DF493B;
+$txt-color: #fff;
+$line-height: 3rem;
+$align: center;
+
 
 .widget {
   margin: 0 0 15px 0;
   >.header {
     font-family: 'Montserrat';
-    text-align: center;
-    background-color: #DF493B;
-    color: #fff;
+    text-align: $align;
+    background-color: $bg-color;
+    color: $txt-color;
     text-transform: uppercase;
     padding: 5px;
     letter-spacing: 1px;
     h4 {
       margin: 0;
       font-size: 1.5rem;
-
     }
   }
 }
@@ -25,7 +29,7 @@
 }
 //Status
 .status {
-  text-align: center;
+  text-align: $align;
   font-size: 3rem;
 
 }
@@ -44,7 +48,7 @@
     }
   }
   .hour {
-    text-align: center;
+    text-align: $align;
     font-family: 'Open Sans';
     font-size: 3rem;
     font-weight: bold;
@@ -52,7 +56,7 @@
   .time-group {
     display: inline-block;
     width: 100%;
-    text-align: center;
+    text-align: $align;
     font-size: 1.7rem;
     .day {
       width: 50%;
@@ -83,7 +87,7 @@
     h6 {
         text-transform: capitalize;
         margin: 0;
-        line-height: 3rem;
+        line-height: $line-height;
         font-size: 1.5rem;
         width: 70%;
         display: inline-block;
@@ -91,7 +95,7 @@
     }
       .quantity {
         margin: 0;
-        line-height: 3rem;
+        line-height: $line-height;
         font-size: 1.5rem;
         float: left;
         display: inline-block;
@@ -100,7 +104,7 @@
       }
     }
     .money {
-      text-align: center;
+      text-align: $align;
       font-size: 2rem;
     }
   }
@@ -113,7 +117,7 @@
       h6 {
         margin: 0;
         text-transform: capitalize;
-        line-height: 3rem;
+        line-height: $line-height;
         font-size: 1.5rem;
       }
       .experience {
@@ -121,7 +125,7 @@
         background-color: #eee;
         .amountOfExp {
           height: 20px;
-          background-color: #DF493B;
+          background-color: $bg-color;
           display:inline-block;
         }
         .expNumber {
@@ -155,14 +159,14 @@
         width: 100%;
         h6 {
           margin: 0;
-          line-height: 3rem;
+          line-height: $line-height;
           font-size: 1.5rem;
           width: 70%;
           display: inline-block;
           float:left;
         }
         .button-wrapper {
-          line-height: 3rem;
+          line-height: $line-height;
           width: 30%;
           display: inline-block;
           float:left;
@@ -177,11 +181,11 @@
         }
       }
       .action-details {
-        border: 3px solid #DF493B;
+        border: 3px solid $bg-color;
         padding: 10px;
         position: absolute;
         display:none;
-        background: #fff;
+        background: $txt-color;
         left: -230px;
         top: -35px;
         width: 200px;
@@ -197,14 +201,13 @@
         }
         &:after {
           border-color: rgba(136, 183, 213, 0);
-          border-left-color: #fff;
+          border-left-color: $txt-color;
           border-width: 10px;
           margin-top: -53px;
-
         }
         &:before {
           border-color: rgba(194, 225, 245, 0);
-          border-left-color: #DF493B;
+          border-left-color: $bg-color;
           border-width: 14px;
           margin-top: -57px;
         }
@@ -247,14 +250,14 @@
         width: 100%;
         h6 {
           margin: 0;
-          line-height: 3rem;
+          line-height: $line-height;
           font-size: 1.5rem;
           width: 70%;
           display: inline-block;
           float:left;
         }
         .button-wrapper {
-          line-height: 3rem;
+          line-height: $line-height;
           width: 30%;
           display: inline-block;
           float:left;
@@ -270,11 +273,11 @@
       }
       .item-details {
         height: 150px;
-        border: 3px solid #DF493B;
+        border: 3px solid $bg-color;
         padding: 10px;
         position: absolute;
         display:none;
-        background: #fff;
+        background: $txt-color;
         left: -130px;
         top: -5px;
         &:before, &:after{
@@ -289,20 +292,20 @@
         }
         &:after {
           border-color: rgba(136, 183, 213, 0);
-          border-left-color: #fff;
+          border-left-color: $txt-color;
           border-width: 10px;
           margin-top: -49px;
 
         }
         &:before {
           border-color: rgba(194, 225, 245, 0);
-          border-left-color: #DF493B;
+          border-left-color: $bg-color;
           border-width: 14px;
           margin-top: -53px;
         }
         .money {
           font-size: 2rem;
-          text-align: center;
+          text-align: $align;
           &:before {
             content: '$'
           }
