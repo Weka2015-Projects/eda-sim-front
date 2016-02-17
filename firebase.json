@@ -1,0 +1,9 @@
+{
+  "firebase": "enspiral-sim-academy",
+  "public": "dist",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**"
+  ]
+}
