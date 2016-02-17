@@ -31,7 +31,7 @@ export class Quest extends Component {
           <div className="rewards">
             <strong>Rewards</strong>
             {this.props.reward.get('experience').map((r, index) => {
-              return <div className="reward"><span>{index}</span>: {r} exp</div>
+              return <div className="reward"><span>{index} skills</span>: {r} exp</div>
             })}
           </div>
         </div>

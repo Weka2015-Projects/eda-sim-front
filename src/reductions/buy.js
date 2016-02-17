@@ -2,16 +2,16 @@ function buy(state, item) {
   const itemId= state.get('items').findIndex(
     (index) => index.get('name') === item)
   return hasEnoughMoney(state, itemId) ?
-  undergoTransaction(state, item, itemId) :  state
+  handleTransaction(state, item, itemId) :  state
 }
 
 function hasEnoughMoney(state, item){
   const cost = state.getIn(['items',item,'money'])
   const cash = state.get('money')
-  return cash >= cost 
+  return cash >= cost
 }
 
-function undergoTransaction(state, item, itemId) {
+function handleTransaction(state, item, itemId) {
  let newState = state
  const cost = state.getIn(['items', itemId, 'money'])
  newState = newState.updateIn(['money'], (value) => value-cost)
