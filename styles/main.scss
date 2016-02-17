@@ -5,6 +5,19 @@ body {
 
 }
 
+button {
+  color: #333;
+  background-color: #eee;
+  text-transform: uppercase;
+  border-radius: 5px;
+  font-family: 'Montserrat';
+  border: none;
+  box-shadow: none;
+  &:disabled {
+    opacity: .2;
+}
+}
+
 .widget {
   margin: 0 0 15px 0;
   >.header {
@@ -38,7 +51,8 @@ body {
 }
 .start {
   button {
-    margin:100px auto;
+    padding: 10px 20px;
+    margin:20px auto;
     display: block;
   }
 
@@ -76,6 +90,8 @@ body {
       text-align: center;
     }
     button {
+      padding: 10px 20px;
+
       display: block;
       width: 150px;
       margin: auto;
@@ -312,6 +328,7 @@ body {
     .action {
       position:relative;
       .header {
+          height: 45px;
         padding: 10px;
         display: inline-block;
         width: 100%;
@@ -406,6 +423,7 @@ body {
     .item {
       position: relative;
       .header {
+            height: 45px;
         padding: 10px;
         display: inline-block;
         width: 100%;
