@@ -9,7 +9,8 @@ import { SkillsContainer } from './Skills'
 import { StatusContainer } from './Status'
 import { ItemsContainer } from './Items'
 import { ActionsContainer } from './Actions'
-import { SubmitContainer } from './Submit'import { QuestsContainer } from './Quests'
+import { SubmitContainer } from './Submit'
+import { QuestsContainer } from './Quests'
 import { DialoguesContainer } from './Dialogues'
 
 export class Game extends Component {
