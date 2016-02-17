@@ -45,7 +45,7 @@ Map({
   quest: Map({
     name: 'Welcome to Thunderdome',
     content: 'Stop using if/else! I want you to refactor everything you\'ve ever done into nested turnary statements.',
-    giver: 'Simon',
+    giver: 'simon',
     type: 'task',
     progress: 0,
     requirement: 48,
