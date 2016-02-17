@@ -15,7 +15,8 @@ const questData = Map({
         reward: Map({
           experience: Map({
             soft: 300,
-            tech: 200
+            tech: 100,
+            creative: 100
           })
         })
     })
@@ -23,17 +24,18 @@ const questData = Map({
   Map({
     time: Map({  hour: 7, day: 1, week: 1, phase: 2}),
     quest: Map({
-      name: 'No more flying solo!',
-      content: 'At Enspiral Sim Academy, we use the buddy system. No more flying solo. You need somebody watching your back - AT ALL TIMES.',
-      giver: 'joshua',
+      name: 'Test testimonials',
+      content: 'You know how this would be better? Write some tests for your broken project to verify that it is broken!',
+      giver: 'piet',
       type: 'task',
       progress: 0,
       requirement: 24,
-      task: 'Pair Programming',
+      task: 'Solo Programming',
       reward: Map({
         experience: Map({
           soft: 300,
-          tech: 500
+          tech: 500,
+          creative: 0
         })
       })
   })

@@ -56,6 +56,8 @@ function performTask(state, task, taskId) {
 }
 
 function applyRewards(state, key, parent) {
+  console.log(state.getIn(['skills', 'creative']))
+  console.log(parent)
   let newState = state
   const skill = state.getIn('skills', key)
   const gain = parent.get(skill)
