@@ -19,7 +19,8 @@ function continueTask (state, task) {
   if (task === '') return state
     const taskId = state.get('tasks').findIndex(
       (index) => index.get('name') === task)
-  return performTask(state, task, taskId)
+  return hasEnoughResources(state, taskId) ?
+  performTask(state, task, taskId) : state
 }
 
 function depleteResources (state, task, taskId) {
@@ -69,6 +70,7 @@ function applyRewards(state, key, parent) {
     newState = newState.updateIn(['skills', skill, 'exp'],
       (skill) => exp % expToLevel)
   }
+  newState = newState.update('score', (value) => value + gain)
   return newState
 }
 

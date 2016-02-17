@@ -2,6 +2,7 @@ import { Map, List } from 'immutable'
 let questState = Map({
   isPlaying: true,
   money: 200,
+  score: 0,
   activeTask: 'Pair Programming',
   time: Map({
     hour: 7,

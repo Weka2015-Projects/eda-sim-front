@@ -89,6 +89,19 @@ describe('NEXT', () => {
         expect(nextState.getIn(['skills', 'soft', 'level'])).to.equal(4)
         expect(nextState.getIn(['skills', 'soft', 'exp'])).to.equal(53)
       })
+      it('increases score', () => {
+      initialState = initialState.update('score',
+        (value) => 0)
+      const nextState = reducer(initialState, action)
+      expect(nextState.get('score')).to.equal(4)
+    })
+      it('increases score on next run', () => {
+        initialState = initialState.update('score',
+        (value) => 0)
+      const nextState = reducer(initialState, action)
+      const furtherState = reducer(nextState, action)
+      expect(furtherState.get('score')).to.equal(8)
+      })
     })
   })
 describe('days', () => {
