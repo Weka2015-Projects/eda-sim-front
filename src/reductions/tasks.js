@@ -1,7 +1,5 @@
 function hasEnoughResources(state, task){
   let enough = true;
-  console.log(state.getIn(['tasks', task, 'initialCosts']))
-  console.log(state.getIn(['resources']))
   const costs = state.getIn(['tasks', task, 'initialCosts'])
   .forEach((cost, key) => {
     enough = enough && state.getIn(['resources',key]) >= cost
