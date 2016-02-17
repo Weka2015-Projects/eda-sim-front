@@ -57,7 +57,7 @@ function undergoTask(state, task, taskId) {
 
     const gains = state.getIn(['tasks', taskId, 'skills'])
 
-    for (let i =0; i < Object.keys(gains).length;  i++) {
+    for (let i =0; i < gains.keySeq().size;  i++) {
       const skill = state.getIn('skills', gains.keySeq().get(i))
       const gain = gains.get(skill)
       newState = newState.updateIn(['skills', skill, 'exp'],
