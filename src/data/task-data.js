@@ -58,8 +58,8 @@ const tasks = List([
     resources: Map({
       energy: 3,
       mood: 1,
-      health: 2,
-      enthusiasm: -2
+      health: 1,
+      enthusiasm: 1
     }),
     skills: Map({
       soft: 0

@@ -26,7 +26,9 @@ function completeQuest(state) {
 }
 
 function levelUp(skill){
-  return skill.set('level', skill.get('level') + 1).set('exp', skill.get('exp') - skill.get('expToLevel'))
+  const leveledUp = skill.set('level', skill.get('level') + 1).set('exp', skill.get('exp') - skill.get('expToLevel'))
+  return leveledUp.get('exp') > leveledUp.get('expToLevel') ? levelUp(leveledUp) : leveledUp
+
 }
 
 function spawnQuest(state){
