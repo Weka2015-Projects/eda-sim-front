@@ -5,7 +5,7 @@ import { Map } from 'immutable'
 chai.use(chaiEnzyme())
 
 import { mount, render, shallow } from 'enzyme'
-import {Resources} from '../../src/components/Resources.jsx'
+import {Quests} from '../../src/components/Quests.jsx'
 
 describe('renders', () => {
   const quests = Map({
@@ -22,5 +22,9 @@ describe('renders', () => {
         tech: 400
       })
     })
+  })
+  it('renders the quest', () => {
+    const wrapper = mount(<Quests quest={quests}/>)
+    expect(wrapper.find('.quest').length).to.equal(1)
   })
 })
