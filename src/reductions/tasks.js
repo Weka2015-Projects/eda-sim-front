@@ -20,7 +20,7 @@ function continueTask (state, task) {
   if (task === '') return state
     const taskId = state.get('tasks').findIndex(
       (index) => index.get('name') === task)
-  return hasEnoughResources(state, taskId) ? performTask(state, task, taskId) : state
+  return hasEnoughResources(state, taskId) ? performTask(state, task, taskId) : state.update('activeTask', (value) => '')
 }
 
 function depleteResources (state, task, taskId) {
