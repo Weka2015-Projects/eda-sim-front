@@ -31,13 +31,13 @@ describe('NEXT', () => {
         initialState = initialState.updateIn(['resources', 'energy'], (value) => 500)
         initialState = initialState.updateIn(['resources', 'mood'], (value) => 100)
         const nextState = reducer(initialState, action)
-        expect(nextState.getIn(['resources', 'energy'])).to.equal(490)
+        expect(nextState.getIn(['resources', 'energy'])).to.equal(497)
         expect(nextState.getIn(['resources', 'mood'])).to.equal(97)
       })
       it('ensures that resources are depleted with every next call', () => {
         const nextState = reducer(initialState, action)
         const furtherState = reducer(nextState, action)
-        expect(furtherState.getIn(['resources', 'energy'])).to.equal(480)
+        expect(furtherState.getIn(['resources', 'energy'])).to.equal(494)
         expect(furtherState.getIn(['resources', 'mood'])).to.equal(94)
       })
       it('does not deplete if no task is defined', () => {
@@ -65,7 +65,7 @@ describe('NEXT', () => {
         expect(nextState.getIn(['skills', 'tech', 'exp'])).to.equal(0)
       })
       it('increases skill level if experience is greater than exp level', () => {
-        initialState = initialState.updateIn(['activeTask'], (value) => 'Pair Programming')
+        initialState = initialState.updateIn(['activeTask'], (value) =>  'Pair Programming')
         initialState = initialState.updateIn(['skills', 'soft', 'exp'], (value) => 247)
         const nextState = reducer(initialState, action)
         expect(nextState.getIn(['skills', 'soft', 'level'])).to.equal(2)
@@ -89,6 +89,19 @@ describe('NEXT', () => {
         expect(nextState.getIn(['skills', 'soft', 'level'])).to.equal(4)
         expect(nextState.getIn(['skills', 'soft', 'exp'])).to.equal(53)
       })
+      it('increases score', () => {
+      initialState = initialState.update('score',
+        (value) => 0)
+      const nextState = reducer(initialState, action)
+      expect(nextState.get('score')).to.equal(4)
+    })
+      it('increases score on next run', () => {
+        initialState = initialState.update('score',
+        (value) => 0)
+      const nextState = reducer(initialState, action)
+      const furtherState = reducer(nextState, action)
+      expect(furtherState.get('score')).to.equal(8)
+      })
     })
   })
 describe('days', () => {
@@ -111,7 +124,7 @@ describe('days', () => {
       initialState = initialState.updateIn(['resources', 'energy'], (value) => 500)
       initialState = initialState.updateIn(['resources', 'mood'], (value) => 100)
       const nextState = reducer(initialState, action)
-      expect(nextState.getIn(['resources', 'energy'])).to.equal(495)
+      expect(nextState.getIn(['resources', 'energy'])).to.equal(502)
       expect(nextState.getIn(['resources', 'mood'])).to.equal(102)
     })
   })
@@ -137,7 +150,7 @@ describe('weeks', () => {
       initialState = initialState.updateIn(['resources', 'energy'], (value) => 500)
       initialState = initialState.updateIn(['resources', 'mood'], (value) => 100)
       const nextState = reducer(initialState, action)
-      expect(nextState.getIn(['resources', 'energy'])).to.equal(510)
+      expect(nextState.getIn(['resources', 'energy'])).to.equal(517)
       expect(nextState.getIn(['resources', 'mood'])).to.equal(117)
     })
   })
@@ -164,7 +177,7 @@ describe('phases', () => {
       initialState = initialState.updateIn(['resources', 'energy'], (value) => 500)
       initialState = initialState.updateIn(['resources', 'mood'], (value) => 100)
       const nextState = reducer(initialState, action)
-      expect(nextState.getIn(['resources', 'energy'])).to.equal(560)
+      expect(nextState.getIn(['resources', 'energy'])).to.equal(567)
       expect(nextState.getIn(['resources', 'mood'])).to.equal(167)
     })
   })

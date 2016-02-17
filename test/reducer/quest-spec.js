@@ -36,4 +36,25 @@ describe('Quests', () => {
     expect(nextState.getIn(['skills', 'soft', 'level'])).to.equal(2)
     expect(nextState.getIn(['skills', 'soft', 'exp'])).to.equal(53)
   })
+  it('adds to the score', () => {
+    let sourceState = initialState
+    sourceState = sourceState.update('score', (value) => 0)
+    const almostCompletedQuest = initialState.setIn(['activeQuest', 'progress'], 23)
+    const action = {
+      type: 'NEXT'
+    }
+    const nextState = reducer(almostCompletedQuest, action)
+    expect(nextState.get('score')).to.equal(504)
+  })
+   it('ensures score functions properly', () => {
+    let sourceState = initialState
+    sourceState = sourceState.update('score', (value) => 0)
+    const almostCompletedQuest = initialState.setIn(['activeQuest', 'progress'], 23)
+    const action = {
+      type: 'NEXT'
+    }
+    const nextState = reducer(almostCompletedQuest, action)
+    const furtherState = reducer(nextState, action)
+    expect(furtherState.get('score')).to.equal(508)
+  })
 })

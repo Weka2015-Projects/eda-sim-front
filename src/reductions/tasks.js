@@ -4,6 +4,7 @@ function hasEnoughResources(state, task){
   .forEach((cost, key) => {
     enough = enough && state.getIn(['resources',key]) >= cost
   })
+  console.log(costs)
   return enough
 }
 
@@ -19,7 +20,7 @@ function continueTask (state, task) {
   if (task === '') return state
     const taskId = state.get('tasks').findIndex(
       (index) => index.get('name') === task)
-  return performTask(state, task, taskId)
+  return hasEnoughResources(state, taskId) ? performTask(state, task, taskId) : state.update('activeTask', (value) => '')
 }
 
 function depleteResources (state, task, taskId) {
@@ -41,6 +42,8 @@ function performTask(state, task, taskId) {
   const resourcesUsed = state.get('resources').keySeq()
   .sort((a, b) => state.getIn(['resources',a]) - state.get(['resources', b]))
   .filter((value) => costs.keySeq().indexOf(value) !== -1)
+    console.log(resourcesUsed)
+
   if(!hasEnoughResources(state, taskId)) return state.update('activeTask', (value) => '')
     costs.keySeq().forEach(function(key) {
       const cost = costs.get(key)
@@ -69,6 +72,7 @@ function applyRewards(state, key, parent) {
     newState = newState.updateIn(['skills', skill, 'exp'],
       (skill) => exp % expToLevel)
   }
+  newState = newState.update('score', (resource) => resource+gain)
   return newState
 }
 
