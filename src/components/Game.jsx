@@ -23,7 +23,7 @@ export class Game extends Component {
   componentDidUpdate() {
 
     if(!this.interval && this.props.isPlaying) {
-      this.interval = setInterval(this.props.next, 1000)
+      this.interval = setInterval(this.props.next, 20)
     } else {
       clearInterval(this.interval)
       this.interval = undefined
