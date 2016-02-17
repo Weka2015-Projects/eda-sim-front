@@ -39,6 +39,7 @@ function performTask(state, task, taskId) {
   let newState = state
   const costs = state.getIn(['tasks', taskId, 'resources'])
   const resources = state.get('resources')
+  
   const resourcesUsed = state.get('resources').keySeq().sort((a, b) =>
     resources.get(a) - resources.get(b)).filter((value) =>
     costs.keySeq().indexOf(value) !== -1)
@@ -57,7 +58,7 @@ function performTask(state, task, taskId) {
 
     const gains = state.getIn(['tasks', taskId, 'skills'])
 
-    for (let i =0; i < gains.keySeq().size;  i++) {
+    for (let i =0; i < Object.keys(gains).length;  i++) {
       const skill = state.getIn('skills', gains.keySeq().get(i))
       const gain = gains.get(skill)
       newState = newState.updateIn(['skills', skill, 'exp'],
