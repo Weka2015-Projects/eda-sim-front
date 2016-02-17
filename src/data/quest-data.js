@@ -25,7 +25,7 @@ const questData = Map({
     time: Map({  hour: 7, day: 1, week: 1, phase: 2}),
     quest: Map({
       name: 'Test-imonials',
-      content: 'Need some help? Write some tests instead!  Oh yeah and do it with you\'re group.',
+      content: 'Need some help? Write some tests instead!  Oh yeah and do it with your group.',
       giver: 'piet',
       type: 'task',
       progress: 0,
@@ -55,6 +55,25 @@ Map({
         soft: 300,
         tech: 100,
         creative: 100
+      })
+    })
+})
+}),
+Map({
+  time: Map({  hour: 7, day: 3, week: 2, phase: 1}),
+  quest: Map({
+    name: 'Mixing it up',
+    content: 'You look like you could use a rest!  Take a short nap!',
+    giver: 'mix',
+    type: 'task',
+    progress: 0,
+    requirement: 5,
+    task: 'Napping',
+    reward: Map({
+      experience: Map({
+        soft: 30,
+        tech: 15,
+        creative: 15
       })
     })
 })

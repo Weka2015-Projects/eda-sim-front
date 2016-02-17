@@ -15,7 +15,7 @@ export class Quest extends Component {
         <div className="header">
           <h6>{this.props.name}</h6>
           <div className="requirements">
-            {this.props.task} for {this.props.requirements} 24 hours
+            {this.props.task} for {this.props.requirement} hours
           </div>
         </div>
         <div className="quest-details">

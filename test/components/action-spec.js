@@ -21,7 +21,7 @@ describe('<Action/>', () => {
     energy: 30,
     mood: 10
   })
-  it('has a classname of resource', () => {
+  it('has a classname of action', () => {
     const wrapper = shallow(<Action skills={skills} resources={resources} initialCosts={initialCosts}/>)
     expect(wrapper).to.have.className('action')
   })
