@@ -19,7 +19,7 @@ function continueTask (state, task) {
   if (task === '') return state
     const taskId = state.get('tasks').findIndex(
       (index) => index.get('name') === task)
-  return undergoTask(state, task, taskId)
+  return performTask(state, task, taskId)
 }
 
 function depleteResources (state, task, taskId) {
@@ -35,12 +35,12 @@ function depleteResources (state, task, taskId) {
   return newState
 }
 
-function undergoTask(state, task, taskId) {
+function performTask(state, task, taskId) {
   let newState = state
   const costs = state.getIn(['tasks', taskId, 'resources'])
   const resources = state.get('resources')
-  const resourcesUsed = state.get('resources').keySeq().sort((a, b) => 
-    resources.get(a) - resources.get(b)).filter((value) => 
+  const resourcesUsed = state.get('resources').keySeq().sort((a, b) =>
+    resources.get(a) - resources.get(b)).filter((value) =>
     costs.keySeq().indexOf(value) !== -1)
 
     for (let i = 0; i < costs.keySeq().size; i++) {
