@@ -44,7 +44,7 @@ Map({
   time: Map({  hour: 7, day: 1, week: 1, phase: 3}),
   quest: Map({
     name: 'Welcome to Thunderdome',
-    content: 'Stop using if/else! I want you to refactor everything you\'ve ever done into nested turnary statements.',
+    content: 'Stop using if/else! I want you to refactor everything you\'ve ever done into nested ternary statements.',
     giver: 'simon',
     type: 'task',
     progress: 0,
