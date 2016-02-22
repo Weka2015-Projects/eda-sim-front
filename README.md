@@ -9,12 +9,19 @@ Backend Repository: https://github.com/Weka2015-Projects/eda-sim-server
 Live version: https://enspiral-sim-academy.firebaseapp.com/
 
 React JS for a the view layer.
+
 Redux for state.
+
 Immutable for Immutability.
-Koa for CRUD on backend 
+
+Koa for CRUD on backend.
+
 Postgres for SQL database and storage. 
-Firebase used for Frontend hosting and deployment
-Heroku for backend deployment
+
+Firebase used for Frontend hosting and deployment.
+
+Heroku for backend deployment.
+
 Koa-CORS for cross origin resource sharing - currently not working on live version, does work on localhost.
 
 ## Creators
